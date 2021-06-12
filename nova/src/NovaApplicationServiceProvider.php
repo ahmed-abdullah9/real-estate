@@ -2,11 +2,13 @@
 
 namespace Laravel\Nova;
 
+use App\Nova\Owner;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Exceptions\NovaExceptionHandler;
+use App\Nova\User;
 
 class NovaApplicationServiceProvider extends ServiceProvider
 {
@@ -120,6 +122,11 @@ class NovaApplicationServiceProvider extends ServiceProvider
     protected function resources()
     {
         Nova::resourcesIn(app_path('Nova'));
+        Nova::resources([
+            User::class,
+            Owner::class,
+        ]);
+
     }
 
     /**
