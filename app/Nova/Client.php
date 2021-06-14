@@ -36,6 +36,11 @@ class Client extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'المستأجرين';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

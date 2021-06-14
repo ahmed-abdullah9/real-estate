@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +27,8 @@ class CreateClientTable extends Migration
             $table->tinyInteger('sex');
             $table->integer('copy');
             $table->tinyInteger('isActive');
+            $table->dateTime('birthDate');
+            $table->dateTime('expireDate');
             $table->timestamps();
         });
     }
@@ -38,6 +40,6 @@ class CreateClientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('clients');
     }
 }

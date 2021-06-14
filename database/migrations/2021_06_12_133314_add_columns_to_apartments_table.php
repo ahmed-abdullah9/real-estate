@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToClientsTable extends Migration
+class AddColumnsToApartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddColumnsToClientsTable extends Migration
      */
     public function up()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->dateTime('birthDate');
-            $table->dateTime('expireDate');
+        Schema::table('apartments', function (Blueprint $table) {
+            $table->integer('kitchenTypeId')->unsigned();
+            $table->foreign('kitchenTypeId')->references('id')->on('kitchenTypes')->onDelete('cascade');;
         });
     }
 
@@ -26,7 +26,7 @@ class AddColumnsToClientsTable extends Migration
      */
     public function down()
     {
-        Schema::table('clients', function (Blueprint $table) {
+        Schema::table('apartments', function (Blueprint $table) {
             //
         });
     }

@@ -33,6 +33,11 @@ class Bank extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'البنوك';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

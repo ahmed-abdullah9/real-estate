@@ -2,25 +2,25 @@
 
 namespace App\Nova;
 
+use App\BuildingType;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Nova\Multiselect\Multiselect;
 use App\City;
 use App\Neighbor;
 
-class Owner extends Resource
+class Building extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Owner::class;
+    public static $model = \App\Building::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -40,7 +40,7 @@ class Owner extends Resource
 
     public static function label()
     {
-        return 'الملاك';
+        return 'العمائر';
     }
 
     /**
@@ -53,26 +53,32 @@ class Owner extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'name'),
-            Text::make(__('العنوان'), 'address')->hideFromIndex(),
-            Text::make(__('الايميل'), 'email'),
-            Number::make(__('الهوية'), 'nationalId'),
-            Number::make(__('رقم الجوال'), 'phone')->hideFromIndex(),
-            Date::make(__('تاريخ الميلاد'), 'birthDate')->hideFromIndex(),
-            Date::make(__('تاريخ الانتهاء'), 'expireDate')->hideFromIndex(),
-            // Multiselect::make(__('المدينة'), 'city')->options(
-            //     City::all()->pluck('name', 'id')
-            // )->hideFromIndex(),
-            // Multiselect::make(__('الحي'), 'neighbor')->options(
-            //     Neighbor::all()->pluck('name', 'id')
-            // )->hideFromIndex(),
+            Text::make(__('اسم العمارة'), 'buildingName'),
+            Text::make(__('اسم الشارع'), 'street'),
 
-            Text::make(__('جهة الاصدار'), 'issuer'),
-            Text::make(__('مكان الميلاد'), 'placeOfBirth'),
+            // $table->string('lat');
+            // $table->string('lang');
+            // لازم صور للعمارة
 
-            Select::make(__('الجنس'), 'sex')->options([
-                'ذكر',
-                'انثى'
+            Select::make(__('المدينة'), 'cityId')->options(
+                City::all()->pluck('name', 'id')
+            )->searchable(),
+
+            Select::make(__('الحي'), 'neighborId')->options(
+                Neighbor::all()->pluck('name', 'id')
+            )->searchable(),
+
+            Select::make(__('نوع البناية'), 'buildingTypeId')->options(
+                BuildingType::all()->pluck('name', 'id')
+            )->searchable(),
+            Number::make(__('رقم العمارة'), 'buildingNo'),
+            Number::make(__('عدد المداخل'), 'enteranceNo')->hideFromIndex(),
+            Number::make(__('عدد الشقق'), 'apartmentNo')->hideFromIndex(),
+            Number::make(__('عدد المكاتب'), 'officesNo')->hideFromIndex(),
+            Number::make(__('عدد المحلات التجارية'), 'shopsNo')->hideFromIndex(),
+            Select::make(__('نوع السكان'), 'populationType')->options([
+                'عزاب',
+                'عوائل'
             ])->displayUsingLabels(),
 
             Select::make(__('مفعل'), 'isActive')->options([

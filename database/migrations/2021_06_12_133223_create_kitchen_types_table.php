@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNeighborTable extends Migration
+class CreateKitchenTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateNeighborTable extends Migration
      */
     public function up()
     {
-        Schema::create('neighbors', function (Blueprint $table) {
+        Schema::create('kitchenTypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('cityId')->unsigned();
-            $table->foreign('cityId')->references('id')->on('cities')->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateNeighborTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('neighbor');
+        Schema::dropIfExists('kitchenTypes');
     }
 }

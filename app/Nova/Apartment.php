@@ -3,26 +3,30 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use App\Building;
+// use App\Neighbor;
 
-class User extends Resource
+class Apartment extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\User::class;
+    public static $model = \App\Apartment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -30,12 +34,12 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
     ];
 
     public static function label()
     {
-        return 'المستخدمين';
+        return 'الشقق';
     }
 
     /**
@@ -47,24 +51,29 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('الدور'), 'floor'),
+            Select::make(__('المبنى'), 'buildingId')->options(
+                Building::all()->pluck('name', 'id')
+            )->searchable(),
 
-            Gravatar::make()->maxWidth(50),
+            Text::make(__('رقم الشقة'), 'apartmentNo'),
+            Text::make(__('عدد الغرف'), 'noRoom'),
+            Text::make(__('عدد الصالات'), 'noHalls'),
+            Text::make(__('عدد دورات المياه'), 'noBathroom'),
+            Text::make(__('عدد المطابخ'), 'noKitchen'),
 
-            Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            Number::make(__('السعر'), 'price')->hideFromIndex(),
 
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+            Select::make(__('الحجز'), 'rentPeriod')->options([
+                'يومي',
+                'شهري',
+                'سنوي',
+            ])->displayUsingLabels(),
+            Text::make(__('التفاصيل'), 'details'),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
+            // $table->tinyInteger('kitchenType');
+
         ];
     }
 
