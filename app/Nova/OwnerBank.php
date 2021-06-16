@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use App\Bank;
 
-
-class Bank extends Resource
+class OwnerBank extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Bank::class;
+    public static $model = \App\OwnerBank::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,7 +37,7 @@ class Bank extends Resource
 
     public static function label()
     {
-        return 'البنوك';
+        return 'حسابات الملاك';
     }
 
     /**
@@ -49,6 +51,11 @@ class Bank extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الاسم'), 'name')->rules('required'),
+            Text::make(__('الايبان'), 'iban')->rules('required'),
+
+            Select::make(__('البنك'), 'bankId')->options(
+                Bank::all()->pluck('name', 'id')
+            )->searchable()->rules('required'),
         ];
     }
 

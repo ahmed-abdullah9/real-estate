@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Nova\Multiselect\Multiselect;
-
+// use App\Http\Requests\Request;
 class Client extends Resource
 {
     /**
@@ -41,7 +41,7 @@ class Client extends Resource
         return 'المستأجرين';
     }
 
-    /**
+    /** \b[12]\d{9}\b
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -51,36 +51,36 @@ class Client extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'nameAr'),
-            Text::make(__('الاسم بالانجليزي'), 'nameEng'),
-            Text::make(__('صاحب العمل'), 'employer'),
-            Text::make(__('الايميل'), 'email'),
-            Number::make(__('الهوية'), 'nationalId'),
-            Number::make(__('رقم الجوال'), 'phone')->hideFromIndex(),
-            Date::make(__('تاريخ الميلاد'), 'birthDate')->hideFromIndex(),
-            Date::make(__('تاريخ الانتهاء'), 'expireDate')->hideFromIndex(),
+            Text::make(__('الاسم'), 'nameAr')->rules('required'),
+            Text::make(__('الاسم بالانجليزي'), 'nameEng')->rules('required'),
+            Text::make(__('صاحب العمل'), 'employer')->rules('required'),
+            Text::make(__('الايميل'), 'email')->rules('required'),
+            Number::make(__('الهوية'), 'nationalId')->rules('regex:/\b[12]\d{9}\b/')->creationRules('unique:client,nationalId')
+            ->updateRules('unique:client,nationalId,{{nationalId}}'),
+            Number::make(__('رقم الجوال'), 'phone')->hideFromIndex()->rules('required'),
+            Date::make(__('تاريخ الميلاد'), 'birthDate')->hideFromIndex()->rules('required'),
+            Date::make(__('تاريخ الانتهاء'), 'expireDate')->hideFromIndex()->rules('required'),
 
-            Text::make(__('جهة الاصدار'), 'issuer'),
-            Text::make(__('مكان الميلاد'), 'placeOfBirth'),
+            Text::make(__('جهة الاصدار'), 'issuer')->rules('required'),
+            Text::make(__('مكان الميلاد'), 'placeOfBirth')->rules('required'),
 
             Select::make(__('نوع الهوية'), 'nationalType')->options([
                 'هوية وطنية',
                 'هوية مقيم',
                 'زائر'
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->rules('required'),
 
             Select::make(__('الجنس'), 'sex')->options([
                 'ذكر',
                 'انثى'
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->rules('required'),
 
             Select::make(__('مفعل'), 'isActive')->options([
                 'نعم',
                 'لا'
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->rules('required'),
 
-            Number::make(__('النسخة'), 'copy')->hideFromIndex(),
-
+            Number::make(__('النسخة'), 'copy')->hideFromIndex()->rules('required'),
         ];
     }
 

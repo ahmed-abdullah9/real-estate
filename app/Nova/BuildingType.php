@@ -47,7 +47,7 @@ class BuildingType extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'name'),
+            Text::make(__('الاسم'), 'name')->rules('required'),
         ];
     }
 

@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use App\Building;
-// use App\Neighbor;
+use App\KitchenType;
 
 class Apartment extends Resource
 {
@@ -52,25 +52,29 @@ class Apartment extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الدور'), 'floor'),
+            Text::make(__('الدور'), 'floor')->rules('required'),
             Select::make(__('المبنى'), 'buildingId')->options(
-                Building::all()->pluck('name', 'id')
-            )->searchable(),
+                Building::all()->pluck('buildingName', 'id')
+            )->searchable()->rules('required'),
 
-            Text::make(__('رقم الشقة'), 'apartmentNo'),
-            Text::make(__('عدد الغرف'), 'noRoom'),
-            Text::make(__('عدد الصالات'), 'noHalls'),
-            Text::make(__('عدد دورات المياه'), 'noBathroom'),
-            Text::make(__('عدد المطابخ'), 'noKitchen'),
+            Select::make(__('نوع المطبخ'), 'kitchenTypeId')->options(
+                KitchenType::all()->pluck('name', 'id')
+            )->searchable()->rules('required'),
 
-            Number::make(__('السعر'), 'price')->hideFromIndex(),
+            Text::make(__('رقم الشقة'), 'apartmentNo')->rules('required'),
+            Text::make(__('عدد الغرف'), 'noRoom')->rules('required'),
+            Text::make(__('عدد الصالات'), 'noHalls')->rules('required'),
+            Text::make(__('عدد دورات المياه'), 'noBathroom')->rules('required'),
+            Text::make(__('عدد المطابخ'), 'noKitchen')->rules('required'),
+
+            Number::make(__('السعر'), 'price')->hideFromIndex()->rules('required'),
 
             Select::make(__('الحجز'), 'rentPeriod')->options([
                 'يومي',
                 'شهري',
                 'سنوي',
-            ])->displayUsingLabels(),
-            Text::make(__('التفاصيل'), 'details'),
+            ])->displayUsingLabels()->rules('required'),
+            Text::make(__('التفاصيل'), 'details')->rules('required'),
 
             // $table->tinyInteger('kitchenType');
 

@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Boolean;
 use App\City;
 use App\Neighbor;
 
@@ -53,8 +54,8 @@ class Building extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('اسم العمارة'), 'buildingName'),
-            Text::make(__('اسم الشارع'), 'street'),
+            Text::make(__('اسم العمارة'), 'buildingName')->rules('required'),
+            Text::make(__('اسم الشارع'), 'street')->rules('required'),
 
             // $table->string('lat');
             // $table->string('lang');
@@ -62,29 +63,31 @@ class Building extends Resource
 
             Select::make(__('المدينة'), 'cityId')->options(
                 City::all()->pluck('name', 'id')
-            )->searchable(),
+            )->searchable()->rules('required'),
 
             Select::make(__('الحي'), 'neighborId')->options(
                 Neighbor::all()->pluck('name', 'id')
-            )->searchable(),
+            )->searchable()->rules('required'),
 
             Select::make(__('نوع البناية'), 'buildingTypeId')->options(
                 BuildingType::all()->pluck('name', 'id')
-            )->searchable(),
-            Number::make(__('رقم العمارة'), 'buildingNo'),
-            Number::make(__('عدد المداخل'), 'enteranceNo')->hideFromIndex(),
-            Number::make(__('عدد الشقق'), 'apartmentNo')->hideFromIndex(),
-            Number::make(__('عدد المكاتب'), 'officesNo')->hideFromIndex(),
-            Number::make(__('عدد المحلات التجارية'), 'shopsNo')->hideFromIndex(),
+            )->searchable()->rules('required'),
+
+            Number::make(__('رقم العمارة'), 'buildingNo')->rules('required'),
+            Number::make(__('عدد المداخل'), 'enteranceNo')->hideFromIndex()->rules('required'),
+            Number::make(__('عدد الشقق'), 'apartmentNo')->hideFromIndex()->rules('required'),
+            Number::make(__('عدد المكاتب'), 'officesNo')->hideFromIndex()->rules('required'),
+            Number::make(__('عدد المحلات التجارية'), 'shopsNo')->hideFromIndex()->rules('required'),
             Select::make(__('نوع السكان'), 'populationType')->options([
                 'عزاب',
                 'عوائل'
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->rules('required'),
 
-            Select::make(__('مفعل'), 'isActive')->options([
-                'نعم',
-                'لا'
-            ])->displayUsingLabels(),
+            Select::make(__('الحالة'), 'isActive')->options([
+                'مفعل',
+                'معطل'
+            ])->displayUsingLabels()->rules('required'),
+            // Boolean::make(__('مفعل'), 'isActive'),
 
         ];
     }

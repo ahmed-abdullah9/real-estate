@@ -10,8 +10,8 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Nova\Multiselect\Multiselect;
-use App\City;
-use App\Neighbor;
+use Laravel\Nova\Fields\HasMany;
+use App\OwnerBank;
 
 class Owner extends Resource
 {
@@ -53,33 +53,40 @@ class Owner extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'name'),
-            Text::make(__('العنوان'), 'address')->hideFromIndex(),
-            Text::make(__('الايميل'), 'email'),
-            Number::make(__('الهوية'), 'nationalId'),
-            Number::make(__('رقم الجوال'), 'phone')->hideFromIndex(),
-            Date::make(__('تاريخ الميلاد'), 'birthDate')->hideFromIndex(),
-            Date::make(__('تاريخ الانتهاء'), 'expireDate')->hideFromIndex(),
-            // Multiselect::make(__('المدينة'), 'city')->options(
-            //     City::all()->pluck('name', 'id')
-            // )->hideFromIndex(),
-            // Multiselect::make(__('الحي'), 'neighbor')->options(
-            //     Neighbor::all()->pluck('name', 'id')
-            // )->hideFromIndex(),
+            Text::make(__('الاسم'), 'name')->rules('required'),
+            Text::make(__('العنوان'), 'address')->hideFromIndex()->rules('required'),
+            Text::make(__('الايميل'), 'email')
+                ->rules('required', 'email', 'max:255')
+                ->creationRules('unique:owners,email')
+                ->updateRules('unique:owners,email,{{id}}'),
 
-            Text::make(__('جهة الاصدار'), 'issuer'),
-            Text::make(__('مكان الميلاد'), 'placeOfBirth'),
+            Number::make(__('الهوية'), 'nationalId')
+            ->rules('regex:/\b[12]\d{9}\b/')
+            ->creationRules('unique:owners,nationalId')
+            ->updateRules('unique:owners,nationalId,{{nationalId}}'),
+
+            Number::make(__('رقم الجوال'), 'phone')
+            ->rules('required')
+            ->hideFromIndex(),
+            Date::make(__('تاريخ الميلاد'), 'birthDate')
+            ->rules('required')->hideFromIndex(),
+            Date::make(__('تاريخ الانتهاء'), 'expireDate')
+            ->rules('required')->hideFromIndex(),
+
+            Text::make(__('جهة الاصدار'), 'issuer')->rules('required'),
+            Text::make(__('مكان الميلاد'), 'placeOfBirth')->rules('required'),
 
             Select::make(__('الجنس'), 'sex')->options([
                 'ذكر',
                 'انثى'
-            ])->displayUsingLabels(),
+            ])->rules('required')->displayUsingLabels(),
 
             Select::make(__('مفعل'), 'isActive')->options([
                 'نعم',
                 'لا'
-            ])->displayUsingLabels(),
+            ])->rules('required')->displayUsingLabels(),
 
+            HasMany::make('OwnerBank', 'OwnerBank', 'App\Nova\OwnerBank'),
         ];
     }
 

@@ -15,7 +15,7 @@ class AddColumnsToApartmentsTable extends Migration
     {
         Schema::table('apartments', function (Blueprint $table) {
             $table->integer('kitchenTypeId')->unsigned();
-            $table->foreign('kitchenTypeId')->references('id')->on('kitchenTypes')->onDelete('cascade');;
+            $table->foreign('kitchenTypeId')->references('id')->on('kitchen_types')->onDelete('cascade');;
         });
     }
 

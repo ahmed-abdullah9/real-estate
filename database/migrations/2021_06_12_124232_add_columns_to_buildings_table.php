@@ -15,7 +15,7 @@ class AddColumnsToBuildingsTable extends Migration
     {
         Schema::table('buildings', function (Blueprint $table) {
             $table->integer('buildingTypeId')->unsigned();
-            $table->foreign('buildingTypeId')->references('id')->on('buildingtypes')->onDelete('cascade');;
+            $table->foreign('buildingTypeId')->references('id')->on('building_types')->onDelete('cascade');;
         });
     }
 

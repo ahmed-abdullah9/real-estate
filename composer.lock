@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4805deb093a297e76f78591b4f190961",
+    "content-hash": "fc20941c8d590198d99530bfa5fb81d7",
     "packages": [
         {
             "name": "arku/nova-multiselect",
@@ -2651,6 +2651,62 @@
                 }
             ],
             "time": "2021-04-19T03:20:48+00:00"
+        },
+        {
+            "name": "pishran/nova-rtl-theme",
+            "version": "v1.5.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pishran/nova-rtl-theme.git",
+                "reference": "0403db523bae661351c2d7839bbb13827c983af4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pishran/nova-rtl-theme/zipball/0403db523bae661351c2d7839bbb13827c983af4",
+                "reference": "0403db523bae661351c2d7839bbb13827c983af4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pishran\\NovaRtlTheme\\ThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pishran\\NovaRtlTheme\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Farid Aghili",
+                    "email": "farid@pishranit.ir",
+                    "homepage": "https://www.faridaghili.ir",
+                    "role": "Developer"
+                }
+            ],
+            "description": "RTL layout for Laravel Nova.",
+            "homepage": "https://github.com/pishran/nova-rtl-theme",
+            "keywords": [
+                "laravel",
+                "nova",
+                "rtl",
+                "theme"
+            ],
+            "support": {
+                "issues": "https://github.com/pishran/nova-rtl-theme/issues",
+                "source": "https://github.com/pishran/nova-rtl-theme/tree/v1.5.12"
+            },
+            "time": "2021-05-30T00:39:16+00:00"
         },
         {
             "name": "psr/container",

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBuildingtypsTable extends Migration
+class AddColumnsToOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateBuildingtypsTable extends Migration
      */
     public function up()
     {
-        Schema::create('buildingtypes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('owners', function (Blueprint $table) {
+            $table->timestamp('birthDate')->nullable();
+            $table->timestamp('expireDate')->nullable();
         });
     }
 
@@ -27,6 +26,8 @@ class CreateBuildingtypsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buildingtypes');
+        Schema::table('owners', function (Blueprint $table) {
+            //
+        });
     }
 }

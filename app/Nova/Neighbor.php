@@ -50,10 +50,10 @@ class Neighbor extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'name'),
+            Text::make(__('الاسم'), 'name')->rules('required'),
             Select::make(__('المدينة'), 'cityId')->options(
                 City::all()->pluck('name', 'id')
-            )->searchable(),
+            )->searchable()->rules('required'),
             // BelongsTo::make('city')->searchable()
 
 
