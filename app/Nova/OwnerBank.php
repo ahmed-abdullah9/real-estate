@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use App\Bank;
+use App\Owner;
 
 class OwnerBank extends Resource
 {
@@ -52,10 +53,13 @@ class OwnerBank extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الاسم'), 'name')->rules('required'),
             Text::make(__('الايبان'), 'iban')->rules('required'),
-
             Select::make(__('البنك'), 'bankId')->options(
                 Bank::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
+            // Select::make(__('owner'), 'owner_id')->options(
+            //     Owner::all()->pluck('name', 'id')
+            // )->searchable()->rules('required'),
+
         ];
     }
 

@@ -58,12 +58,12 @@ class Owner extends Resource
             Text::make(__('الايميل'), 'email')
                 ->rules('required', 'email', 'max:255')
                 ->creationRules('unique:owners,email')
-                ->updateRules('unique:owners,email,{{id}}'),
+                ->updateRules('unique:owners,email,{{resourceId}}'),
 
             Number::make(__('الهوية'), 'nationalId')
             ->rules('regex:/\b[12]\d{9}\b/')
             ->creationRules('unique:owners,nationalId')
-            ->updateRules('unique:owners,nationalId,{{nationalId}}'),
+            ->updateRules('unique:owners,nationalId,{{resourceId}}'),
 
             Number::make(__('رقم الجوال'), 'phone')
             ->rules('required')
@@ -86,7 +86,7 @@ class Owner extends Resource
                 'لا'
             ])->rules('required')->displayUsingLabels(),
 
-            HasMany::make('OwnerBank', 'OwnerBank', 'App\Nova\OwnerBank'),
+            HasMany::make('OwnerBank'),
         ];
     }
 

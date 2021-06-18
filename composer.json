@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
+        "kirschbaum-development/nova-inline-relationship": "dev-master#1d9d4872575a6569efda1375cbff6e9da3074aeb",
         "laravel/framework": "^7.29",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
