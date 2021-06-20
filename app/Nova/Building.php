@@ -69,7 +69,7 @@ class Building extends Resource
                 Neighbor::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
 
-            Select::make(__('نوع البناية'), 'buildingTypeId')->options(
+            Select::make(__('نوع العمارة'), 'buildingTypeId')->options(
                 BuildingType::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
 

@@ -121,7 +121,7 @@ class NovaApplicationServiceProvider extends ServiceProvider
      */
     protected function resources()
     {
-        // Nova::resourcesIn(app_path('Nova'));
+        Nova::resourcesIn(app_path('Nova'));
         Nova::resources([
             User::class,
             Owner::class,
