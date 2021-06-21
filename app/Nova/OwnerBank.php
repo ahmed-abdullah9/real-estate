@@ -20,6 +20,8 @@ class OwnerBank extends Resource
      */
     public static $model = \App\OwnerBank::class;
 
+    public static $category = 'الاعدادات';
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

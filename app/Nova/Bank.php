@@ -24,6 +24,8 @@ class Bank extends Resource
      */
     public static $title = 'id';
 
+    public static $category = 'الاعدادات';
+
     /**
      * The columns that should be searched.
      *

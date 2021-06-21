@@ -26,7 +26,9 @@ class Apartment extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    // public static $title = 'id';
+
+    public static $category = 'البناية';
 
     /**
      * The columns that should be searched.

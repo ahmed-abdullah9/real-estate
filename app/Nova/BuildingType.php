@@ -16,6 +16,8 @@ class BuildingType extends Resource
      */
     public static $model = \App\BuildingType::class;
 
+    public static $category = 'الاعدادات';
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

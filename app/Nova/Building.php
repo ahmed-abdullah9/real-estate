@@ -30,6 +30,8 @@ class Building extends Resource
      */
     public static $title = 'id';
 
+    public static $category = 'البناية';
+
     /**
      * The columns that should be searched.
      *

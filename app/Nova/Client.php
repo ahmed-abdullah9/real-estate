@@ -27,6 +27,8 @@ class Client extends Resource
      */
     public static $title = 'id';
 
+    public static $category = 'العملاء';
+
     /**
      * The columns that should be searched.
      *
