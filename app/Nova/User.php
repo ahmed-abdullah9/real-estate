@@ -17,7 +17,6 @@ class User extends Resource
      */
     public static $model = \App\User::class;
 
-    public static $category = 'الاشخاص';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

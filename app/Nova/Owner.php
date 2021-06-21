@@ -29,7 +29,6 @@ class Owner extends Resource
      */
     public static $title = 'id';
 
-    public static $category = 'الاشخاص';
 
     /**
      * The columns that should be searched.
@@ -88,7 +87,7 @@ class Owner extends Resource
                 'لا'
             ])->rules('required')->displayUsingLabels(),
 
-            HasMany::make('OwnerBank'),
+            HasMany::make('OwnerBank')->inline(),
         ];
     }
 
