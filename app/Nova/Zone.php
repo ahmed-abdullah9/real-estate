@@ -5,22 +5,20 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Nova\Multiselect\Multiselect;
-use Laravel\Nova\Fields\HasMany;
-use App\OwnerBank;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Neighbor;
 
-class Owner extends Resource
+
+class Zone extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Owner::class;
+    public static $model = \App\Zone::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -28,7 +26,6 @@ class Owner extends Resource
      * @var string
      */
     public static $title = 'id';
-
 
     /**
      * The columns that should be searched.
@@ -38,11 +35,6 @@ class Owner extends Resource
     public static $search = [
         'id',
     ];
-
-    public static function label()
-    {
-        return 'الملاك';
-    }
 
     /**
      * Get the fields displayed by the resource.
@@ -55,39 +47,9 @@ class Owner extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الاسم'), 'name')->rules('required'),
-            Text::make(__('العنوان'), 'address')->hideFromIndex()->rules('required'),
-            Text::make(__('الايميل'), 'email')
-                ->rules('required', 'email', 'max:255')
-                ->creationRules('unique:owners,email')
-                ->updateRules('unique:owners,email,{{resourceId}}'),
-
-            Number::make(__('الهوية'), 'nationalId')
-            ->rules('regex:/\b[12]\d{9}\b/')
-            ->creationRules('unique:owners,nationalId')
-            ->updateRules('unique:owners,nationalId,{{resourceId}}'),
-
-            Number::make(__('رقم الجوال'), 'phone')
-            ->rules('required')
-            ->hideFromIndex(),
-            Date::make(__('تاريخ الميلاد'), 'birthDate')
-            ->rules('required')->hideFromIndex(),
-            Date::make(__('تاريخ الانتهاء'), 'expireDate')
-            ->rules('required')->hideFromIndex(),
-
-            Text::make(__('جهة الاصدار'), 'issuer')->rules('required'),
-            Text::make(__('مكان الميلاد'), 'placeOfBirth')->rules('required'),
-
-            Select::make(__('الجنس'), 'sex')->options([
-                'ذكر',
-                'انثى'
-            ])->rules('required')->displayUsingLabels(),
-
-            Select::make(__('مفعل'), 'isActive')->options([
-                'نعم',
-                'لا'
-            ])->rules('required')->displayUsingLabels(),
-
-            HasMany::make('OwnerBank'),
+            Select::make(__('المنطقة'), 'neighbor_id')->options(
+                Neighbor::all()->pluck('name', 'id')
+            )->searchable()->rules('required'),
         ];
     }
 

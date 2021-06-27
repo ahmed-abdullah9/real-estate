@@ -8,19 +8,21 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Select;
-use Nova\Multiselect\Multiselect;
-use Laravel\Nova\Fields\HasMany;
-use App\OwnerBank;
+use Laravel\Nova\Fields\HasOne;
 
-class Owner extends Resource
+use App\Instrument;
+use App\Owner;
+
+class RentalContract extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Owner::class;
+    public static $model = \App\RentalContract::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -28,7 +30,6 @@ class Owner extends Resource
      * @var string
      */
     public static $title = 'id';
-
 
     /**
      * The columns that should be searched.
@@ -38,11 +39,6 @@ class Owner extends Resource
     public static $search = [
         'id',
     ];
-
-    public static function label()
-    {
-        return 'الملاك';
-    }
 
     /**
      * Get the fields displayed by the resource.
@@ -54,40 +50,28 @@ class Owner extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('الاسم'), 'name')->rules('required'),
-            Text::make(__('العنوان'), 'address')->hideFromIndex()->rules('required'),
-            Text::make(__('الايميل'), 'email')
-                ->rules('required', 'email', 'max:255')
-                ->creationRules('unique:owners,email')
-                ->updateRules('unique:owners,email,{{resourceId}}'),
+            Text::make(__('رقم العقد'), 'contract_no')->rules('required'),
 
-            Number::make(__('الهوية'), 'nationalId')
-            ->rules('regex:/\b[12]\d{9}\b/')
-            ->creationRules('unique:owners,nationalId')
-            ->updateRules('unique:owners,nationalId,{{resourceId}}'),
+            Text::make(__('اسم العقد'), 'name')->rules('required'),
 
-            Number::make(__('رقم الجوال'), 'phone')
-            ->rules('required')
-            ->hideFromIndex(),
-            Date::make(__('تاريخ الميلاد'), 'birthDate')
-            ->rules('required')->hideFromIndex(),
-            Date::make(__('تاريخ الانتهاء'), 'expireDate')
-            ->rules('required')->hideFromIndex(),
+            Date::make(__('يبدأ من '), 'date_from')->rules('required'),
+            Date::make(__('ينتهي في '), 'date_to')->rules('required'),
 
-            Text::make(__('جهة الاصدار'), 'issuer')->rules('required'),
-            Text::make(__('مكان الميلاد'), 'placeOfBirth')->rules('required'),
+            // Select::make(__('الصك'), 'instrument_id')->options(
+            //     Instrument::all()->pluck('instrument_number', 'id')
+            // )->searchable()->rules('required'),
 
-            Select::make(__('الجنس'), 'sex')->options([
-                'ذكر',
-                'انثى'
-            ])->rules('required')->displayUsingLabels(),
+            Select::make(__('المالك'), 'owner_id')->options(
+                Owner::all()->pluck('name', 'id')
+            )->searchable()->rules('required'),
 
-            Select::make(__('مفعل'), 'isActive')->options([
-                'نعم',
-                'لا'
-            ])->rules('required')->displayUsingLabels(),
+            BelongsTo::make('Instrument')->inline(),
+            // BelongsTo::make('رقم القضية', 'owners', Owner::class),
 
-            HasMany::make('OwnerBank'),
+            Number::make(__('البند الخامس'), 'clause5')->rules('required'),
+            Number::make(__('البند السادس'), 'clause6')->rules('required'),
+            Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
+
         ];
     }
 
