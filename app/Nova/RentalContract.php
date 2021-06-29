@@ -57,15 +57,15 @@ class RentalContract extends Resource
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
 
-            // Select::make(__('الصك'), 'instrument_id')->options(
-            //     Instrument::all()->pluck('instrument_number', 'id')
-            // )->searchable()->rules('required'),
+            Select::make(__('instrument'), 'instrument_id')->options(
+                Instrument::all()->pluck('instrument_number', 'id')
+            )->searchable()->rules('required'),
 
-            Select::make(__('المالك'), 'owner_id')->options(
+            Select::make(__('owner'), 'owner_id')->options(
                 Owner::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
 
-            BelongsTo::make('Instrument')->inline(),
+            // BelongsTo::make('Instrument')->inline(),
             // BelongsTo::make('رقم القضية', 'owners', Owner::class),
 
             Number::make(__('البند الخامس'), 'clause5')->rules('required'),
