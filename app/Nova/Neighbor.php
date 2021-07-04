@@ -37,10 +37,10 @@ class Neighbor extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'الأحياء';
-    // }
+    public static function label()
+    {
+        return 'الأحياء';
+    }
 
     /**
      * Get the fields displayed by the resource.

@@ -39,10 +39,10 @@ class Owner extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'الملاك';
-    // }
+    public static function label()
+    {
+        return 'الملاك';
+    }
 
     /**
      * Get the fields displayed by the resource.
