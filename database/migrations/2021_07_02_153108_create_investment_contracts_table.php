@@ -26,6 +26,7 @@ class CreateInvestmentContractsTable extends Migration
             $table->integer('clause5'); // البند
             $table->integer('clause6');
             $table->integer('clause13');
+            $table->timestamps();
         });
     }
 

@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasOne;
 use App\Instrument;
+use App\Nova\Actions\PrintPDF;
 use App\Owner;
 
 class InvestmentContract extends Resource
@@ -120,6 +121,8 @@ class InvestmentContract extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new PrintPDF
+        ];
     }
 }
