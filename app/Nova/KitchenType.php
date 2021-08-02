@@ -34,10 +34,10 @@ class KitchenType extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'انواع المطابخ';
-    }
+    // public static function label()
+    // {
+    //     return 'انواع المطابخ';
+    // }
 
     /**
      * Get the fields displayed by the resource.

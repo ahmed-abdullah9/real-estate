@@ -41,10 +41,10 @@ class RentalContract extends Resource
     ];
 
 
-    public static function label()
-    {
-        return 'عقود ادارة املاك';
-    }
+    // public static function label()
+    // {
+    //     return 'عقود ادارة املاك';
+    // }
 
     /**
      * Get the fields displayed by the resource.

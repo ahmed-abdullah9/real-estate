@@ -2,21 +2,18 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-16" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     {{-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
 
-    <title>{{ trans('panel.site_title') }}</title>
+    <title>Alwehad</title>
 
     <style>
         body {
             direction: rtl !important;
+            font-family: 'dejavu sans', sans-serif;
         }
 
         .blue-title {
@@ -24,19 +21,6 @@
             color: blue;
             margin: 15px 0px 5px 0px;
             font-size: 21px;
-        }
-
-        @media print {
-
-            .no-print,
-            .no-print * {
-                display: none !important;
-            }
-        }
-
-        @page {
-            size: auto;
-            margin: 0;
         }
     </style>
 
@@ -260,11 +244,6 @@
                     يعتبر تسجيل الطرف الثاني (المستخدم) في منصة (ملكيات) وموافقته على هذا العقد إلكترونياً بمثابة
                     التوقيع عليه بالموافقة وإقراراً صريحاً منه بالالتزام بكامل العقد حرفياً
                 </ol>
-                @if(isset($data['name']) && $data['name']!='')
-                <button class="btn btn-block btn-primary no-print">
-                    {{ trans('global.approve') }}
-                </button>
-                @endif
             <hr>
         </div>
     </div>

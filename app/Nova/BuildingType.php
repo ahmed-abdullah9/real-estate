@@ -34,10 +34,10 @@ class BuildingType extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'انواع العمائر';
-    }
+    // public static function label()
+    // {
+    //     return 'انواع العمائر';
+    // }
 
     /**
      * Get the fields displayed by the resource.

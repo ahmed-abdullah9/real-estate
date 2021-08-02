@@ -37,10 +37,10 @@ class OwnerBank extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'حسابات الملاك';
-    }
+    // public static function label()
+    // {
+    //     return 'حسابات الملاك';
+    // }
 
     /**
      * Get the fields displayed by the resource.

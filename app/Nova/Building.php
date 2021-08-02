@@ -40,10 +40,10 @@ class Building extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'العمائر';
-    }
+    // public static function label()
+    // {
+    //     return 'العمائر';
+    // }
 
     /**
      * Get the fields displayed by the resource.

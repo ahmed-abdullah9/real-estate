@@ -32,10 +32,10 @@ class ApartmentStatus extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'حالات الشقق';
-    }
+    // public static function label()
+    // {
+    //     return 'حالات الشقق';
+    // }
 
     /**
      * Get the fields displayed by the resource.

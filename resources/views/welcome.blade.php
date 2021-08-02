@@ -63,8 +63,11 @@
             }
         </style>
     </head>
-    <body style="background: url('{{asset('background.jpg') }}'); background-size: cover;
-    ">
+    <body style="background: url('{{asset('background.jpg') }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
