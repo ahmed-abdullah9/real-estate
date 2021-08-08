@@ -9,7 +9,6 @@ Route::get('/styles/{style}', 'StyleController@show')->middleware(CheckResponseF
 
 // Global Search...
 Route::get('/search', 'SearchController@index');
-
 // Fields...
 Route::get('/{resource}/field/{field}', 'FieldController@show');
 Route::post('/{resource}/trix-attachment/{field}', 'TrixAttachmentController@store');

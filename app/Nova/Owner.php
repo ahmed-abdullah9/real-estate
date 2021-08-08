@@ -27,7 +27,7 @@ class Owner extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
 
     /**

@@ -1,7 +1,6 @@
 <template>
   <loading-view :loading="loading">
     <custom-create-header class="mb-3" :resource-name="resourceName" />
-
     <form
       v-if="panels"
       @submit="submitViaCreateResource"
@@ -27,7 +26,6 @@
         :via-resource-id="viaResourceId"
         :via-relationship="viaRelationship"
       />
-
       <!-- Create Button -->
       <div class="flex items-center">
         <cancel-button @click="$emit('cancelled-create')" />
