@@ -38,10 +38,10 @@ class Apartment extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'الشقق';
-    // }
+    public static function label()
+    {
+        return 'الشقق';
+    }
 
     /**
      * Get the fields displayed by the resource.

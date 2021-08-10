@@ -24,7 +24,9 @@ class PrintPDF extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         $invoiceController = new \App\Http\Controllers\Controller();
-        $object = $invoiceController->makePDF($models);
+        $contract = $models[0]::with('owner','instrument')->get();
+
+        $object = $invoiceController->makePDF($contract[0]);
         $url = Storage::url( $object->id . '.pdf');
         return Action::download($url, $object->id . '.pdf');
     }

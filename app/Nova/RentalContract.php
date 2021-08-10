@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasOne;
+use App\Nova\Actions\PrintPDF;
 
 use App\Instrument;
 use App\Owner;
@@ -23,6 +24,8 @@ class RentalContract extends Resource
      * @var string
      */
     public static $model = \App\RentalContract::class;
+    public static $with = ['owner','instrument' ];
+
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -41,10 +44,10 @@ class RentalContract extends Resource
     ];
 
 
-    // public static function label()
-    // {
-    //     return 'عقود ادارة املاك';
-    // }
+    public static function label()
+    {
+        return 'عقود ادارة املاك';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -122,6 +125,8 @@ class RentalContract extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new PrintPDF
+        ];
     }
 }

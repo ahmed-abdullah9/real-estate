@@ -37,10 +37,10 @@ class Instrument extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'الصك';
-    // }
+    public static function label()
+    {
+        return 'الصك';
+    }
 
     /**
      * Get the fields displayed by the resource.
