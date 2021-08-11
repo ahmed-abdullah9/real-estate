@@ -18,7 +18,8 @@
     "
   >
     <icon type="add" width="24" height="24" view-box="0 0 24 24" />
-    <span>{{ __('Create') }}</span>
+    <!-- <span>{{ __('Create') }}</span> -->
+    <span>{{ __('يخلق') }}</span>
   </button>
 </template>
 

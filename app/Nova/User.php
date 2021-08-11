@@ -17,7 +17,6 @@ class User extends Resource
      */
     public static $model = \App\User::class;
 
-
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -33,11 +32,6 @@ class User extends Resource
     public static $search = [
         'id', 'name', 'email',
     ];
-
-    // public static function label()
-    // {
-    //     return 'المستخدمين';
-    // }
 
     /**
      * Get the fields displayed by the resource.

@@ -107,6 +107,7 @@ Vue.component(
   require('./components/Form/CurrencyField.vue')
 )
 
+
 // KeyValue Field...
 Vue.component(
   'detail-key-value-field',
