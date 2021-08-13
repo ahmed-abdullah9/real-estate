@@ -15,10 +15,6 @@ class CreateBuildingsTable extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cityId')->unsigned();
-            $table->foreign('cityId')->references('id')->on('cities')->onDelete('cascade');;
-            $table->integer('neighborId')->unsigned();
-            $table->foreign('neighborId')->references('id')->on('neighbors')->onDelete('cascade');;
             $table->string('buildingName');
             $table->integer('buildingNo');
             $table->tinyInteger('populationType');

@@ -11,8 +11,6 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
-use App\City;
-use App\Neighbor;
 
 class Building extends Resource
 {
@@ -61,14 +59,6 @@ class Building extends Resource
             // $table->string('lat');
             // $table->string('lang');
             // لازم صور للعمارة
-
-            Select::make(__('المدينة'), 'cityId')->options(
-                City::all()->pluck('name', 'id')
-            )->searchable()->rules('required'),
-
-            Select::make(__('الحي'), 'neighborId')->options(
-                Neighbor::all()->pluck('name', 'id')
-            )->searchable()->rules('required'),
 
             Select::make(__('نوع العمارة'), 'buildingTypeId')->options(
                 BuildingType::all()->pluck('name', 'id')

@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use App\Owner;
 use App\Building;
+use App\City;
+use App\Neighbor;
 
 class Instrument extends Resource
 {
@@ -60,6 +62,14 @@ class Instrument extends Resource
 
             Select::make(__('العمارة'), 'building_id')->options(
                 Building::all()->pluck('buildingName', 'id')
+            )->searchable()->rules('required'),
+
+            Select::make(__('المدينة'), 'city_id')->options(
+                City::all()->pluck('name', 'id')
+            )->searchable()->rules('required'),
+
+            Select::make(__('الحي'), 'neighbor_id')->options(
+                Neighbor::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
 
             Select::make(__('المالك'), 'owner_id')->options(

@@ -20,6 +20,10 @@ class CreateInstrumentsTable extends Migration
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->integer('building_id')->unsigned();
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');;
+            $table->integer('neighbor_id')->unsigned();
+            $table->foreign('neighbor_id')->references('id')->on('neighbors')->onDelete('cascade');;
             $table->timestamp('issue_date');
             $table->string('land_number');
             $table->string('chart_number');

@@ -55,28 +55,25 @@ class InvestmentContract extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('رقم العقد'), 'contract_no')->rules('required'),
+            Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
+                return InvestmentContract::orderByDesc('created_at')->first()->contract_no + 1;
+            }),
 
             Text::make(__('اسم العقد'), 'name')->rules('required'),
 
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
 
-            Select::make(__('instrument'), 'instrument_id')->options(
-                Instrument::all()->pluck('instrument_number', 'id')
-            )->searchable()->rules('required'),
+            BelongsTo::make('instrument')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             }),
 
-            Select::make(__('owner'), 'owner_id')->options(
-                Owner::all()->pluck('name', 'id')
-            )->searchable()->rules('required'),
+            BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             }),
 
             // BelongsTo::make('Instrument')->inline(),
             // BelongsTo::make('رقم القضية', 'owners', Owner::class),
-
-            Number::make(__('البند الخامس'), 'clause5')->rules('required'),
-            Number::make(__('البند السادس'), 'clause6')->rules('required'),
-            Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
-
         ];
     }
 

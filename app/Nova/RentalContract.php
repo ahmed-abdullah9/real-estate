@@ -60,13 +60,14 @@ class RentalContract extends Resource
      * @return array
      */
 
-     
+
     public function fields(Request $request)
     {
-        $instrument = new instrument();
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('رقم العقد'), 'contract_no')->rules('required'),
+            Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
+                return RentalContract::orderByDesc('created_at')->first()->contract_no + 1;
+            }),
 
             Text::make(__('اسم العقد'), 'name')->rules('required'),
 
@@ -76,15 +77,12 @@ class RentalContract extends Resource
             // Select::make(__('instrument'), 'instrument_id')->options(
             //     Instrument::all()->pluck('instrument_number', 'id')
             // )->searchable()->rules('required'),
-            
-            
+
             BelongsTo::make('Instrument')->showCreateRelationButton(function (NovaRequest $request) {
                return true;
             }),
-
-            
             // BelongsTo::make('Instrument')->inline(),
-            
+
             // Select::make(__('owner'), 'owner_id')->options(
             //     Owner::all()->pluck('name', 'id')
             // )->searchable()->rules('required'),
@@ -97,6 +95,7 @@ class RentalContract extends Resource
 
             Number::make(__('البند الخامس'), 'clause5')->rules('required'),
             Number::make(__('البند السادس'), 'clause6')->rules('required'),
+            Number::make(__('البند التاسع'), 'clause9')->rules('required'),
             Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
 
         ];
