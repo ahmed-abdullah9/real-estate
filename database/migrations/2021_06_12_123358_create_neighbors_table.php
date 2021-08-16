@@ -16,8 +16,8 @@ class CreateNeighborsTable extends Migration
         Schema::create('neighbors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('cityId')->unsigned();
-            $table->foreign('cityId')->references('id')->on('cities')->onDelete('cascade');;
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');;
             $table->timestamps();
         });
     }

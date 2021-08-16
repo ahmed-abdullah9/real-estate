@@ -37,10 +37,10 @@ class Neighbor extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'الأحياء';
-    // }
+    public static function label()
+    {
+        return 'الأحياء';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -53,7 +53,7 @@ class Neighbor extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الاسم'), 'name')->rules('required'),
-            Select::make(__('المدينة'), 'cityId')->options(
+            Select::make(__('المدينة'), 'city_id')->options(
                 City::all()->pluck('name', 'id')
             )->searchable()->rules('required'),
             // BelongsTo::make('city')->searchable()

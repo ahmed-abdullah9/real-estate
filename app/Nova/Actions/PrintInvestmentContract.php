@@ -10,9 +10,9 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Support\Facades\Storage;
 
-class PrintPDF extends Action
+class PrintInvestmentContract extends Action
 {
-    use InteractsWithQueue;
+    use InteractsWithQueue, Queueable;
 
     /**
      * Perform the action on the given models.
@@ -24,14 +24,12 @@ class PrintPDF extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         $invoiceController = new \App\Http\Controllers\Controller();
-        $contract = $models[0]::with('owner','instrument')->where('id',$models[0]->id)->get();
+        $contract = $models[0]::with('owner','instrument')->get();
 
-        // dd($contract);
-        $object = $invoiceController->makePDF($contract[0]);
+        $object = $invoiceController->makeInvetmentPDF($contract[0]);
         $url = Storage::url( $object->id . '.pdf');
         return Action::download($url, $object->id . '.pdf');
     }
-    // /Applications/XAMPP/xamppfiles/htdocs/real-estate/storage/tmp
 
     /**
      * Get the fields available on the action.
