@@ -56,7 +56,12 @@ class InvestmentContract extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
-                return InvestmentContract::orderByDesc('created_at')->first()->contract_no + 1;
+                if(InvestmentContract::count() >0){
+                    $contract =  InvestmentContract::orderByDesc('created_at')->first();
+                    return $contract->contract_no + 1;
+
+                }
+                return 1;
             }),
 
             Text::make(__('اسم العقد'), 'name')->rules('required'),

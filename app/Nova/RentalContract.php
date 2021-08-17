@@ -66,10 +66,11 @@ class RentalContract extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
-                // $contract =  RentalContract::orderByDesc('created_at')->first();
-                // if(!$contract)
-                // return $contract->contract_no + 1;
-                // else
+                if(RentalContract::count()>0){
+                    $contract =  RentalContract::orderByDesc('created_at')->first();
+                    return $contract->contract_no + 1;
+
+                }
                 return 1;
             }),
 
