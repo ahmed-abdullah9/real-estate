@@ -77,6 +77,12 @@ class InvestmentContract extends Resource
                 return true;
              }),
 
+            Text::make(__('مدة العقد'), 'duration')->rules('required'),
+            Text::make(__('(بالاسم) مدة العقد'), 'duration_name')->rules('required'),
+
+            Text::make(__('تكلفةالإيجار'), 'investment_cost')->rules('required'),
+            Text::make(__('أقساط الإيجار'), 'installment')->rules('required'),
+
             // BelongsTo::make('Instrument')->inline(),
             // BelongsTo::make('رقم القضية', 'owners', Owner::class),
         ];

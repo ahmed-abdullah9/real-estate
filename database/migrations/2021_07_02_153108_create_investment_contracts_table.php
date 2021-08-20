@@ -23,6 +23,11 @@ class CreateInvestmentContractsTable extends Migration
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->integer('instrument_id')->unsigned();
             $table->foreign('instrument_id')->references('id')->on('instruments')->onDelete('cascade');
+            $table->string('duration');
+            $table->string('duration_name');
+            $table->string('investment_cost');
+            $table->string('installment'); // الاقساط
+
             $table->timestamps();
         });
     }

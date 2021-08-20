@@ -58,9 +58,15 @@ class Controller extends BaseController
 			'phone' => $contract->owner->phone,
 			'instrument_number' => $contract->instrument->instrument_number,
 			'issue_date' => $contract->instrument->issue_date,
-			'instrument_number' => $contract->instrument->instrument_number,
+			'land_number' => $contract->instrument->land_number,
+			'city_id' => $contract->instrument->city_id,
+            'neighbor_id' => $contract->instrument->neighbor_id,
 			'date_from' => $contract->date_from,
 			'date_to' => $contract->date_to,
+			'duration' => $contract->duration,
+			'duration_name' => $contract->duration_name,
+			'investment_cost' => $contract->investment_cost,
+			'installment' => $contract->installment,
 			'created_at' => $contract->created_at,
 		];
 
