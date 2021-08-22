@@ -82,6 +82,9 @@ class RentalContract extends Resource
             //     Instrument::all()->pluck('instrument_number', 'id')
             // )->searchable()->rules('required'),
 
+            BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             }),
             BelongsTo::make('Instrument')->showCreateRelationButton(function (NovaRequest $request) {
                return true;
             }),
@@ -90,9 +93,7 @@ class RentalContract extends Resource
             // Select::make(__('owner'), 'owner_id')->options(
             //     Owner::all()->pluck('name', 'id')
             // )->searchable()->rules('required'),
-            BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
-                return true;
-             }),
+
 
             Number::make(__('البند الخامس'), 'clause5')->rules('required'),
             Number::make(__('البند السادس'), 'clause6')->rules('required'),
