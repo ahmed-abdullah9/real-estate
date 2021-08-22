@@ -27,6 +27,7 @@ class CreateInvestmentContractsTable extends Migration
             $table->string('duration_name');
             $table->string('investment_cost');
             $table->string('installment'); // الاقساط
+            $table->tinyInteger('is_auto_renew');
 
             $table->timestamps();
         });

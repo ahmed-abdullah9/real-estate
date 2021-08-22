@@ -12,4 +12,11 @@ class Building extends Model
         return $this->belongsTo(BuildingType::class);
     }
 
+    public function userOrganization()
+    {
+        return $this->hasOneThrough(
+            'App\InvestmentContract',
+            'App\Instrument'
+        );
+    }
 }

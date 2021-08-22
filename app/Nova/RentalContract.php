@@ -13,7 +13,7 @@ use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\CustomSelect;
-use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\Boolean;
 use App\Nova\Actions\PrintPDF;
 
 use App\Instrument;
@@ -69,7 +69,6 @@ class RentalContract extends Resource
                 if(RentalContract::count()>0){
                     $contract =  RentalContract::orderByDesc('created_at')->first();
                     return $contract->contract_no + 1;
-
                 }
                 return 1;
             }),
@@ -94,14 +93,12 @@ class RentalContract extends Resource
             BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-            // BelongsTo::make('Owner')->inline(),
-            // BelongsTo::make('رقم القضية', 'owners', Owner::class),
-
 
             Number::make(__('البند الخامس'), 'clause5')->rules('required'),
             Number::make(__('البند السادس'), 'clause6')->rules('required'),
             Number::make(__('البند التاسع'), 'clause9')->rules('required'),
             Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
+            Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
 
         ];
     }

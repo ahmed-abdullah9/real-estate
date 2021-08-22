@@ -27,6 +27,8 @@ class CreateRentalContractsTable extends Migration
             $table->integer('clause6');
             $table->integer('clause9');
             $table->integer('clause13');
+            $table->tinyInteger('is_auto_renew');
+
             $table->timestamps();
         });
     }

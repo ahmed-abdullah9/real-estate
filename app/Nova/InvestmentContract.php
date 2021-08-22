@@ -9,11 +9,12 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\HasOneThrough;
+use Laravel\Nova\Fields\Boolean;
 use App\Instrument;
 use App\Nova\Actions\PrintInvestmentContract;
 use App\Owner;
+// use App\userOrganization;
 
 class InvestmentContract extends Resource
 {
@@ -68,21 +69,20 @@ class InvestmentContract extends Resource
 
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
+            // BelongsTo::make('building')->showCreateRelationButton(),
+            BelongsTo::make('owner')->showCreateRelationButton(),
 
             BelongsTo::make('instrument')->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-
-            BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
-                return true;
-             }),
+            //  HasOneThrough::make('userOrganization'),
 
             Text::make(__('مدة العقد'), 'duration')->rules('required'),
             Text::make(__('(بالاسم) مدة العقد'), 'duration_name')->rules('required'),
 
             Text::make(__('تكلفةالإيجار'), 'investment_cost')->rules('required'),
             Text::make(__('أقساط الإيجار'), 'installment')->rules('required'),
-
+            Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
             // BelongsTo::make('Instrument')->inline(),
             // BelongsTo::make('رقم القضية', 'owners', Owner::class),
         ];
