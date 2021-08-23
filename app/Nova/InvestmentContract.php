@@ -41,10 +41,10 @@ class InvestmentContract extends Resource
         'id',
     ];
 
-    public static function label()
-    {
-        return 'عقود استثمار';
-    }
+    // public static function label()
+    // {
+    //     return 'عقود استثمار';
+    // }
 
     /**
      * Get the fields displayed by the resource.
