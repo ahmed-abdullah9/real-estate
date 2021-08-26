@@ -9,10 +9,12 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\BelongsTo;
 use App\Owner;
 use App\Building;
 use App\City;
 use App\Neighbor;
+use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 
 class Instrument extends Resource
 {
@@ -60,17 +62,32 @@ class Instrument extends Resource
             Text::make(__('رقم القطعة'), 'land_number')->rules('required'),
             Text::make(__('رقم المخطط'), 'chart_number')->rules('required'),
 
-            Select::make(__('العمارة'), 'building_id')->options(
-                Building::all()->pluck('buildingName', 'id')
-            )->searchable()->rules('required'),
+            // Select::make(__('العمارة'), 'building_id')->options(
+            //     Building::all()->pluck('buildingName', 'id')
+            // )->searchable()->rules('required'),
+            BelongsTo::make('Building')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+            }),
 
-            Select::make(__('المدينة'), 'city_id')->options(
-                City::all()->pluck('name', 'id')
-            )->searchable()->rules('required'),
+            // Select::make(__('المدينة'), 'city_id')->options(
+            //     City::all()->pluck('name', 'id')
+            // )->searchable()->rules('required'),
+            
+            // Select::make(__('الحي'), 'neighbor_id')->options(
+            //     Neighbor::all()->pluck('name', 'id')
+            // )->searchable()->rules('required'),
 
-            Select::make(__('الحي'), 'neighbor_id')->options(
-                Neighbor::all()->pluck('name', 'id')
-            )->searchable()->rules('required'),
+            NovaBelongsToDepend::make('City')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->options(\App\City::all()),
+            
+            NovaBelongsToDepend::make('Neighbor')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->optionsResolve(function ($city) {
+                // Reduce the amount of unnecessary data sent
+                return $city->neighbor()->get(['id','name']);
+            })
+            ->dependsOn('City'),
 
             Select::make(__('المالك'), 'owner_id')->options(
                 Owner::all()->pluck('name', 'id')

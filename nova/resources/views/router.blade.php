@@ -8,5 +8,6 @@
     </fade-transition>
 
     <portal-target name="modals" transition="fade-transition"></portal-target>
+    <portal-target name="modals_" transition="fade-transition"></portal-target>
     <portal-target name="dropdowns" transition="fade-transition"></portal-target>
 @endsection

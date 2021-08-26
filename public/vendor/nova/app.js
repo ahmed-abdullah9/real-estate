@@ -1,99 +1,10 @@
 webpackJsonp([0],{
 
-/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
-/***/ (function(module, exports) {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
-/***/ (function(module, exports) {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/typeof.js":
-/***/ (function(module, exports) {
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-
-    module.exports["default"] = module.exports, module.exports.__esModule = true;
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-
-    module.exports["default"] = module.exports, module.exports.__esModule = true;
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-
 /***/ "./node_modules/autosize/dist/autosize.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	autosize 4.0.4
+	autosize 4.0.2
 	license: MIT
 	http://www.jacklmoore.com/autosize
 */
@@ -1431,14 +1342,12 @@ exports.default = {
                 panels = _ref4$data.panels;
                 fields = _ref4$data.fields;
 
-                console.log(panels);
-                console.log(fields);
 
                 this.panels = panels;
                 this.fields = fields;
                 this.loading = false;
 
-              case 13:
+              case 11:
               case 'end':
                 return _context2.stop();
             }
@@ -4884,7 +4793,9 @@ exports.default = {
     canShowNewRelationModal: function canShowNewRelationModal() {
       return this.field.showCreateRelationButton && !this.shownViaNewRelationModal && !this.isLocked && !this.isReadonly && this.authorizedToCreate;
     },
-
+    canShowNewRelationModal_: function canShowNewRelationModal_() {
+      return this.field.showCreateRelationButton && this.shownViaNewRelationModal && !this.isLocked && !this.isReadonly && this.authorizedToCreate;
+    },
 
     /**
      * Return the placeholder text for the field.
@@ -4894,6 +4805,24 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5376,6 +5305,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+//
 //
 //
 //
@@ -12663,14 +12593,6 @@ exports.default = {
     },
     handleCancelledCreate: function handleCancelledCreate() {
       return this.$emit('cancelled-create');
-    },
-
-
-    /**
-     * Close the modal.
-     */
-    handleClose: function handleClose() {
-      this.$emit('cancelled-create');
     }
   }
 }; //
@@ -20235,786 +20157,10 @@ exports.default = function (arr) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime-module.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() { return this })() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__("./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime.js");
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime.js":
-/***/ (function(module, exports) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-!(function(global) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  runtime.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  runtime.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  runtime.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  runtime.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration. If the Promise is rejected, however, the
-          // result for this iteration will be rejected with the same
-          // reason. Note that rejections of yielded Promises are not
-          // thrown back into the generator function, as is the case
-          // when an awaited Promise is rejected. This difference in
-          // behavior between yield and await is important, because it
-          // allows the consumer to decide what to do with the yielded
-          // rejection (swallow it and continue, manually .throw it back
-          // into the generator, abandon iteration, whatever). With
-          // await, by contrast, there is no opportunity to examine the
-          // rejection reason outside the generator function, so the
-          // only option is to throw it from the await expression, and
-          // let the generator function handle the exception.
-          result.value = unwrapped;
-          resolve(result);
-        }, reject);
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  runtime.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return runtime.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        if (delegate.iterator.return) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  runtime.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  runtime.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() { return this })() || Function("return this")()
-);
-
-
-/***/ }),
-
 /***/ "./node_modules/babel-runtime/regenerator/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime-module.js");
+module.exports = __webpack_require__("./node_modules/regenerator-runtime/runtime-module.js");
 
 
 /***/ }),
@@ -21296,7 +20442,7 @@ if(false) {
     if (config && config.strict && (dir > 0) != (pos == where.ch)) return null;
     var style = cm.getTokenTypeAt(Pos(where.line, pos + 1));
 
-    var found = scanForBracket(cm, Pos(where.line, pos + (dir > 0 ? 1 : 0)), dir, style, config);
+    var found = scanForBracket(cm, Pos(where.line, pos + (dir > 0 ? 1 : 0)), dir, style || null, config);
     if (found == null) return null;
     return {from: Pos(where.line, pos), to: found && found.pos,
             match: found && found.ch == match.charAt(0), forward: dir > 0};
@@ -21325,8 +20471,7 @@ if(false) {
       if (lineNo == where.line) pos = where.ch - (dir < 0 ? 1 : 0);
       for (; pos != end; pos += dir) {
         var ch = line.charAt(pos);
-        if (re.test(ch) && (style === undefined ||
-                            (cm.getTokenTypeAt(Pos(lineNo, pos + 1)) || "") == (style || ""))) {
+        if (re.test(ch) && (style === undefined || cm.getTokenTypeAt(Pos(lineNo, pos + 1)) == style)) {
           var match = matching[ch];
           if (match && (match.charAt(1) == ">") == (dir > 0)) stack.push(ch);
           else if (!stack.length) return {pos: Pos(lineNo, pos), ch: ch};
@@ -21339,12 +20484,11 @@ if(false) {
 
   function matchBrackets(cm, autoclear, config) {
     // Disable brace matching in long lines, since it'll cause hugely slow updates
-    var maxHighlightLen = cm.state.matchBrackets.maxHighlightLineLength || 1000,
-      highlightNonMatching = config && config.highlightNonMatching;
+    var maxHighlightLen = cm.state.matchBrackets.maxHighlightLineLength || 1000;
     var marks = [], ranges = cm.listSelections();
     for (var i = 0; i < ranges.length; i++) {
       var match = ranges[i].empty() && findMatchingBracket(cm, ranges[i].head, config);
-      if (match && (match.match || highlightNonMatching !== false) && cm.getLine(match.from.line).length <= maxHighlightLen) {
+      if (match && cm.getLine(match.from.line).length <= maxHighlightLen) {
         var style = match.match ? "CodeMirror-matchingbracket" : "CodeMirror-nonmatchingbracket";
         marks.push(cm.markText(match.from, Pos(match.from.line, match.from.ch + 1), {className: style}));
         if (match.to && cm.getLine(match.to.line).length <= maxHighlightLen)
@@ -21354,7 +20498,7 @@ if(false) {
 
     if (marks.length) {
       // Kludge to work around the IE bug from issue #1193, where text
-      // input stops going to the textarea whenever this fires.
+      // input stops going to the textare whever this fires.
       if (ie_lt8 && cm.state.focused) cm.focus();
 
       var clear = function() {
@@ -21437,7 +20581,7 @@ if(false) {
 "use strict";
 
 CodeMirror.multiplexingMode = function(outer /*, others */) {
-  // Others should be {open, close, mode [, delimStyle] [, innerStyle] [, parseDelimiters]} objects
+  // Others should be {open, close, mode [, delimStyle] [, innerStyle]} objects
   var others = Array.prototype.slice.call(arguments, 1);
 
   function indexOf(string, pattern, from, returnEnd) {
@@ -21454,8 +20598,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
       return {
         outer: CodeMirror.startState(outer),
         innerActive: null,
-        inner: null,
-        startingInner: false
+        inner: null
       };
     },
 
@@ -21463,8 +20606,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
       return {
         outer: CodeMirror.copyState(outer, state.outer),
         innerActive: state.innerActive,
-        inner: state.innerActive && CodeMirror.copyState(state.innerActive.mode, state.inner),
-        startingInner: state.startingInner
+        inner: state.innerActive && CodeMirror.copyState(state.innerActive.mode, state.inner)
       };
     },
 
@@ -21476,7 +20618,6 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
           var found = indexOf(oldContent, other.open, stream.pos);
           if (found == stream.pos) {
             if (!other.parseDelimiters) stream.match(other.open);
-            state.startingInner = !!other.parseDelimiters
             state.innerActive = other;
 
             // Get the outer indent, making sure to handle CodeMirror.Pass
@@ -21502,8 +20643,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
           state.innerActive = state.inner = null;
           return this.token(stream, state);
         }
-        var found = curInner.close && !state.startingInner ?
-            indexOf(oldContent, curInner.close, stream.pos, curInner.parseDelimiters) : -1;
+        var found = curInner.close ? indexOf(oldContent, curInner.close, stream.pos, curInner.parseDelimiters) : -1;
         if (found == stream.pos && !curInner.parseDelimiters) {
           stream.match(curInner.close);
           state.innerActive = state.inner = null;
@@ -21512,7 +20652,6 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
         if (found > -1) stream.string = oldContent.slice(0, found);
         var innerToken = curInner.mode.token(stream, state.inner);
         if (found > -1) stream.string = oldContent;
-        else if (stream.pos > stream.start) state.startingInner = false
 
         if (found == stream.pos && curInner.parseDelimiters)
           state.innerActive = state.inner = null;
@@ -21733,7 +20872,6 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     var flags = "";
     if (val instanceof RegExp) {
       if (val.ignoreCase) flags = "i";
-      if (val.unicode) flags += "u"
       val = val.source;
     } else {
       val = String(val);
@@ -21803,9 +20941,10 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
           var token = rule.token
           if (token && token.apply) token = token(matches)
           if (matches.length > 2 && rule.token && typeof rule.token != "string") {
+            state.pending = [];
             for (var j = 2; j < matches.length; j++)
               if (matches[j])
-                (state.pending || (state.pending = [])).push({text: matches[j], token: rule.token[j - 1]});
+                state.pending.push({text: matches[j], token: rule.token[j - 1]});
             stream.backUp(matches[0].length - (matches[1] ? matches[1].length : 0));
             return token[0];
           } else if (token && token.join) {
@@ -22435,7 +21574,6 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     { name: 'yank', shortName: 'y' },
     { name: 'delmarks', shortName: 'delm' },
     { name: 'registers', shortName: 'reg', excludeFromCommandHistory: true },
-    { name: 'vglobal', shortName: 'v' },
     { name: 'global', shortName: 'g' }
   ];
 
@@ -22545,7 +21683,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       return cmd;
     }
 
-    var modifiers = {Shift:'S',Ctrl:'C',Alt:'A',Cmd:'D',Mod:'A',CapsLock:''};
+    var modifiers = {'Shift': 'S', 'Ctrl': 'C', 'Alt': 'A', 'Cmd': 'D', 'Mod': 'A'};
     var specialKeys = {Enter:'CR',Backspace:'BS',Delete:'Del',Insert:'Ins'};
     function cmKeyToVimKey(key) {
       if (key.charAt(0) == '\'') {
@@ -22611,9 +21749,6 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     var numbers = makeKeyRange(48, 10);
     var validMarks = [].concat(upperCaseAlphabet, lowerCaseAlphabet, numbers, ['<', '>']);
     var validRegisters = [].concat(upperCaseAlphabet, lowerCaseAlphabet, numbers, ['-', '"', '.', ':', '_', '/']);
-    var upperCaseChars;
-    try { upperCaseChars = new RegExp("^[\\p{Lu}]$", "u"); }
-    catch (_) { upperCaseChars = /^[A-Z]$/; }
 
     function isLine(cm, line) {
       return line >= cm.firstLine() && line <= cm.lastLine();
@@ -22628,7 +21763,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       return numberRegex.test(k);
     }
     function isUpperCase(k) {
-      return upperCaseChars.test(k);
+      return (/^[A-Z]$/).test(k);
     }
     function isWhiteSpaceString(k) {
       return (/^\s*$/).test(k);
@@ -22852,7 +21987,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
           this.latestRegister = registerName;
           if (cm.openDialog) {
             this.onRecordingDone = cm.openDialog(
-                document.createTextNode('(recording)['+registerName+']'), null, {bottom:true});
+                '(recording)['+registerName+']', null, {bottom:true});
           }
           this.isRecording = true;
         }
@@ -22932,7 +22067,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         // TODO: Convert keymap into dictionary format for fast lookup.
       },
       // Testing hook, though it might be useful to expose the register
-      // controller anyway.
+      // controller anyways.
       getRegisterController: function() {
         return vimGlobalState.registerController;
       },
@@ -23645,7 +22780,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
               showPrompt(cm, {
                   onClose: onPromptClose,
                   prefix: promptPrefix,
-                  desc: '(JavaScript regexp)',
+                  desc: searchPromptDesc,
                   onKeyUp: onPromptKeyUp,
                   onKeyDown: onPromptKeyDown
               });
@@ -25678,7 +24813,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         },
         isComplete: function(state) {
           if (state.nextCh === '#') {
-            var token = state.lineText.match(/^#(\w+)/)[1];
+            var token = state.lineText.match(/#(\w+)/)[1];
             if (token === 'endif') {
               if (state.forward && state.depth === 0) {
                 return true;
@@ -26305,6 +25440,16 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       var vim = cm.state.vim;
       return vim.searchState_ || (vim.searchState_ = new SearchState());
     }
+    function dialog(cm, template, shortText, onClose, options) {
+      if (cm.openDialog) {
+        cm.openDialog(template, onClose, { bottom: true, value: options.value,
+            onKeyDown: options.onKeyDown, onKeyUp: options.onKeyUp,
+            selectValueOnOpen: false});
+      }
+      else {
+        onClose(prompt(shortText, ''));
+      }
+    }
     function splitBySlash(argString) {
       return splitBySeparator(argString, '/');
     }
@@ -26491,64 +25636,28 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
           (ignoreCase || forceIgnoreCase) ? 'i' : undefined);
       return regexp;
     }
-
-    /**
-     * dom - Document Object Manipulator
-     * Usage:
-     *   dom('<tag>'|<node>[, ...{<attributes>|<$styles>}|<child-node>|'<text>'])
-     * Examples:
-     *   dom('div', {id:'xyz'}, dom('p', 'CM rocks!', {$color:'red'}))
-     *   dom(document.head, dom('script', 'alert("hello!")'))
-     * Not supported:
-     *   dom('p', ['arrays are objects'], Error('objects specify attributes'))
-     */
-    function dom(n) {
-      if (typeof n === 'string') n = document.createElement(n);
-      for (var a, i = 1; i < arguments.length; i++) {
-        if (!(a = arguments[i])) continue;
-        if (typeof a !== 'object') a = document.createTextNode(a);
-        if (a.nodeType) n.appendChild(a);
-        else for (var key in a) {
-          if (!Object.prototype.hasOwnProperty.call(a, key)) continue;
-          if (key[0] === '$') n.style[key.slice(1)] = a[key];
-          else n.setAttribute(key, a[key]);
-        }
-      }
-      return n;
-    }
-
-    function showConfirm(cm, template) {
-      var pre = dom('pre', {$color: 'red'}, template);
+    function showConfirm(cm, text) {
       if (cm.openNotification) {
-        cm.openNotification(pre, {bottom: true, duration: 5000});
+        cm.openNotification('<span style="color: red">' + text + '</span>',
+                            {bottom: true, duration: 5000});
       } else {
-        alert(pre.innerText);
+        alert(text);
       }
     }
-
     function makePrompt(prefix, desc) {
-      return dom(document.createDocumentFragment(),
-               dom('span', {$fontFamily: 'monospace', $whiteSpace: 'pre'},
-                 prefix,
-                 dom('input', {type: 'text', autocorrect: 'off',
-                               autocapitalize: 'off', spellcheck: 'false'})),
-               desc && dom('span', {$color: '#888'}, desc));
+      var raw = '<span style="font-family: monospace; white-space: pre">' +
+          (prefix || "") + '<input type="text" autocorrect="off" ' +
+          'autocapitalize="off" spellcheck="false"></span>';
+      if (desc)
+        raw += ' <span style="color: #888">' + desc + '</span>';
+      return raw;
     }
-
+    var searchPromptDesc = '(Javascript regexp)';
     function showPrompt(cm, options) {
       var shortText = (options.prefix || '') + ' ' + (options.desc || '');
-      var template = makePrompt(options.prefix, options.desc);
-      if (cm.openDialog) {
-        cm.openDialog(template, options.onClose, {
-          onKeyDown: options.onKeyDown, onKeyUp: options.onKeyUp,
-          bottom: true, selectValueOnOpen: false, value: options.value
-        });
-      }
-      else {
-        options.onClose(prompt(shortText, ''));
-      }
+      var prompt = makePrompt(options.prefix, options.desc);
+      dialog(cm, prompt, shortText, options.onClose, options);
     }
-
     function regexEqual(r1, r2) {
       if (r1 instanceof RegExp && r2 instanceof RegExp) {
           var props = ['global', 'multiline', 'ignoreCase', 'source'];
@@ -26722,7 +25831,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       if (start instanceof Array) {
         return inArray(pos, start);
       } else {
-        if (typeof end == 'number') {
+        if (end) {
           return (pos >= start && pos <= end);
         } else {
           return pos == start;
@@ -26785,7 +25894,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         try {
           this.parseInput_(cm, inputStream, params);
         } catch(e) {
-          showConfirm(cm, e.toString());
+          showConfirm(cm, e);
           throw e;
         }
         var command;
@@ -26829,7 +25938,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
             params.callback();
           }
         } catch(e) {
-          showConfirm(cm, e.toString());
+          showConfirm(cm, e);
           throw e;
         }
       },
@@ -27101,12 +26210,12 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       registers: function(cm, params) {
         var regArgs = params.args;
         var registers = vimGlobalState.registerController.registers;
-        var regInfo = '----------Registers----------\n\n';
+        var regInfo = '----------Registers----------<br><br>';
         if (!regArgs) {
           for (var registerName in registers) {
             var text = registers[registerName].toString();
             if (text.length) {
-              regInfo += '"' + registerName + '    ' + text + '\n'
+              regInfo += '"' + registerName + '    ' + text + '<br>';
             }
           }
         } else {
@@ -27118,7 +26227,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
               continue;
             }
             var register = registers[registerName] || new Register();
-            regInfo += '"' + registerName + '    ' + register.toString() + '\n'
+            regInfo += '"' + registerName + '    ' + register.toString() + '<br>';
           }
         }
         showConfirm(cm, regInfo);
@@ -27213,10 +26322,6 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         }
         cm.replaceRange(text.join('\n'), curStart, curEnd);
       },
-      vglobal: function(cm, params) {
-        // global inspects params.commandName
-        this.global(cm, params);
-      },
       global: function(cm, params) {
         // a global command is of the form
         // :[range]g/pattern/[cmd]
@@ -27226,7 +26331,6 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
           showConfirm(cm, 'Regular Expression missing from global');
           return;
         }
-        var inverted = params.commandName[0] === 'v';
         // range is specified here
         var lineStart = (params.line !== undefined) ? params.line : cm.firstLine();
         var lineEnd = params.lineEnd || params.line || cm.lastLine();
@@ -27251,33 +26355,28 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         // now that we have the regexPart, search for regex matches in the
         // specified range of lines
         var query = getSearchState(cm).getQuery();
-        var matchedLines = [];
+        var matchedLines = [], content = '';
         for (var i = lineStart; i <= lineEnd; i++) {
-          var line = cm.getLineHandle(i);
-          var matched = query.test(line.text);
-          if (matched !== inverted) {
-            matchedLines.push(cmd ? line : line.text);
+          var matched = query.test(cm.getLine(i));
+          if (matched) {
+            matchedLines.push(i+1);
+            content+= cm.getLine(i) + '<br>';
           }
         }
         // if there is no [cmd], just display the list of matched lines
         if (!cmd) {
-          showConfirm(cm, matchedLines.join('\n'));
+          showConfirm(cm, content);
           return;
         }
         var index = 0;
         var nextCommand = function() {
           if (index < matchedLines.length) {
-            var line = matchedLines[index++];
-            var lineNum = cm.getLineNumber(line);
-            if (lineNum == null) {
-              nextCommand();
-              return;
-            }
-            var command = (lineNum + 1) + cmd;
+            var command = matchedLines[index] + cmd;
             exCommandDispatcher.processCommand(cm, command, {
               callback: nextCommand
             });
           }
+          index++;
         };
         nextCommand();
       },
@@ -27297,11 +26396,9 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
               regexPart = new RegExp(regexPart).source; //normalize not escaped characters
           }
           replacePart = tokens[1];
-          // If the pattern ends with $ (line boundary assertion), change $ to \n.
-          // Caveat: this workaround cannot match on the last line of the document.
-          if (/(^|[^\\])(\\\\)*\$$/.test(regexPart)) {
-            regexPart = regexPart.slice(0, -1) + '\\n';
-            replacePart = (replacePart || '') + '\n';
+          if (regexPart && regexPart[regexPart.length - 1] === '$') {
+            regexPart = regexPart.slice(0, regexPart.length - 1) + '\\n';
+            replacePart = replacePart ? replacePart + '\n' : '\n';
           }
           if (replacePart !== undefined) {
             if (getOption('pcre')) {
@@ -27330,9 +26427,11 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
           if (flagsPart) {
             if (flagsPart.indexOf('c') != -1) {
               confirm = true;
+              flagsPart.replace('c', '');
             }
             if (flagsPart.indexOf('g') != -1) {
               global = true;
+              flagsPart.replace('g', '');
             }
             if (getOption('pcre')) {
                regexPart = regexPart + '/' + flagsPart;
@@ -27465,7 +26564,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     * @param {Cursor} lineEnd Line to stop replacing at.
     * @param {RegExp} query Query for performing matches with.
     * @param {string} replaceWith Text to replace matches with. May contain $1,
-    *     $2, etc for replacing captured groups using JavaScript replace.
+    *     $2, etc for replacing captured groups using Javascript replace.
     * @param {function()} callback A callback for when the replace is done.
     */
     function doReplace(cm, confirm, global, lineStart, lineEnd, searchCursor, query,
@@ -27473,7 +26572,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       // Set up all the functions.
       cm.state.vim.exMode = true;
       var done = false;
-      var lastPos, modifiedLineNumber, joined;
+      var lastPos = searchCursor.from();
       function replaceAll() {
         cm.operation(function() {
           while (!done) {
@@ -27486,18 +26585,14 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       function replace() {
         var text = cm.getRange(searchCursor.from(), searchCursor.to());
         var newText = text.replace(query, replaceWith);
-        var unmodifiedLineNumber = searchCursor.to().line;
         searchCursor.replace(newText);
-        modifiedLineNumber = searchCursor.to().line;
-        lineEnd += modifiedLineNumber - unmodifiedLineNumber;
-        joined = modifiedLineNumber < unmodifiedLineNumber;
       }
       function next() {
         // The below only loops to skip over multiple occurrences on the same
         // line when 'global' is not true.
         while(searchCursor.findNext() &&
               isInRange(searchCursor.from(), lineStart, lineEnd)) {
-          if (!global && searchCursor.from().line == modifiedLineNumber && !joined) {
+          if (!global && lastPos && searchCursor.from().line == lastPos.line) {
             continue;
           }
           cm.scrollIntoView(searchCursor.from(), 30);
@@ -27562,7 +26657,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
         return;
       }
       showPrompt(cm, {
-        prefix: dom('span', 'replace with ', dom('strong', replaceWith), ' (y/n/a/q/l)'),
+        prefix: 'replace with <strong>' + replaceWith + '</strong> (y/n/a/q/l)',
         onKeyDown: onPromptKeyDown
       });
     }
@@ -27770,7 +26865,9 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
       clearFakeCursor(vim);
       // In visual mode, the cursor may be positioned over EOL.
       if (from.ch == cm.getLine(from.line).length) {
-        var widget = dom('span', { 'class': className }, '\u00a0');
+        var widget = document.createElement("span");
+        widget.textContent = "\u00a0";
+        widget.className = className;
         vim.fakeCursorBookmark = cm.setBookmark(from, {widget: widget});
       } else {
         vim.fakeCursor = cm.markText(from, to, {className: className});
@@ -28305,8 +27402,8 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
   function cpp11StringHook(stream, state) {
     stream.backUp(1);
     // Raw strings.
-    if (stream.match(/^(?:R|u8R|uR|UR|LR)/)) {
-      var match = stream.match(/^"([^\s\\()]{0,16})\(/);
+    if (stream.match(/(R|u8R|uR|UR|LR)/)) {
+      var match = stream.match(/"([^\s\\()]{0,16})\(/);
       if (!match) {
         return false;
       }
@@ -28315,8 +27412,8 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       return tokenRawString(stream, state);
     }
     // Unicode strings/chars.
-    if (stream.match(/^(?:u8|u|U|L)/)) {
-      if (stream.match(/^["']/, /* eat */ false)) {
+    if (stream.match(/(u8|u|U|L)/)) {
+      if (stream.match(/["']/, /* eat */ false)) {
         return "string";
       }
       return false;
@@ -28439,7 +27536,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
                     "instanceof interface native new package private protected public " +
                     "return static strictfp super switch synchronized this throw throws transient " +
                     "try volatile while @interface"),
-    types: words("var byte short int long float double boolean char void Boolean Byte Character Double Float " +
+    types: words("byte short int long float double boolean char void Boolean Byte Character Double Float " +
                  "Integer Long Number Object Short String StringBuffer StringBuilder Void"),
     blockKeywords: words("catch class do else finally for if switch try while"),
     defKeywords: words("class interface enum @interface"),
@@ -28614,7 +27711,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       "file import where by get set abstract enum open inner override private public internal " +
       "protected catch finally out final vararg reified dynamic companion constructor init " +
       "sealed field property receiver param sparam lateinit data inline noinline tailrec " +
-      "external annotation crossinline const operator infix suspend actual expect setparam value"
+      "external annotation crossinline const operator infix suspend actual expect setparam"
     ),
     types: words(
       /* package java.lang */
@@ -28704,7 +27801,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
                 "gl_ModelViewMatrix gl_ProjectionMatrix gl_ModelViewProjectionMatrix " +
                 "gl_TextureMatrix gl_NormalMatrix gl_ModelViewMatrixInverse " +
                 "gl_ProjectionMatrixInverse gl_ModelViewProjectionMatrixInverse " +
-                "gl_TextureMatrixTranspose gl_ModelViewMatrixInverseTranspose " +
+                "gl_TexureMatrixTranspose gl_ModelViewMatrixInverseTranspose " +
                 "gl_ProjectionMatrixInverseTranspose " +
                 "gl_ModelViewProjectionMatrixInverseTranspose " +
                 "gl_TextureMatrixInverseTranspose " +
@@ -29341,8 +28438,8 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
       return ret("qualifier", "qualifier");
     } else if (/[:;{}\[\]\(\)]/.test(ch)) {
       return ret(null, ch);
-    } else if (stream.match(/^[\w-.]+(?=\()/)) {
-      if (/^(url(-prefix)?|domain|regexp)$/i.test(stream.current())) {
+    } else if (stream.match(/[\w-.]+(?=\()/)) {
+      if (/^(url(-prefix)?|domain|regexp)$/.test(stream.current().toLowerCase())) {
         state.tokenize = tokenParenthesized;
       }
       return ret("variable callee", "variable");
@@ -29371,7 +28468,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
 
   function tokenParenthesized(stream, state) {
     stream.next(); // Must be '('
-    if (!stream.match(/^\s*[\"\')]/, false))
+    if (!stream.match(/\s*[\"\')]/, false))
       state.tokenize = tokenString(")");
     else
       state.tokenize = null;
@@ -30044,7 +29141,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
         }
       },
       ":": function(stream) {
-        if (stream.match(/^\s*\{/, false))
+        if (stream.match(/\s*\{/, false))
           return [null, null]
         return false;
       },
@@ -30605,7 +29702,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   var statementIndent = parserConfig.statementIndent;
   var jsonldMode = parserConfig.jsonld;
   var jsonMode = parserConfig.json || jsonldMode;
-  var trackScope = parserConfig.trackScope !== false
   var isTS = parserConfig.typescript;
   var wordRE = parserConfig.wordCharacters || /[\w$\xa1-\uffff]/;
 
@@ -30808,8 +29904,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
 
   // Parser
 
-  var atomicTypes = {"atom": true, "number": true, "variable": true, "string": true,
-                     "regexp": true, "this": true, "import": true, "jsonld-keyword": true};
+  var atomicTypes = {"atom": true, "number": true, "variable": true, "string": true, "regexp": true, "this": true, "jsonld-keyword": true};
 
   function JSLexical(indented, column, type, align, prev, info) {
     this.indented = indented;
@@ -30821,7 +29916,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   }
 
   function inScope(state, varname) {
-    if (!trackScope) return false
     for (var v = state.localVars; v; v = v.next)
       if (v.name == varname) return true;
     for (var cx = state.context; cx; cx = cx.prev) {
@@ -30868,7 +29962,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function register(varname) {
     var state = cx.state;
     cx.marked = "def";
-    if (!trackScope) return
     if (state.context) {
       if (state.lexical.info == "var" && state.context && state.context.block) {
         // FIXME function decls are also not block scoped
@@ -30968,7 +30061,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       return cont(pushlex("form"), parenExpr, statement, poplex, maybeelse);
     }
     if (type == "function") return cont(functiondef);
-    if (type == "for") return cont(pushlex("form"), pushblockcontext, forspec, statement, popcontext, poplex);
+    if (type == "for") return cont(pushlex("form"), forspec, statement, poplex);
     if (type == "class" || (isTS && value == "interface")) {
       cx.marked = "keyword"
       return cont(pushlex("form", type == "class" ? type : value), className, poplex)
@@ -31034,6 +30127,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "{") return contCommasep(objprop, "}", null, maybeop);
     if (type == "quasi") return pass(quasi, maybeop);
     if (type == "new") return cont(maybeTarget(noComma));
+    if (type == "import") return cont(expression);
     return cont();
   }
   function maybeexpression(type) {
@@ -31071,7 +30165,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function quasi(type, value) {
     if (type != "quasi") return pass();
     if (value.slice(value.length - 2) != "${") return cont(quasi);
-    return cont(maybeexpression, continueQuasi);
+    return cont(expression, continueQuasi);
   }
   function continueQuasi(type) {
     if (type == "}") {
@@ -31197,7 +30291,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     }
   }
   function typeexpr(type, value) {
-    if (value == "keyof" || value == "typeof" || value == "infer" || value == "readonly") {
+    if (value == "keyof" || value == "typeof" || value == "infer") {
       cx.marked = "keyword"
       return cont(value == "typeof" ? expressionNoComma : typeexpr)
     }
@@ -31211,13 +30305,12 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "{") return cont(pushlex("}"), typeprops, poplex, afterType)
     if (type == "(") return cont(commasep(typearg, ")"), maybeReturnType, afterType)
     if (type == "<") return cont(commasep(typeexpr, ">"), typeexpr)
-    if (type == "quasi") { return pass(quasiType, afterType); }
   }
   function maybeReturnType(type) {
     if (type == "=>") return cont(typeexpr)
   }
   function typeprops(type) {
-    if (type.match(/[\}\)\]]/)) return cont()
+    if (type == "}") return cont()
     if (type == "," || type == ";") return cont(typeprops)
     return pass(typeprop, typeprops)
   }
@@ -31235,18 +30328,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       return pass(functiondecl, typeprop)
     } else if (!type.match(/[;\}\)\],]/)) {
       return cont()
-    }
-  }
-  function quasiType(type, value) {
-    if (type != "quasi") return pass();
-    if (value.slice(value.length - 2) != "${") return cont(quasiType);
-    return cont(typeexpr, continueQuasiType);
-  }
-  function continueQuasiType(type) {
-    if (type == "}") {
-      cx.marked = "string-2";
-      cx.state.tokenize = tokenQuasi;
-      return cont(quasiType);
     }
   }
   function typearg(type, value) {
@@ -31388,7 +30469,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (value == "@") return cont(expression, classBody)
   }
   function classfield(type, value) {
-    if (value == "!") return cont(classfield)
     if (value == "?") return cont(classfield)
     if (type == ":") return cont(typeexpr, maybeAssign)
     if (value == "=") return cont(expressionNoComma)
@@ -31408,7 +30488,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function afterImport(type) {
     if (type == "string") return cont();
     if (type == "(") return pass(expression);
-    if (type == ".") return pass(maybeoperatorComma);
     return pass(importSpec, maybeMoreImports, maybeFrom);
   }
   function importSpec(type, value) {
@@ -31489,7 +30568,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       if (!/^\s*else\b/.test(textAfter)) for (var i = state.cc.length - 1; i >= 0; --i) {
         var c = state.cc[i];
         if (c == poplex) lexical = lexical.prev;
-        else if (c != maybeelse && c != popcontext) break;
+        else if (c != maybeelse) break;
       }
       while ((lexical.type == "stat" || lexical.type == "form") &&
              (firstChar == "}" || ((top = state.cc[state.cc.length - 1]) &&
@@ -31526,7 +30605,8 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     expressionAllowed: expressionAllowed,
 
     skipExpression: function(state) {
-      parseJS(state, "atom", "atom", "true", new CodeMirror.StringStream("", 2, null))
+      var top = state.cc[state.cc.length - 1]
+      if (top == expression || top == expressionNoComma) state.cc.pop()
     }
   };
 });
@@ -31778,7 +30858,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
 
       // Add this list item's content's indentation to the stack
       state.listStack.push(state.indentation);
-      // Reset inline styles which shouldn't propagate across list items
+      // Reset inline styles which shouldn't propagate aross list items
       state.em = false;
       state.strong = false;
       state.code = false;
@@ -32167,7 +31247,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
           return getType(state);
         }
       } else if (ch === ' ') {
-        if (stream.match('~~', true)) { // Probably surrounded by space
+        if (stream.match(/^~~/, true)) { // Probably surrounded by space
           if (stream.peek() === ' ') { // Surrounded by spaces, ignore
             return getType(state);
           } else { // Not surrounded by spaces, back up pointer
@@ -32266,7 +31346,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   }
 
   function footnoteLinkInside(stream, state) {
-    if (stream.match(']:', true)) {
+    if (stream.match(/^\]:/, true)) {
       state.f = state.inline = footnoteUrl;
       if (modeCfg.highlightFormatting) state.formatting = "link";
       var returnType = getType(state);
@@ -32290,7 +31370,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     if (stream.peek() === undefined) { // End of line, set flag to check next line
       state.linkTitle = true;
     } else { // More content on line, check if link title
-      stream.match(/^(?:\s+(?:"(?:[^"\\]|\\.)+"|'(?:[^'\\]|\\.)+'|\((?:[^)\\]|\\.)+\)))?/, true);
+      stream.match(/^(?:\s+(?:"(?:[^"\\]|\\\\|\\.)+"|'(?:[^'\\]|\\\\|\\.)+'|\((?:[^)\\]|\\\\|\\.)+\)))?/, true);
     }
     state.f = state.inline = inlineNormal;
     return tokenTypes.linkHref + " url";
@@ -32492,7 +31572,7 @@ CodeMirror.defineMIME("text/x-markdown", "markdown");
     {name: "edn", mime: "application/edn", mode: "clojure", ext: ["edn"]},
     {name: "Eiffel", mime: "text/x-eiffel", mode: "eiffel", ext: ["e"]},
     {name: "Elm", mime: "text/x-elm", mode: "elm", ext: ["elm"]},
-    {name: "Embedded JavaScript", mime: "application/x-ejs", mode: "htmlembedded", ext: ["ejs"]},
+    {name: "Embedded Javascript", mime: "application/x-ejs", mode: "htmlembedded", ext: ["ejs"]},
     {name: "Embedded Ruby", mime: "application/x-erb", mode: "htmlembedded", ext: ["erb"]},
     {name: "Erlang", mime: "text/x-erlang", mode: "erlang", ext: ["erl"]},
     {name: "Esper", mime: "text/x-esper", mode: "sql"},
@@ -32524,7 +31604,7 @@ CodeMirror.defineMIME("text/x-markdown", "markdown");
     {name: "JSON-LD", mime: "application/ld+json", mode: "javascript", ext: ["jsonld"], alias: ["jsonld"]},
     {name: "JSX", mime: "text/jsx", mode: "jsx", ext: ["jsx"]},
     {name: "Jinja2", mime: "text/jinja2", mode: "jinja2", ext: ["j2", "jinja", "jinja2"]},
-    {name: "Julia", mime: "text/x-julia", mode: "julia", ext: ["jl"], alias: ["jl"]},
+    {name: "Julia", mime: "text/x-julia", mode: "julia", ext: ["jl"]},
     {name: "Kotlin", mime: "text/x-kotlin", mode: "clike", ext: ["kt"]},
     {name: "LESS", mime: "text/x-less", mode: "css", ext: ["less"]},
     {name: "LiveScript", mime: "text/x-livescript", mode: "livescript", ext: ["ls"], alias: ["ls"]},
@@ -32914,7 +31994,7 @@ CodeMirror.defineMIME("text/x-nginx-conf", "nginx");
           [["]", null]]
         ], closing, escapes);
       }
-      if (stream.match(/^->\w/, false)) {
+      if (stream.match(/\-\>\w/, false)) {
         // Match object operator
         state.tokenize = matchSequence([
           [["->", null]],
@@ -32947,7 +32027,7 @@ CodeMirror.defineMIME("text/x-nginx-conf", "nginx");
     "die echo empty exit eval include include_once isset list require require_once return " +
     "print unset __halt_compiler self static parent yield insteadof finally";
   var phpAtoms = "true false null TRUE FALSE NULL __CLASS__ __DIR__ __FILE__ __LINE__ __METHOD__ __FUNCTION__ __NAMESPACE__ __TRAIT__";
-  var phpBuiltin = "func_num_args func_get_arg func_get_args strlen strcmp strncmp strcasecmp strncasecmp each error_reporting define defined trigger_error user_error set_error_handler restore_error_handler get_declared_classes get_loaded_extensions extension_loaded get_extension_funcs debug_backtrace constant bin2hex hex2bin sleep usleep time mktime gmmktime strftime gmstrftime strtotime date gmdate getdate localtime checkdate flush wordwrap htmlspecialchars htmlentities html_entity_decode md5 md5_file crc32 getimagesize image_type_to_mime_type phpinfo phpversion phpcredits strnatcmp strnatcasecmp substr_count strspn strcspn strtok strtoupper strtolower strpos strrpos strrev hebrev hebrevc nl2br basename dirname pathinfo stripslashes stripcslashes strstr stristr strrchr str_shuffle str_word_count strcoll substr substr_replace quotemeta ucfirst ucwords strtr addslashes addcslashes rtrim str_replace str_repeat count_chars chunk_split trim ltrim strip_tags similar_text explode implode setlocale localeconv parse_str str_pad chop strchr sprintf printf vprintf vsprintf sscanf fscanf parse_url urlencode urldecode rawurlencode rawurldecode readlink linkinfo link unlink exec system escapeshellcmd escapeshellarg passthru shell_exec proc_open proc_close rand srand getrandmax mt_rand mt_srand mt_getrandmax base64_decode base64_encode abs ceil floor round is_finite is_nan is_infinite bindec hexdec octdec decbin decoct dechex base_convert number_format fmod ip2long long2ip getenv putenv getopt microtime gettimeofday getrusage uniqid quoted_printable_decode set_time_limit get_cfg_var magic_quotes_runtime set_magic_quotes_runtime get_magic_quotes_gpc get_magic_quotes_runtime import_request_variables error_log serialize unserialize memory_get_usage memory_get_peak_usage var_dump var_export debug_zval_dump print_r highlight_file show_source highlight_string ini_get ini_get_all ini_set ini_alter ini_restore get_include_path set_include_path restore_include_path setcookie header headers_sent connection_aborted connection_status ignore_user_abort parse_ini_file is_uploaded_file move_uploaded_file intval floatval doubleval strval gettype settype is_null is_resource is_bool is_long is_float is_int is_integer is_double is_real is_numeric is_string is_array is_object is_scalar ereg ereg_replace eregi eregi_replace split spliti join sql_regcase dl pclose popen readfile rewind rmdir umask fclose feof fgetc fgets fgetss fread fopen fpassthru ftruncate fstat fseek ftell fflush fwrite fputs mkdir rename copy tempnam tmpfile file file_get_contents file_put_contents stream_select stream_context_create stream_context_set_params stream_context_set_option stream_context_get_options stream_filter_prepend stream_filter_append fgetcsv flock get_meta_tags stream_set_write_buffer set_file_buffer set_socket_blocking stream_set_blocking socket_set_blocking stream_get_meta_data stream_register_wrapper stream_wrapper_register stream_set_timeout socket_set_timeout socket_get_status realpath fnmatch fsockopen pfsockopen pack unpack get_browser crypt opendir closedir chdir getcwd rewinddir readdir dir glob fileatime filectime filegroup fileinode filemtime fileowner fileperms filesize filetype file_exists is_writable is_writeable is_readable is_executable is_file is_dir is_link stat lstat chown touch clearstatcache mail ob_start ob_flush ob_clean ob_end_flush ob_end_clean ob_get_flush ob_get_clean ob_get_length ob_get_level ob_get_status ob_get_contents ob_implicit_flush ob_list_handlers ksort krsort natsort natcasesort asort arsort sort rsort usort uasort uksort shuffle array_walk count end prev next reset current key min max in_array array_search extract compact array_fill range array_multisort array_push array_pop array_shift array_unshift array_splice array_slice array_merge array_merge_recursive array_keys array_values array_count_values array_reverse array_reduce array_pad array_flip array_change_key_case array_rand array_unique array_intersect array_intersect_assoc array_diff array_diff_assoc array_sum array_filter array_map array_chunk array_key_exists array_intersect_key array_combine array_column pos sizeof key_exists assert assert_options version_compare ftok str_rot13 aggregate session_name session_module_name session_save_path session_id session_regenerate_id session_decode session_register session_unregister session_is_registered session_encode session_start session_destroy session_unset session_set_save_handler session_cache_limiter session_cache_expire session_set_cookie_params session_get_cookie_params session_write_close preg_match preg_match_all preg_replace preg_replace_callback preg_split preg_quote preg_grep overload ctype_alnum ctype_alpha ctype_cntrl ctype_digit ctype_lower ctype_graph ctype_print ctype_punct ctype_space ctype_upper ctype_xdigit virtual apache_request_headers apache_note apache_lookup_uri apache_child_terminate apache_setenv apache_response_headers apache_get_version getallheaders mysql_connect mysql_pconnect mysql_close mysql_select_db mysql_create_db mysql_drop_db mysql_query mysql_unbuffered_query mysql_db_query mysql_list_dbs mysql_list_tables mysql_list_fields mysql_list_processes mysql_error mysql_errno mysql_affected_rows mysql_insert_id mysql_result mysql_num_rows mysql_num_fields mysql_fetch_row mysql_fetch_array mysql_fetch_assoc mysql_fetch_object mysql_data_seek mysql_fetch_lengths mysql_fetch_field mysql_field_seek mysql_free_result mysql_field_name mysql_field_table mysql_field_len mysql_field_type mysql_field_flags mysql_escape_string mysql_real_escape_string mysql_stat mysql_thread_id mysql_client_encoding mysql_get_client_info mysql_get_host_info mysql_get_proto_info mysql_get_server_info mysql_info mysql mysql_fieldname mysql_fieldtable mysql_fieldlen mysql_fieldtype mysql_fieldflags mysql_selectdb mysql_createdb mysql_dropdb mysql_freeresult mysql_numfields mysql_numrows mysql_listdbs mysql_listtables mysql_listfields mysql_db_name mysql_dbname mysql_tablename mysql_table_name pg_connect pg_pconnect pg_close pg_connection_status pg_connection_busy pg_connection_reset pg_host pg_dbname pg_port pg_tty pg_options pg_ping pg_query pg_send_query pg_cancel_query pg_fetch_result pg_fetch_row pg_fetch_assoc pg_fetch_array pg_fetch_object pg_fetch_all pg_affected_rows pg_get_result pg_result_seek pg_result_status pg_free_result pg_last_oid pg_num_rows pg_num_fields pg_field_name pg_field_num pg_field_size pg_field_type pg_field_prtlen pg_field_is_null pg_get_notify pg_get_pid pg_result_error pg_last_error pg_last_notice pg_put_line pg_end_copy pg_copy_to pg_copy_from pg_trace pg_untrace pg_lo_create pg_lo_unlink pg_lo_open pg_lo_close pg_lo_read pg_lo_write pg_lo_read_all pg_lo_import pg_lo_export pg_lo_seek pg_lo_tell pg_escape_string pg_escape_bytea pg_unescape_bytea pg_client_encoding pg_set_client_encoding pg_meta_data pg_convert pg_insert pg_update pg_delete pg_select pg_exec pg_getlastoid pg_cmdtuples pg_errormessage pg_numrows pg_numfields pg_fieldname pg_fieldsize pg_fieldtype pg_fieldnum pg_fieldprtlen pg_fieldisnull pg_freeresult pg_result pg_loreadall pg_locreate pg_lounlink pg_loopen pg_loclose pg_loread pg_lowrite pg_loimport pg_loexport http_response_code get_declared_traits getimagesizefromstring socket_import_stream stream_set_chunk_size trait_exists header_register_callback class_uses session_status session_register_shutdown echo print global static exit array empty eval isset unset die include require include_once require_once json_decode json_encode json_last_error json_last_error_msg curl_close curl_copy_handle curl_errno curl_error curl_escape curl_exec curl_file_create curl_getinfo curl_init curl_multi_add_handle curl_multi_close curl_multi_exec curl_multi_getcontent curl_multi_info_read curl_multi_init curl_multi_remove_handle curl_multi_select curl_multi_setopt curl_multi_strerror curl_pause curl_reset curl_setopt_array curl_setopt curl_share_close curl_share_init curl_share_setopt curl_strerror curl_unescape curl_version mysqli_affected_rows mysqli_autocommit mysqli_change_user mysqli_character_set_name mysqli_close mysqli_commit mysqli_connect_errno mysqli_connect_error mysqli_connect mysqli_data_seek mysqli_debug mysqli_dump_debug_info mysqli_errno mysqli_error_list mysqli_error mysqli_fetch_all mysqli_fetch_array mysqli_fetch_assoc mysqli_fetch_field_direct mysqli_fetch_field mysqli_fetch_fields mysqli_fetch_lengths mysqli_fetch_object mysqli_fetch_row mysqli_field_count mysqli_field_seek mysqli_field_tell mysqli_free_result mysqli_get_charset mysqli_get_client_info mysqli_get_client_stats mysqli_get_client_version mysqli_get_connection_stats mysqli_get_host_info mysqli_get_proto_info mysqli_get_server_info mysqli_get_server_version mysqli_info mysqli_init mysqli_insert_id mysqli_kill mysqli_more_results mysqli_multi_query mysqli_next_result mysqli_num_fields mysqli_num_rows mysqli_options mysqli_ping mysqli_prepare mysqli_query mysqli_real_connect mysqli_real_escape_string mysqli_real_query mysqli_reap_async_query mysqli_refresh mysqli_rollback mysqli_select_db mysqli_set_charset mysqli_set_local_infile_default mysqli_set_local_infile_handler mysqli_sqlstate mysqli_ssl_set mysqli_stat mysqli_stmt_init mysqli_store_result mysqli_thread_id mysqli_thread_safe mysqli_use_result mysqli_warning_count";
+  var phpBuiltin = "func_num_args func_get_arg func_get_args strlen strcmp strncmp strcasecmp strncasecmp each error_reporting define defined trigger_error user_error set_error_handler restore_error_handler get_declared_classes get_loaded_extensions extension_loaded get_extension_funcs debug_backtrace constant bin2hex hex2bin sleep usleep time mktime gmmktime strftime gmstrftime strtotime date gmdate getdate localtime checkdate flush wordwrap htmlspecialchars htmlentities html_entity_decode md5 md5_file crc32 getimagesize image_type_to_mime_type phpinfo phpversion phpcredits strnatcmp strnatcasecmp substr_count strspn strcspn strtok strtoupper strtolower strpos strrpos strrev hebrev hebrevc nl2br basename dirname pathinfo stripslashes stripcslashes strstr stristr strrchr str_shuffle str_word_count strcoll substr substr_replace quotemeta ucfirst ucwords strtr addslashes addcslashes rtrim str_replace str_repeat count_chars chunk_split trim ltrim strip_tags similar_text explode implode setlocale localeconv parse_str str_pad chop strchr sprintf printf vprintf vsprintf sscanf fscanf parse_url urlencode urldecode rawurlencode rawurldecode readlink linkinfo link unlink exec system escapeshellcmd escapeshellarg passthru shell_exec proc_open proc_close rand srand getrandmax mt_rand mt_srand mt_getrandmax base64_decode base64_encode abs ceil floor round is_finite is_nan is_infinite bindec hexdec octdec decbin decoct dechex base_convert number_format fmod ip2long long2ip getenv putenv getopt microtime gettimeofday getrusage uniqid quoted_printable_decode set_time_limit get_cfg_var magic_quotes_runtime set_magic_quotes_runtime get_magic_quotes_gpc get_magic_quotes_runtime import_request_variables error_log serialize unserialize memory_get_usage var_dump var_export debug_zval_dump print_r highlight_file show_source highlight_string ini_get ini_get_all ini_set ini_alter ini_restore get_include_path set_include_path restore_include_path setcookie header headers_sent connection_aborted connection_status ignore_user_abort parse_ini_file is_uploaded_file move_uploaded_file intval floatval doubleval strval gettype settype is_null is_resource is_bool is_long is_float is_int is_integer is_double is_real is_numeric is_string is_array is_object is_scalar ereg ereg_replace eregi eregi_replace split spliti join sql_regcase dl pclose popen readfile rewind rmdir umask fclose feof fgetc fgets fgetss fread fopen fpassthru ftruncate fstat fseek ftell fflush fwrite fputs mkdir rename copy tempnam tmpfile file file_get_contents file_put_contents stream_select stream_context_create stream_context_set_params stream_context_set_option stream_context_get_options stream_filter_prepend stream_filter_append fgetcsv flock get_meta_tags stream_set_write_buffer set_file_buffer set_socket_blocking stream_set_blocking socket_set_blocking stream_get_meta_data stream_register_wrapper stream_wrapper_register stream_set_timeout socket_set_timeout socket_get_status realpath fnmatch fsockopen pfsockopen pack unpack get_browser crypt opendir closedir chdir getcwd rewinddir readdir dir glob fileatime filectime filegroup fileinode filemtime fileowner fileperms filesize filetype file_exists is_writable is_writeable is_readable is_executable is_file is_dir is_link stat lstat chown touch clearstatcache mail ob_start ob_flush ob_clean ob_end_flush ob_end_clean ob_get_flush ob_get_clean ob_get_length ob_get_level ob_get_status ob_get_contents ob_implicit_flush ob_list_handlers ksort krsort natsort natcasesort asort arsort sort rsort usort uasort uksort shuffle array_walk count end prev next reset current key min max in_array array_search extract compact array_fill range array_multisort array_push array_pop array_shift array_unshift array_splice array_slice array_merge array_merge_recursive array_keys array_values array_count_values array_reverse array_reduce array_pad array_flip array_change_key_case array_rand array_unique array_intersect array_intersect_assoc array_diff array_diff_assoc array_sum array_filter array_map array_chunk array_key_exists array_intersect_key array_combine array_column pos sizeof key_exists assert assert_options version_compare ftok str_rot13 aggregate session_name session_module_name session_save_path session_id session_regenerate_id session_decode session_register session_unregister session_is_registered session_encode session_start session_destroy session_unset session_set_save_handler session_cache_limiter session_cache_expire session_set_cookie_params session_get_cookie_params session_write_close preg_match preg_match_all preg_replace preg_replace_callback preg_split preg_quote preg_grep overload ctype_alnum ctype_alpha ctype_cntrl ctype_digit ctype_lower ctype_graph ctype_print ctype_punct ctype_space ctype_upper ctype_xdigit virtual apache_request_headers apache_note apache_lookup_uri apache_child_terminate apache_setenv apache_response_headers apache_get_version getallheaders mysql_connect mysql_pconnect mysql_close mysql_select_db mysql_create_db mysql_drop_db mysql_query mysql_unbuffered_query mysql_db_query mysql_list_dbs mysql_list_tables mysql_list_fields mysql_list_processes mysql_error mysql_errno mysql_affected_rows mysql_insert_id mysql_result mysql_num_rows mysql_num_fields mysql_fetch_row mysql_fetch_array mysql_fetch_assoc mysql_fetch_object mysql_data_seek mysql_fetch_lengths mysql_fetch_field mysql_field_seek mysql_free_result mysql_field_name mysql_field_table mysql_field_len mysql_field_type mysql_field_flags mysql_escape_string mysql_real_escape_string mysql_stat mysql_thread_id mysql_client_encoding mysql_get_client_info mysql_get_host_info mysql_get_proto_info mysql_get_server_info mysql_info mysql mysql_fieldname mysql_fieldtable mysql_fieldlen mysql_fieldtype mysql_fieldflags mysql_selectdb mysql_createdb mysql_dropdb mysql_freeresult mysql_numfields mysql_numrows mysql_listdbs mysql_listtables mysql_listfields mysql_db_name mysql_dbname mysql_tablename mysql_table_name pg_connect pg_pconnect pg_close pg_connection_status pg_connection_busy pg_connection_reset pg_host pg_dbname pg_port pg_tty pg_options pg_ping pg_query pg_send_query pg_cancel_query pg_fetch_result pg_fetch_row pg_fetch_assoc pg_fetch_array pg_fetch_object pg_fetch_all pg_affected_rows pg_get_result pg_result_seek pg_result_status pg_free_result pg_last_oid pg_num_rows pg_num_fields pg_field_name pg_field_num pg_field_size pg_field_type pg_field_prtlen pg_field_is_null pg_get_notify pg_get_pid pg_result_error pg_last_error pg_last_notice pg_put_line pg_end_copy pg_copy_to pg_copy_from pg_trace pg_untrace pg_lo_create pg_lo_unlink pg_lo_open pg_lo_close pg_lo_read pg_lo_write pg_lo_read_all pg_lo_import pg_lo_export pg_lo_seek pg_lo_tell pg_escape_string pg_escape_bytea pg_unescape_bytea pg_client_encoding pg_set_client_encoding pg_meta_data pg_convert pg_insert pg_update pg_delete pg_select pg_exec pg_getlastoid pg_cmdtuples pg_errormessage pg_numrows pg_numfields pg_fieldname pg_fieldsize pg_fieldtype pg_fieldnum pg_fieldprtlen pg_fieldisnull pg_freeresult pg_result pg_loreadall pg_locreate pg_lounlink pg_loopen pg_loclose pg_loread pg_lowrite pg_loimport pg_loexport http_response_code get_declared_traits getimagesizefromstring socket_import_stream stream_set_chunk_size trait_exists header_register_callback class_uses session_status session_register_shutdown echo print global static exit array empty eval isset unset die include require include_once require_once json_decode json_encode json_last_error json_last_error_msg curl_close curl_copy_handle curl_errno curl_error curl_escape curl_exec curl_file_create curl_getinfo curl_init curl_multi_add_handle curl_multi_close curl_multi_exec curl_multi_getcontent curl_multi_info_read curl_multi_init curl_multi_remove_handle curl_multi_select curl_multi_setopt curl_multi_strerror curl_pause curl_reset curl_setopt_array curl_setopt curl_share_close curl_share_init curl_share_setopt curl_strerror curl_unescape curl_version mysqli_affected_rows mysqli_autocommit mysqli_change_user mysqli_character_set_name mysqli_close mysqli_commit mysqli_connect_errno mysqli_connect_error mysqli_connect mysqli_data_seek mysqli_debug mysqli_dump_debug_info mysqli_errno mysqli_error_list mysqli_error mysqli_fetch_all mysqli_fetch_array mysqli_fetch_assoc mysqli_fetch_field_direct mysqli_fetch_field mysqli_fetch_fields mysqli_fetch_lengths mysqli_fetch_object mysqli_fetch_row mysqli_field_count mysqli_field_seek mysqli_field_tell mysqli_free_result mysqli_get_charset mysqli_get_client_info mysqli_get_client_stats mysqli_get_client_version mysqli_get_connection_stats mysqli_get_host_info mysqli_get_proto_info mysqli_get_server_info mysqli_get_server_version mysqli_info mysqli_init mysqli_insert_id mysqli_kill mysqli_more_results mysqli_multi_query mysqli_next_result mysqli_num_fields mysqli_num_rows mysqli_options mysqli_ping mysqli_prepare mysqli_query mysqli_real_connect mysqli_real_escape_string mysqli_real_query mysqli_reap_async_query mysqli_refresh mysqli_rollback mysqli_select_db mysqli_set_charset mysqli_set_local_infile_default mysqli_set_local_infile_handler mysqli_sqlstate mysqli_ssl_set mysqli_stat mysqli_stmt_init mysqli_store_result mysqli_thread_id mysqli_thread_safe mysqli_use_result mysqli_warning_count";
   CodeMirror.registerHelper("hintWords", "php", [phpKeywords, phpAtoms, phpBuiltin].join(" ").split(" "));
   CodeMirror.registerHelper("wordChars", "php", /[\w$]/);
 
@@ -32967,7 +32047,7 @@ CodeMirror.defineMIME("text/x-nginx-conf", "nginx");
       },
       "<": function(stream, state) {
         var before;
-        if (before = stream.match(/^<<\s*/)) {
+        if (before = stream.match(/<<\s*/)) {
           var quoted = stream.eat(/['"]/);
           stream.eatWhile(/[\w\.]/);
           var delim = stream.current().slice(before[0].length + (quoted ? 2 : 1));
@@ -33363,7 +32443,7 @@ CodeMirror.defineMode("pug", function (config) {
       }
       return 'variable';
     }
-    if (stream.match('+#{', false)) {
+    if (stream.match(/^\+#{/, false)) {
       stream.next();
       state.mixinCallAfter = true;
       return interpolation(stream, state);
@@ -34241,7 +33321,7 @@ CodeMirror.defineMode("sass", function(config) {
       }
 
       if(ch === "@"){
-        if(stream.match('@extend')){
+        if(stream.match(/@extend/)){
           if(!stream.match(/\s*[\w]/))
             dedent(state);
         }
@@ -34455,12 +33535,7 @@ CodeMirror.defineMode("sass", function(config) {
 
     indent: function(state) {
       return state.scopes[0].offset;
-    },
-
-    blockCommentStart: "/*",
-    blockCommentEnd: "*/",
-    lineComment: "//",
-    fold: "indent"
+    }
   };
 }, "css");
 
@@ -34894,9 +33969,9 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     // varName can be quoted with ` or ' or "
     // ref: http://dev.mysql.com/doc/refman/5.5/en/user-variables.html
     if (stream.eat("@")) {
-      stream.match('session.');
-      stream.match('local.');
-      stream.match('global.');
+      stream.match(/^session\./);
+      stream.match(/^local\./);
+      stream.match(/^global\./);
     }
 
     if (stream.eat("'")) {
@@ -35021,7 +34096,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
       "$":   hookVar,
       // The preferred way to escape Identifiers is using double quotes, ref: http://sqlite.org/lang_keywords.html
       "\"":   hookIdentifierDoublequote,
-      // there is also support for backticks, ref: http://sqlite.org/lang_keywords.html
+      // there is also support for backtics, ref: http://sqlite.org/lang_keywords.html
       "`":   hookIdentifier
     }
   });
@@ -35102,7 +34177,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
   // Spark SQL
   CodeMirror.defineMIME("text/x-sparksql", {
     name: "sql",
-    keywords: set("add after all alter analyze and anti archive array as asc at between bucket buckets by cache cascade case cast change clear cluster clustered codegen collection column columns comment commit compact compactions compute concatenate cost create cross cube current current_date current_timestamp database databases data dbproperties defined delete delimited deny desc describe dfs directories distinct distribute drop else end escaped except exchange exists explain export extended external false fields fileformat first following for format formatted from full function functions global grant group grouping having if ignore import in index indexes inner inpath inputformat insert intersect interval into is items join keys last lateral lazy left like limit lines list load local location lock locks logical macro map minus msck natural no not null nulls of on optimize option options or order out outer outputformat over overwrite partition partitioned partitions percent preceding principals purge range recordreader recordwriter recover reduce refresh regexp rename repair replace reset restrict revoke right rlike role roles rollback rollup row rows schema schemas select semi separated serde serdeproperties set sets show skewed sort sorted start statistics stored stratify struct table tables tablesample tblproperties temp temporary terminated then to touch transaction transactions transform true truncate unarchive unbounded uncache union unlock unset use using values view when where window with"),
+    keywords: set("add after all alter analyze and anti archive array as asc at between bucket buckets by cache cascade case cast change clear cluster clustered codegen collection column columns comment commit compact compactions compute concatenate cost create cross cube current current_date current_timestamp database databases datata dbproperties defined delete delimited deny desc describe dfs directories distinct distribute drop else end escaped except exchange exists explain export extended external false fields fileformat first following for format formatted from full function functions global grant group grouping having if ignore import in index indexes inner inpath inputformat insert intersect interval into is items join keys last lateral lazy left like limit lines list load local location lock locks logical macro map minus msck natural no not null nulls of on optimize option options or order out outer outputformat over overwrite partition partitioned partitions percent preceding principals purge range recordreader recordwriter recover reduce refresh regexp rename repair replace reset restrict revoke right rlike role roles rollback rollup row rows schema schemas select semi separated serde serdeproperties set sets show skewed sort sorted start statistics stored stratify struct table tables tablesample tblproperties temp temporary terminated then to touch transaction transactions transform true truncate unarchive unbounded uncache union unlock unset use using values view when where window with"),
     builtin: set("tinyint smallint int bigint boolean float double string binary timestamp decimal array map struct uniontype delimited serde sequencefile textfile rcfile inputformat outputformat"),
     atoms: set("false true null"),
     operatorChars: /^[*\/+\-%<>!=~&|^]/,
@@ -35299,7 +34374,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
         // Variable
         if (stream.match(/^(\.|\[)[\w-\'\"\]]+/i, false)) {
           if (!wordIsTag(stream.current())) {
-            stream.match('.');
+            stream.match(/\./);
             return ["variable-2", "variable-name"];
           }
         }
@@ -36612,55 +35687,51 @@ if (!CodeMirror.mimeModes.hasOwnProperty("text/html"))
     var yamlMode = CodeMirror.getMode(config, "yaml")
     var innerMode = CodeMirror.getMode(config, parserConfig && parserConfig.base || "gfm")
 
-    function localMode(state) {
-      return state.state == FRONTMATTER ? {mode: yamlMode, state: state.yaml} : {mode: innerMode, state: state.inner}
+    function curMode(state) {
+      return state.state == BODY ? innerMode : yamlMode
     }
 
     return {
       startState: function () {
         return {
           state: START,
-          yaml: null,
-          inner: CodeMirror.startState(innerMode)
+          inner: CodeMirror.startState(yamlMode)
         }
       },
       copyState: function (state) {
         return {
           state: state.state,
-          yaml: state.yaml && CodeMirror.copyState(yamlMode, state.yaml),
-          inner: CodeMirror.copyState(innerMode, state.inner)
+          inner: CodeMirror.copyState(curMode(state), state.inner)
         }
       },
       token: function (stream, state) {
         if (state.state == START) {
-          if (stream.match('---', false)) {
+          if (stream.match(/---/, false)) {
             state.state = FRONTMATTER
-            state.yaml = CodeMirror.startState(yamlMode)
-            return yamlMode.token(stream, state.yaml)
+            return yamlMode.token(stream, state.inner)
           } else {
             state.state = BODY
+            state.inner = CodeMirror.startState(innerMode)
             return innerMode.token(stream, state.inner)
           }
         } else if (state.state == FRONTMATTER) {
           var end = stream.sol() && stream.match(/(---|\.\.\.)/, false)
-          var style = yamlMode.token(stream, state.yaml)
+          var style = yamlMode.token(stream, state.inner)
           if (end) {
             state.state = BODY
-            state.yaml = null
+            state.inner = CodeMirror.startState(innerMode)
           }
           return style
         } else {
           return innerMode.token(stream, state.inner)
         }
       },
-      innerMode: localMode,
-      indent: function(state, a, b) {
-        var m = localMode(state)
-        return m.mode.indent ? m.mode.indent(m.state, a, b) : CodeMirror.Pass
+      innerMode: function (state) {
+        return {mode: curMode(state), state: state.inner}
       },
       blankLine: function (state) {
-        var m = localMode(state)
-        if (m.mode.blankLine) return m.mode.blankLine(m.state)
+        var mode = curMode(state)
+        if (mode.blankLine) return mode.blankLine(state.inner)
       }
     }
   })
@@ -36712,9 +35783,9 @@ CodeMirror.defineMode("yaml", function() {
         state.pair = false;
         state.pairStart = false;
         /* document start */
-        if(stream.match('---')) { return "def"; }
+        if(stream.match(/---/)) { return "def"; }
         /* document end */
-        if (stream.match('...')) { return "def"; }
+        if (stream.match(/\.\.\./)) { return "def"; }
         /* array list item */
         if (stream.match(/\s*-\s+/)) { return 'meta'; }
       }
@@ -36731,12 +35802,12 @@ CodeMirror.defineMode("yaml", function() {
         return 'meta';
       }
 
-      /* list separator */
+      /* list seperator */
       if (state.inlineList > 0 && !esc && ch == ',') {
         stream.next();
         return 'meta';
       }
-      /* pairs separator */
+      /* pairs seperator */
       if (state.inlinePairs > 0 && !esc && ch == ',') {
         state.keyCol = 0;
         state.pair = false;
@@ -38898,7 +37969,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
+exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: transparent; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
 
 // exports
 
@@ -38958,7 +38029,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
+exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: transparent; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
 
 // exports
 
@@ -39048,7 +38119,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       Base16 Default Dark\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n.cm-s-base16-dark.CodeMirror { background: #151515; color: #e0e0e0;\n}\n.cm-s-base16-dark div.CodeMirror-selected { background: #303030;\n}\n.cm-s-base16-dark .CodeMirror-line::selection, .cm-s-base16-dark .CodeMirror-line > span::selection, .cm-s-base16-dark .CodeMirror-line > span > span::selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-line::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span > span::-moz-selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-gutters { background: #151515; border-right: 0px;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker { color: #ac4142;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker-subtle { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-linenumber { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-cursor { border-left: 1px solid #b0b0b0;\n}\n.cm-s-base16-dark.cm-fat-cursor .CodeMirror-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-base16-dark .cm-animate-fat-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-base16-dark span.cm-comment { color: #8f5536;\n}\n.cm-s-base16-dark span.cm-atom { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-number { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-property, .cm-s-base16-dark span.cm-attribute { color: #90a959;\n}\n.cm-s-base16-dark span.cm-keyword { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-string { color: #f4bf75;\n}\n.cm-s-base16-dark span.cm-variable { color: #90a959;\n}\n.cm-s-base16-dark span.cm-variable-2 { color: #6a9fb5;\n}\n.cm-s-base16-dark span.cm-def { color: #d28445;\n}\n.cm-s-base16-dark span.cm-bracket { color: #e0e0e0;\n}\n.cm-s-base16-dark span.cm-tag { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-link { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-error { background: #ac4142; color: #b0b0b0;\n}\n.cm-s-base16-dark .CodeMirror-activeline-background { background: #202020;\n}\n.cm-s-base16-dark .CodeMirror-matchingbracket { text-decoration: underline; color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       Base16 Default Dark\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n.cm-s-base16-dark.CodeMirror { background: #151515; color: #e0e0e0;\n}\n.cm-s-base16-dark div.CodeMirror-selected { background: #303030;\n}\n.cm-s-base16-dark .CodeMirror-line::selection, .cm-s-base16-dark .CodeMirror-line > span::selection, .cm-s-base16-dark .CodeMirror-line > span > span::selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-line::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span > span::-moz-selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-gutters { background: #151515; border-right: 0px;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker { color: #ac4142;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker-subtle { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-linenumber { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-cursor { border-left: 1px solid #b0b0b0;\n}\n.cm-s-base16-dark span.cm-comment { color: #8f5536;\n}\n.cm-s-base16-dark span.cm-atom { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-number { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-property, .cm-s-base16-dark span.cm-attribute { color: #90a959;\n}\n.cm-s-base16-dark span.cm-keyword { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-string { color: #f4bf75;\n}\n.cm-s-base16-dark span.cm-variable { color: #90a959;\n}\n.cm-s-base16-dark span.cm-variable-2 { color: #6a9fb5;\n}\n.cm-s-base16-dark span.cm-def { color: #d28445;\n}\n.cm-s-base16-dark span.cm-bracket { color: #e0e0e0;\n}\n.cm-s-base16-dark span.cm-tag { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-link { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-error { background: #ac4142; color: #b0b0b0;\n}\n.cm-s-base16-dark .CodeMirror-activeline-background { background: #202020;\n}\n.cm-s-base16-dark .CodeMirror-matchingbracket { text-decoration: underline; color: white !important;\n}\n", ""]);
 
 // exports
 
@@ -39243,7 +38314,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       gruvbox-dark\n    Author:     kRkk (https://github.com/krkk)\n\n    Original gruvbox color scheme by Pavel Pertsev (https://github.com/morhetz/gruvbox)\n\n*/\n.cm-s-gruvbox-dark.CodeMirror, .cm-s-gruvbox-dark .CodeMirror-gutters { background-color: #282828; color: #bdae93;\n}\n.cm-s-gruvbox-dark .CodeMirror-gutters {background: #282828; border-right: 0px;\n}\n.cm-s-gruvbox-dark .CodeMirror-linenumber {color: #7c6f64;\n}\n.cm-s-gruvbox-dark .CodeMirror-cursor { border-left: 1px solid #ebdbb2;\n}\n.cm-s-gruvbox-dark.cm-fat-cursor .CodeMirror-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-gruvbox-dark .cm-animate-fat-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-gruvbox-dark div.CodeMirror-selected { background: #928374;\n}\n.cm-s-gruvbox-dark span.cm-meta { color: #83a598;\n}\n.cm-s-gruvbox-dark span.cm-comment { color: #928374;\n}\n.cm-s-gruvbox-dark span.cm-number, span.cm-atom { color: #d3869b;\n}\n.cm-s-gruvbox-dark span.cm-keyword { color: #f84934;\n}\n.cm-s-gruvbox-dark span.cm-variable { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-2 { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-3, .cm-s-gruvbox-dark span.cm-type { color: #fabd2f;\n}\n.cm-s-gruvbox-dark span.cm-operator { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-callee { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-def { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-property { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-string { color: #b8bb26;\n}\n.cm-s-gruvbox-dark span.cm-string-2 { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-qualifier { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-attribute { color: #8ec07c;\n}\n.cm-s-gruvbox-dark .CodeMirror-activeline-background { background: #3c3836;\n}\n.cm-s-gruvbox-dark .CodeMirror-matchingbracket { background: #928374; color:#282828 !important;\n}\n.cm-s-gruvbox-dark span.cm-builtin { color: #fe8019;\n}\n.cm-s-gruvbox-dark span.cm-tag { color: #fe8019;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       gruvbox-dark\n    Author:     kRkk (https://github.com/krkk)\n\n    Original gruvbox color scheme by Pavel Pertsev (https://github.com/morhetz/gruvbox)\n\n*/\n.cm-s-gruvbox-dark.CodeMirror, .cm-s-gruvbox-dark .CodeMirror-gutters { background-color: #282828; color: #bdae93;\n}\n.cm-s-gruvbox-dark .CodeMirror-gutters {background: #282828; border-right: 0px;\n}\n.cm-s-gruvbox-dark .CodeMirror-linenumber {color: #7c6f64;\n}\n.cm-s-gruvbox-dark .CodeMirror-cursor { border-left: 1px solid #ebdbb2;\n}\n.cm-s-gruvbox-dark div.CodeMirror-selected { background: #928374;\n}\n.cm-s-gruvbox-dark span.cm-meta { color: #83a598;\n}\n.cm-s-gruvbox-dark span.cm-comment { color: #928374;\n}\n.cm-s-gruvbox-dark span.cm-number, span.cm-atom { color: #d3869b;\n}\n.cm-s-gruvbox-dark span.cm-keyword { color: #f84934;\n}\n.cm-s-gruvbox-dark span.cm-variable { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-2 { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-3, .cm-s-gruvbox-dark span.cm-type { color: #fabd2f;\n}\n.cm-s-gruvbox-dark span.cm-operator { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-callee { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-def { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-property { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-string { color: #b8bb26;\n}\n.cm-s-gruvbox-dark span.cm-string-2 { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-qualifier { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-attribute { color: #8ec07c;\n}\n.cm-s-gruvbox-dark .CodeMirror-activeline-background { background: #3c3836;\n}\n.cm-s-gruvbox-dark .CodeMirror-matchingbracket { background: #928374; color:#282828 !important;\n}\n.cm-s-gruvbox-dark span.cm-builtin { color: #fe8019;\n}\n.cm-s-gruvbox-dark span.cm-tag { color: #fe8019;\n}\n", ""]);
 
 // exports
 
@@ -39363,7 +38434,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n  Name:       material\n  Author:     Mattia Astorino (http://github.com/equinusocio)\n  Website:    https://material-theme.site/\n*/\n.cm-s-material.CodeMirror {\n  background-color: #263238;\n  color: #EEFFFF;\n}\n.cm-s-material .CodeMirror-gutters {\n  background: #263238;\n  color: #546E7A;\n  border: none;\n}\n.cm-s-material .CodeMirror-guttermarker,\n.cm-s-material .CodeMirror-guttermarker-subtle,\n.cm-s-material .CodeMirror-linenumber {\n  color: #546E7A;\n}\n.cm-s-material .CodeMirror-cursor {\n  border-left: 1px solid #FFCC00;\n}\n.cm-s-material.cm-fat-cursor .CodeMirror-cursor {\n  background-color: #5d6d5c80 !important;\n}\n.cm-s-material .cm-animate-fat-cursor {\n  background-color: #5d6d5c80 !important;\n}\n.cm-s-material div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material.CodeMirror-focused div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::selection,\n.cm-s-material .CodeMirror-line>span::selection,\n.cm-s-material .CodeMirror-line>span>span::selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::-moz-selection,\n.cm-s-material .CodeMirror-line>span::-moz-selection,\n.cm-s-material .CodeMirror-line>span>span::-moz-selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-activeline-background {\n  background: rgba(0, 0, 0, 0.5);\n}\n.cm-s-material .cm-keyword {\n  color: #C792EA;\n}\n.cm-s-material .cm-operator {\n  color: #89DDFF;\n}\n.cm-s-material .cm-variable-2 {\n  color: #EEFFFF;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #f07178;\n}\n.cm-s-material .cm-builtin {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-atom {\n  color: #F78C6C;\n}\n.cm-s-material .cm-number {\n  color: #FF5370;\n}\n.cm-s-material .cm-def {\n  color: #82AAFF;\n}\n.cm-s-material .cm-string {\n  color: #C3E88D;\n}\n.cm-s-material .cm-string-2 {\n  color: #f07178;\n}\n.cm-s-material .cm-comment {\n  color: #546E7A;\n}\n.cm-s-material .cm-variable {\n  color: #f07178;\n}\n.cm-s-material .cm-tag {\n  color: #FF5370;\n}\n.cm-s-material .cm-meta {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-attribute {\n  color: #C792EA;\n}\n.cm-s-material .cm-property {\n  color: #C792EA;\n}\n.cm-s-material .cm-qualifier {\n  color: #DECB6B;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #DECB6B;\n}\n.cm-s-material .cm-error {\n  color: rgba(255, 255, 255, 1.0);\n  background-color: #FF5370;\n}\n.cm-s-material .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n  Name:       material\n  Author:     Mattia Astorino (http://github.com/equinusocio)\n  Website:    https://material-theme.site/\n*/\n.cm-s-material.CodeMirror {\n  background-color: #263238;\n  color: #EEFFFF;\n}\n.cm-s-material .CodeMirror-gutters {\n  background: #263238;\n  color: #546E7A;\n  border: none;\n}\n.cm-s-material .CodeMirror-guttermarker,\n.cm-s-material .CodeMirror-guttermarker-subtle,\n.cm-s-material .CodeMirror-linenumber {\n  color: #546E7A;\n}\n.cm-s-material .CodeMirror-cursor {\n  border-left: 1px solid #FFCC00;\n}\n.cm-s-material div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material.CodeMirror-focused div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::selection,\n.cm-s-material .CodeMirror-line>span::selection,\n.cm-s-material .CodeMirror-line>span>span::selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::-moz-selection,\n.cm-s-material .CodeMirror-line>span::-moz-selection,\n.cm-s-material .CodeMirror-line>span>span::-moz-selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-activeline-background {\n  background: rgba(0, 0, 0, 0.5);\n}\n.cm-s-material .cm-keyword {\n  color: #C792EA;\n}\n.cm-s-material .cm-operator {\n  color: #89DDFF;\n}\n.cm-s-material .cm-variable-2 {\n  color: #EEFFFF;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #f07178;\n}\n.cm-s-material .cm-builtin {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-atom {\n  color: #F78C6C;\n}\n.cm-s-material .cm-number {\n  color: #FF5370;\n}\n.cm-s-material .cm-def {\n  color: #82AAFF;\n}\n.cm-s-material .cm-string {\n  color: #C3E88D;\n}\n.cm-s-material .cm-string-2 {\n  color: #f07178;\n}\n.cm-s-material .cm-comment {\n  color: #546E7A;\n}\n.cm-s-material .cm-variable {\n  color: #f07178;\n}\n.cm-s-material .cm-tag {\n  color: #FF5370;\n}\n.cm-s-material .cm-meta {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-attribute {\n  color: #C792EA;\n}\n.cm-s-material .cm-property {\n  color: #C792EA;\n}\n.cm-s-material .cm-qualifier {\n  color: #DECB6B;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #DECB6B;\n}\n.cm-s-material .cm-error {\n  color: rgba(255, 255, 255, 1.0);\n  background-color: #FF5370;\n}\n.cm-s-material .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}", ""]);
 
 // exports
 
@@ -39483,7 +38554,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       oceanic-next\n    Author:     Filype Pereira (https://github.com/fpereira1)\n\n    Original oceanic-next color scheme by Dmitri Voronianski (https://github.com/voronianski/oceanic-next-color-scheme)\n\n*/\n.cm-s-oceanic-next.CodeMirror { background: #304148; color: #f8f8f2;\n}\n.cm-s-oceanic-next div.CodeMirror-selected { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::selection, .cm-s-oceanic-next .CodeMirror-line > span::selection, .cm-s-oceanic-next .CodeMirror-line > span > span::selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span > span::-moz-selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-gutters { background: #304148; border-right: 10px;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker { color: white;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker-subtle { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-linenumber { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-cursor { border-left: 1px solid #f8f8f0;\n}\n.cm-s-oceanic-next.cm-fat-cursor .CodeMirror-cursor { background-color: #a2a8a175 !important;\n}\n.cm-s-oceanic-next .cm-animate-fat-cursor { background-color: #a2a8a175 !important;\n}\n.cm-s-oceanic-next span.cm-comment { color: #65737E;\n}\n.cm-s-oceanic-next span.cm-atom { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-number { color: #F99157;\n}\n.cm-s-oceanic-next span.cm-property { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-attribute,\n.cm-s-oceanic-next span.cm-keyword { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-builtin { color: #66d9ef;\n}\n.cm-s-oceanic-next span.cm-string { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-variable,\n.cm-s-oceanic-next span.cm-variable-2,\n.cm-s-oceanic-next span.cm-variable-3 { color: #f8f8f2;\n}\n.cm-s-oceanic-next span.cm-def { color: #6699CC;\n}\n.cm-s-oceanic-next span.cm-bracket { color: #5FB3B3;\n}\n.cm-s-oceanic-next span.cm-tag { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-header { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-link { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-error { background: #C594C5; color: #f8f8f0;\n}\n.cm-s-oceanic-next .CodeMirror-activeline-background { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       oceanic-next\n    Author:     Filype Pereira (https://github.com/fpereira1)\n\n    Original oceanic-next color scheme by Dmitri Voronianski (https://github.com/voronianski/oceanic-next-color-scheme)\n\n*/\n.cm-s-oceanic-next.CodeMirror { background: #304148; color: #f8f8f2;\n}\n.cm-s-oceanic-next div.CodeMirror-selected { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::selection, .cm-s-oceanic-next .CodeMirror-line > span::selection, .cm-s-oceanic-next .CodeMirror-line > span > span::selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span > span::-moz-selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-gutters { background: #304148; border-right: 10px;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker { color: white;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker-subtle { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-linenumber { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-cursor { border-left: 1px solid #f8f8f0;\n}\n.cm-s-oceanic-next span.cm-comment { color: #65737E;\n}\n.cm-s-oceanic-next span.cm-atom { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-number { color: #F99157;\n}\n.cm-s-oceanic-next span.cm-property { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-attribute,\n.cm-s-oceanic-next span.cm-keyword { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-builtin { color: #66d9ef;\n}\n.cm-s-oceanic-next span.cm-string { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-variable,\n.cm-s-oceanic-next span.cm-variable-2,\n.cm-s-oceanic-next span.cm-variable-3 { color: #f8f8f2;\n}\n.cm-s-oceanic-next span.cm-def { color: #6699CC;\n}\n.cm-s-oceanic-next span.cm-bracket { color: #5FB3B3;\n}\n.cm-s-oceanic-next span.cm-tag { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-header { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-link { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-error { background: #C594C5; color: #f8f8f0;\n}\n.cm-s-oceanic-next .CodeMirror-activeline-background { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
 
 // exports
 
@@ -39813,7 +38884,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
+exports.push([module.i, "/* BASICS */\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: transparent; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {\n}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n.CodeMirror-guttermarker { color: black;\n}\n.CodeMirror-guttermarker-subtle { color: #999;\n}\n\n/* CURSOR */\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@-webkit-keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n@keyframes blink {\n0% {\n}\n50% { background-color: transparent;\n}\n100% {\n}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {\n}\n.cm-tab { display: inline-block; text-decoration: inherit;\n}\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: 0;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n.cm-s-default .cm-header {color: blue;\n}\n.cm-s-default .cm-quote {color: #090;\n}\n.cm-negative {color: #d44;\n}\n.cm-positive {color: #292;\n}\n.cm-header, .cm-strong {font-weight: bold;\n}\n.cm-em {font-style: italic;\n}\n.cm-link {text-decoration: underline;\n}\n.cm-strikethrough {text-decoration: line-through;\n}\n.cm-s-default .cm-keyword {color: #708;\n}\n.cm-s-default .cm-atom {color: #219;\n}\n.cm-s-default .cm-number {color: #164;\n}\n.cm-s-default .cm-def {color: #00f;\n}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {\n}\n.cm-s-default .cm-variable-2 {color: #05a;\n}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;\n}\n.cm-s-default .cm-comment {color: #a50;\n}\n.cm-s-default .cm-string {color: #a11;\n}\n.cm-s-default .cm-string-2 {color: #f50;\n}\n.cm-s-default .cm-meta {color: #555;\n}\n.cm-s-default .cm-qualifier {color: #555;\n}\n.cm-s-default .cm-builtin {color: #30a;\n}\n.cm-s-default .cm-bracket {color: #997;\n}\n.cm-s-default .cm-tag {color: #170;\n}\n.cm-s-default .cm-attribute {color: #00c;\n}\n.cm-s-default .cm-hr {color: #999;\n}\n.cm-s-default .cm-link {color: #00c;\n}\n.cm-s-default .cm-error {color: #f00;\n}\n.cm-invalidchar {color: #f00;\n}\n.CodeMirror-composing { border-bottom: 2px solid;\n}\n\n/* Default styles for common addons */\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;\n}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;\n}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3);\n}\n.CodeMirror-activeline-background {background: #e8f2ff;\n}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 50px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -50px; margin-right: -50px;\n  padding-bottom: 50px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 50px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n  outline: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -50px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent\n}\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent\n}\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre.CodeMirror-line,\n.CodeMirror pre.CodeMirror-line-like {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre.CodeMirror-line,\n.CodeMirror-wrap pre.CodeMirror-line-like {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  padding: 0.1px; /* Force widget margins to stay inside of the container */\n}\n.CodeMirror-widget {\n}\n.CodeMirror-rtl pre { direction: rtl;\n}\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static;\n}\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n.CodeMirror-selected { background: #d9d9d9;\n}\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0;\n}\n.CodeMirror-crosshair { cursor: crosshair;\n}\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0;\n}\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0;\n}\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px;\n}\n@media print {\n  /* Hide the cursor when printing */\n.CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n}\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: '';\n}\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none;\n}\n", ""]);
 
 // exports
 
@@ -39903,7 +38974,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       Base16 Default Dark\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n.cm-s-base16-dark.CodeMirror { background: #151515; color: #e0e0e0;\n}\n.cm-s-base16-dark div.CodeMirror-selected { background: #303030;\n}\n.cm-s-base16-dark .CodeMirror-line::selection, .cm-s-base16-dark .CodeMirror-line > span::selection, .cm-s-base16-dark .CodeMirror-line > span > span::selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-line::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span > span::-moz-selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-gutters { background: #151515; border-right: 0px;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker { color: #ac4142;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker-subtle { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-linenumber { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-cursor { border-left: 1px solid #b0b0b0;\n}\n.cm-s-base16-dark.cm-fat-cursor .CodeMirror-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-base16-dark .cm-animate-fat-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-base16-dark span.cm-comment { color: #8f5536;\n}\n.cm-s-base16-dark span.cm-atom { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-number { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-property, .cm-s-base16-dark span.cm-attribute { color: #90a959;\n}\n.cm-s-base16-dark span.cm-keyword { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-string { color: #f4bf75;\n}\n.cm-s-base16-dark span.cm-variable { color: #90a959;\n}\n.cm-s-base16-dark span.cm-variable-2 { color: #6a9fb5;\n}\n.cm-s-base16-dark span.cm-def { color: #d28445;\n}\n.cm-s-base16-dark span.cm-bracket { color: #e0e0e0;\n}\n.cm-s-base16-dark span.cm-tag { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-link { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-error { background: #ac4142; color: #b0b0b0;\n}\n.cm-s-base16-dark .CodeMirror-activeline-background { background: #202020;\n}\n.cm-s-base16-dark .CodeMirror-matchingbracket { text-decoration: underline; color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       Base16 Default Dark\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n.cm-s-base16-dark.CodeMirror { background: #151515; color: #e0e0e0;\n}\n.cm-s-base16-dark div.CodeMirror-selected { background: #303030;\n}\n.cm-s-base16-dark .CodeMirror-line::selection, .cm-s-base16-dark .CodeMirror-line > span::selection, .cm-s-base16-dark .CodeMirror-line > span > span::selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-line::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span::-moz-selection, .cm-s-base16-dark .CodeMirror-line > span > span::-moz-selection { background: rgba(48, 48, 48, .99);\n}\n.cm-s-base16-dark .CodeMirror-gutters { background: #151515; border-right: 0px;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker { color: #ac4142;\n}\n.cm-s-base16-dark .CodeMirror-guttermarker-subtle { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-linenumber { color: #505050;\n}\n.cm-s-base16-dark .CodeMirror-cursor { border-left: 1px solid #b0b0b0;\n}\n.cm-s-base16-dark span.cm-comment { color: #8f5536;\n}\n.cm-s-base16-dark span.cm-atom { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-number { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-property, .cm-s-base16-dark span.cm-attribute { color: #90a959;\n}\n.cm-s-base16-dark span.cm-keyword { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-string { color: #f4bf75;\n}\n.cm-s-base16-dark span.cm-variable { color: #90a959;\n}\n.cm-s-base16-dark span.cm-variable-2 { color: #6a9fb5;\n}\n.cm-s-base16-dark span.cm-def { color: #d28445;\n}\n.cm-s-base16-dark span.cm-bracket { color: #e0e0e0;\n}\n.cm-s-base16-dark span.cm-tag { color: #ac4142;\n}\n.cm-s-base16-dark span.cm-link { color: #aa759f;\n}\n.cm-s-base16-dark span.cm-error { background: #ac4142; color: #b0b0b0;\n}\n.cm-s-base16-dark .CodeMirror-activeline-background { background: #202020;\n}\n.cm-s-base16-dark .CodeMirror-matchingbracket { text-decoration: underline; color: white !important;\n}\n", ""]);
 
 // exports
 
@@ -40098,7 +39169,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       gruvbox-dark\n    Author:     kRkk (https://github.com/krkk)\n\n    Original gruvbox color scheme by Pavel Pertsev (https://github.com/morhetz/gruvbox)\n\n*/\n.cm-s-gruvbox-dark.CodeMirror, .cm-s-gruvbox-dark .CodeMirror-gutters { background-color: #282828; color: #bdae93;\n}\n.cm-s-gruvbox-dark .CodeMirror-gutters {background: #282828; border-right: 0px;\n}\n.cm-s-gruvbox-dark .CodeMirror-linenumber {color: #7c6f64;\n}\n.cm-s-gruvbox-dark .CodeMirror-cursor { border-left: 1px solid #ebdbb2;\n}\n.cm-s-gruvbox-dark.cm-fat-cursor .CodeMirror-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-gruvbox-dark .cm-animate-fat-cursor { background-color: #8e8d8875 !important;\n}\n.cm-s-gruvbox-dark div.CodeMirror-selected { background: #928374;\n}\n.cm-s-gruvbox-dark span.cm-meta { color: #83a598;\n}\n.cm-s-gruvbox-dark span.cm-comment { color: #928374;\n}\n.cm-s-gruvbox-dark span.cm-number, span.cm-atom { color: #d3869b;\n}\n.cm-s-gruvbox-dark span.cm-keyword { color: #f84934;\n}\n.cm-s-gruvbox-dark span.cm-variable { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-2 { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-3, .cm-s-gruvbox-dark span.cm-type { color: #fabd2f;\n}\n.cm-s-gruvbox-dark span.cm-operator { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-callee { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-def { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-property { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-string { color: #b8bb26;\n}\n.cm-s-gruvbox-dark span.cm-string-2 { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-qualifier { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-attribute { color: #8ec07c;\n}\n.cm-s-gruvbox-dark .CodeMirror-activeline-background { background: #3c3836;\n}\n.cm-s-gruvbox-dark .CodeMirror-matchingbracket { background: #928374; color:#282828 !important;\n}\n.cm-s-gruvbox-dark span.cm-builtin { color: #fe8019;\n}\n.cm-s-gruvbox-dark span.cm-tag { color: #fe8019;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       gruvbox-dark\n    Author:     kRkk (https://github.com/krkk)\n\n    Original gruvbox color scheme by Pavel Pertsev (https://github.com/morhetz/gruvbox)\n\n*/\n.cm-s-gruvbox-dark.CodeMirror, .cm-s-gruvbox-dark .CodeMirror-gutters { background-color: #282828; color: #bdae93;\n}\n.cm-s-gruvbox-dark .CodeMirror-gutters {background: #282828; border-right: 0px;\n}\n.cm-s-gruvbox-dark .CodeMirror-linenumber {color: #7c6f64;\n}\n.cm-s-gruvbox-dark .CodeMirror-cursor { border-left: 1px solid #ebdbb2;\n}\n.cm-s-gruvbox-dark div.CodeMirror-selected { background: #928374;\n}\n.cm-s-gruvbox-dark span.cm-meta { color: #83a598;\n}\n.cm-s-gruvbox-dark span.cm-comment { color: #928374;\n}\n.cm-s-gruvbox-dark span.cm-number, span.cm-atom { color: #d3869b;\n}\n.cm-s-gruvbox-dark span.cm-keyword { color: #f84934;\n}\n.cm-s-gruvbox-dark span.cm-variable { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-2 { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-variable-3, .cm-s-gruvbox-dark span.cm-type { color: #fabd2f;\n}\n.cm-s-gruvbox-dark span.cm-operator { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-callee { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-def { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-property { color: #ebdbb2;\n}\n.cm-s-gruvbox-dark span.cm-string { color: #b8bb26;\n}\n.cm-s-gruvbox-dark span.cm-string-2 { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-qualifier { color: #8ec07c;\n}\n.cm-s-gruvbox-dark span.cm-attribute { color: #8ec07c;\n}\n.cm-s-gruvbox-dark .CodeMirror-activeline-background { background: #3c3836;\n}\n.cm-s-gruvbox-dark .CodeMirror-matchingbracket { background: #928374; color:#282828 !important;\n}\n.cm-s-gruvbox-dark span.cm-builtin { color: #fe8019;\n}\n.cm-s-gruvbox-dark span.cm-tag { color: #fe8019;\n}\n", ""]);
 
 // exports
 
@@ -40218,7 +39289,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n  Name:       material\n  Author:     Mattia Astorino (http://github.com/equinusocio)\n  Website:    https://material-theme.site/\n*/\n.cm-s-material.CodeMirror {\n  background-color: #263238;\n  color: #EEFFFF;\n}\n.cm-s-material .CodeMirror-gutters {\n  background: #263238;\n  color: #546E7A;\n  border: none;\n}\n.cm-s-material .CodeMirror-guttermarker,\n.cm-s-material .CodeMirror-guttermarker-subtle,\n.cm-s-material .CodeMirror-linenumber {\n  color: #546E7A;\n}\n.cm-s-material .CodeMirror-cursor {\n  border-left: 1px solid #FFCC00;\n}\n.cm-s-material.cm-fat-cursor .CodeMirror-cursor {\n  background-color: #5d6d5c80 !important;\n}\n.cm-s-material .cm-animate-fat-cursor {\n  background-color: #5d6d5c80 !important;\n}\n.cm-s-material div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material.CodeMirror-focused div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::selection,\n.cm-s-material .CodeMirror-line>span::selection,\n.cm-s-material .CodeMirror-line>span>span::selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::-moz-selection,\n.cm-s-material .CodeMirror-line>span::-moz-selection,\n.cm-s-material .CodeMirror-line>span>span::-moz-selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-activeline-background {\n  background: rgba(0, 0, 0, 0.5);\n}\n.cm-s-material .cm-keyword {\n  color: #C792EA;\n}\n.cm-s-material .cm-operator {\n  color: #89DDFF;\n}\n.cm-s-material .cm-variable-2 {\n  color: #EEFFFF;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #f07178;\n}\n.cm-s-material .cm-builtin {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-atom {\n  color: #F78C6C;\n}\n.cm-s-material .cm-number {\n  color: #FF5370;\n}\n.cm-s-material .cm-def {\n  color: #82AAFF;\n}\n.cm-s-material .cm-string {\n  color: #C3E88D;\n}\n.cm-s-material .cm-string-2 {\n  color: #f07178;\n}\n.cm-s-material .cm-comment {\n  color: #546E7A;\n}\n.cm-s-material .cm-variable {\n  color: #f07178;\n}\n.cm-s-material .cm-tag {\n  color: #FF5370;\n}\n.cm-s-material .cm-meta {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-attribute {\n  color: #C792EA;\n}\n.cm-s-material .cm-property {\n  color: #C792EA;\n}\n.cm-s-material .cm-qualifier {\n  color: #DECB6B;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #DECB6B;\n}\n.cm-s-material .cm-error {\n  color: rgba(255, 255, 255, 1.0);\n  background-color: #FF5370;\n}\n.cm-s-material .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n  Name:       material\n  Author:     Mattia Astorino (http://github.com/equinusocio)\n  Website:    https://material-theme.site/\n*/\n.cm-s-material.CodeMirror {\n  background-color: #263238;\n  color: #EEFFFF;\n}\n.cm-s-material .CodeMirror-gutters {\n  background: #263238;\n  color: #546E7A;\n  border: none;\n}\n.cm-s-material .CodeMirror-guttermarker,\n.cm-s-material .CodeMirror-guttermarker-subtle,\n.cm-s-material .CodeMirror-linenumber {\n  color: #546E7A;\n}\n.cm-s-material .CodeMirror-cursor {\n  border-left: 1px solid #FFCC00;\n}\n.cm-s-material div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material.CodeMirror-focused div.CodeMirror-selected {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::selection,\n.cm-s-material .CodeMirror-line>span::selection,\n.cm-s-material .CodeMirror-line>span>span::selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-line::-moz-selection,\n.cm-s-material .CodeMirror-line>span::-moz-selection,\n.cm-s-material .CodeMirror-line>span>span::-moz-selection {\n  background: rgba(128, 203, 196, 0.2);\n}\n.cm-s-material .CodeMirror-activeline-background {\n  background: rgba(0, 0, 0, 0.5);\n}\n.cm-s-material .cm-keyword {\n  color: #C792EA;\n}\n.cm-s-material .cm-operator {\n  color: #89DDFF;\n}\n.cm-s-material .cm-variable-2 {\n  color: #EEFFFF;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #f07178;\n}\n.cm-s-material .cm-builtin {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-atom {\n  color: #F78C6C;\n}\n.cm-s-material .cm-number {\n  color: #FF5370;\n}\n.cm-s-material .cm-def {\n  color: #82AAFF;\n}\n.cm-s-material .cm-string {\n  color: #C3E88D;\n}\n.cm-s-material .cm-string-2 {\n  color: #f07178;\n}\n.cm-s-material .cm-comment {\n  color: #546E7A;\n}\n.cm-s-material .cm-variable {\n  color: #f07178;\n}\n.cm-s-material .cm-tag {\n  color: #FF5370;\n}\n.cm-s-material .cm-meta {\n  color: #FFCB6B;\n}\n.cm-s-material .cm-attribute {\n  color: #C792EA;\n}\n.cm-s-material .cm-property {\n  color: #C792EA;\n}\n.cm-s-material .cm-qualifier {\n  color: #DECB6B;\n}\n.cm-s-material .cm-variable-3,\n.cm-s-material .cm-type {\n  color: #DECB6B;\n}\n.cm-s-material .cm-error {\n  color: rgba(255, 255, 255, 1.0);\n  background-color: #FF5370;\n}\n.cm-s-material .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}", ""]);
 
 // exports
 
@@ -40338,7 +39409,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/*\n\n    Name:       oceanic-next\n    Author:     Filype Pereira (https://github.com/fpereira1)\n\n    Original oceanic-next color scheme by Dmitri Voronianski (https://github.com/voronianski/oceanic-next-color-scheme)\n\n*/\n.cm-s-oceanic-next.CodeMirror { background: #304148; color: #f8f8f2;\n}\n.cm-s-oceanic-next div.CodeMirror-selected { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::selection, .cm-s-oceanic-next .CodeMirror-line > span::selection, .cm-s-oceanic-next .CodeMirror-line > span > span::selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span > span::-moz-selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-gutters { background: #304148; border-right: 10px;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker { color: white;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker-subtle { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-linenumber { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-cursor { border-left: 1px solid #f8f8f0;\n}\n.cm-s-oceanic-next.cm-fat-cursor .CodeMirror-cursor { background-color: #a2a8a175 !important;\n}\n.cm-s-oceanic-next .cm-animate-fat-cursor { background-color: #a2a8a175 !important;\n}\n.cm-s-oceanic-next span.cm-comment { color: #65737E;\n}\n.cm-s-oceanic-next span.cm-atom { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-number { color: #F99157;\n}\n.cm-s-oceanic-next span.cm-property { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-attribute,\n.cm-s-oceanic-next span.cm-keyword { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-builtin { color: #66d9ef;\n}\n.cm-s-oceanic-next span.cm-string { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-variable,\n.cm-s-oceanic-next span.cm-variable-2,\n.cm-s-oceanic-next span.cm-variable-3 { color: #f8f8f2;\n}\n.cm-s-oceanic-next span.cm-def { color: #6699CC;\n}\n.cm-s-oceanic-next span.cm-bracket { color: #5FB3B3;\n}\n.cm-s-oceanic-next span.cm-tag { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-header { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-link { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-error { background: #C594C5; color: #f8f8f0;\n}\n.cm-s-oceanic-next .CodeMirror-activeline-background { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
+exports.push([module.i, "/*\n\n    Name:       oceanic-next\n    Author:     Filype Pereira (https://github.com/fpereira1)\n\n    Original oceanic-next color scheme by Dmitri Voronianski (https://github.com/voronianski/oceanic-next-color-scheme)\n\n*/\n.cm-s-oceanic-next.CodeMirror { background: #304148; color: #f8f8f2;\n}\n.cm-s-oceanic-next div.CodeMirror-selected { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::selection, .cm-s-oceanic-next .CodeMirror-line > span::selection, .cm-s-oceanic-next .CodeMirror-line > span > span::selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-line::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span::-moz-selection, .cm-s-oceanic-next .CodeMirror-line > span > span::-moz-selection { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-gutters { background: #304148; border-right: 10px;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker { color: white;\n}\n.cm-s-oceanic-next .CodeMirror-guttermarker-subtle { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-linenumber { color: #d0d0d0;\n}\n.cm-s-oceanic-next .CodeMirror-cursor { border-left: 1px solid #f8f8f0;\n}\n.cm-s-oceanic-next span.cm-comment { color: #65737E;\n}\n.cm-s-oceanic-next span.cm-atom { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-number { color: #F99157;\n}\n.cm-s-oceanic-next span.cm-property { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-attribute,\n.cm-s-oceanic-next span.cm-keyword { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-builtin { color: #66d9ef;\n}\n.cm-s-oceanic-next span.cm-string { color: #99C794;\n}\n.cm-s-oceanic-next span.cm-variable,\n.cm-s-oceanic-next span.cm-variable-2,\n.cm-s-oceanic-next span.cm-variable-3 { color: #f8f8f2;\n}\n.cm-s-oceanic-next span.cm-def { color: #6699CC;\n}\n.cm-s-oceanic-next span.cm-bracket { color: #5FB3B3;\n}\n.cm-s-oceanic-next span.cm-tag { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-header { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-link { color: #C594C5;\n}\n.cm-s-oceanic-next span.cm-error { background: #C594C5; color: #f8f8f0;\n}\n.cm-s-oceanic-next .CodeMirror-activeline-background { background: rgba(101, 115, 126, 0.33);\n}\n.cm-s-oceanic-next .CodeMirror-matchingbracket {\n  text-decoration: underline;\n  color: white !important;\n}\n", ""]);
 
 // exports
 
@@ -40904,8 +39975,1532 @@ if(false) {
 /***/ "./node_modules/laravel-vapor/dist/laravel-vapor.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-var e=__webpack_require__("./node_modules/axios/index.js"),t=function(){};t.prototype.store=function(t,r){void 0===r&&(r={});try{return Promise.resolve(e.post("/vapor/signed-storage-url",{bucket:r.bucket||"",content_type:r.contentType||t.type,expires:r.expires||"",visibility:r.visibility||""},{baseURL:r.baseURL||null,headers:r.headers||{}})).then(function(o){var n=o.data.headers;return"Host"in n&&delete n.Host,void 0===r.progress&&(r.progress=function(){}),Promise.resolve(e.put(o.data.url,t,{cancelToken:r.cancelToken||"",headers:n,onUploadProgress:function(e){r.progress(e.loaded/e.total)}})).then(function(){return o.data.extension=t.name.split(".").pop(),o.data})})}catch(e){return Promise.reject(e)}},module.exports=new t;
+var e=__webpack_require__("./node_modules/laravel-vapor/node_modules/axios/index.js"),t=function(){};t.prototype.store=function(t,r){void 0===r&&(r={});try{return Promise.resolve(e.post("/vapor/signed-storage-url",{bucket:r.bucket||"",content_type:r.contentType||t.type,expires:r.expires||"",visibility:r.visibility||""},{baseURL:r.baseURL||null,headers:r.headers||{}})).then(function(o){var n=o.data.headers;return"Host"in n&&delete n.Host,void 0===r.progress&&(r.progress=function(){}),Promise.resolve(e.put(o.data.url,t,{cancelToken:r.cancelToken||"",headers:n,onUploadProgress:function(e){r.progress(e.loaded/e.total)}})).then(function(){return o.data.extension=t.name.split(".").pop(),o.data})})}catch(e){return Promise.reject(e)}},module.exports=new t;
 //# sourceMappingURL=laravel-vapor.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/axios.js");
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/adapters/xhr.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+var settle = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/settle.js");
+var buildURL = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/buildURL.js");
+var parseHeaders = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/parseHeaders.js");
+var isURLSameOrigin = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/isURLSameOrigin.js");
+var createError = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/createError.js");
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request.onreadystatechange = function handleLoad() {
+      if (!request || request.readyState !== 4) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/cookies.js");
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+          cookies.read(config.xsrfCookieName) :
+          undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (config.withCredentials) {
+      request.withCredentials = true;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/axios.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+var bind = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/bind.js");
+var Axios = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/Axios.js");
+var defaults = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/defaults.js");
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/cancel/Cancel.js");
+axios.CancelToken = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/cancel/CancelToken.js");
+axios.isCancel = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/cancel/isCancel.js");
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/spread.js");
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/cancel/Cancel.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+}
+
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/cancel/CancelToken.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/cancel/Cancel.js");
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/cancel/isCancel.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/Axios.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/defaults.js");
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+var InterceptorManager = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/InterceptorManager.js");
+var dispatchRequest = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/dispatchRequest.js");
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/InterceptorManager.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/createError.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/enhanceError.js");
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/dispatchRequest.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+var transformData = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/transformData.js");
+var isCancel = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/cancel/isCancel.js");
+var defaults = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/defaults.js");
+var isAbsoluteURL = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/combineURLs.js");
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers || {}
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/enhanceError.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/settle.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/core/createError.js");
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/core/transformData.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/defaults.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+var normalizeHeaderName = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/normalizeHeaderName.js");
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/adapters/xhr.js");
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/adapters/xhr.js");
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/bind.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/buildURL.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, '@').
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/combineURLs.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/cookies.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+  (function standardBrowserEnv() {
+    return {
+      write: function write(name, value, expires, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + '=' + encodeURIComponent(value));
+
+        if (utils.isNumber(expires)) {
+          cookie.push('expires=' + new Date(expires).toGMTString());
+        }
+
+        if (utils.isString(path)) {
+          cookie.push('path=' + path);
+        }
+
+        if (utils.isString(domain)) {
+          cookie.push('domain=' + domain);
+        }
+
+        if (secure === true) {
+          cookie.push('secure');
+        }
+
+        document.cookie = cookie.join('; ');
+      },
+
+      read: function read(name) {
+        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return (match ? decodeURIComponent(match[3]) : null);
+      },
+
+      remove: function remove(name) {
+        this.write(name, '', Date.now() - 86400000);
+      }
+    };
+  })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return {
+      write: function write() {},
+      read: function read() { return null; },
+      remove: function remove() {}
+    };
+  })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+  (function standardBrowserEnv() {
+    var msie = /(msie|trident)/i.test(navigator.userAgent);
+    var urlParsingNode = document.createElement('a');
+    var originURL;
+
+    /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+    function resolveURL(url) {
+      var href = url;
+
+      if (msie) {
+        // IE needs attribute set twice to normalize properties
+        urlParsingNode.setAttribute('href', href);
+        href = urlParsingNode.href;
+      }
+
+      urlParsingNode.setAttribute('href', href);
+
+      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+      return {
+        href: urlParsingNode.href,
+        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+        host: urlParsingNode.host,
+        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+        hostname: urlParsingNode.hostname,
+        port: urlParsingNode.port,
+        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+                  urlParsingNode.pathname :
+                  '/' + urlParsingNode.pathname
+      };
+    }
+
+    originURL = resolveURL(window.location.href);
+
+    /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+    return function isURLSameOrigin(requestURL) {
+      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+    };
+  })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return function isURLSameOrigin() {
+      return true;
+    };
+  })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/parseHeaders.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/utils.js");
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/helpers/spread.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/axios/lib/utils.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__("./node_modules/laravel-vapor/node_modules/axios/lib/helpers/bind.js");
+var isBuffer = __webpack_require__("./node_modules/laravel-vapor/node_modules/is-buffer/index.js");
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = merge(result[key], val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/node_modules/is-buffer/index.js":
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
 
 
 /***/ }),
@@ -46668,6 +47263,782 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
 
 /***/ }),
 
+/***/ "./node_modules/regenerator-runtime/runtime-module.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() { return this })() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__("./node_modules/regenerator-runtime/runtime.js");
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration. If the Promise is rejected, however, the
+          // result for this iteration will be rejected with the same
+          // reason. Note that rejections of yielded Promises are not
+          // thrown back into the generator function, as is the case
+          // when an awaited Promise is rejected. This difference in
+          // behavior between yield and await is important, because it
+          // allows the consumer to decide what to do with the yielded
+          // rejection (swallow it and continue, manually .throw it back
+          // into the generator, abandon iteration, whatever). With
+          // await, by contrast, there is no opportunity to examine the
+          // rejection reason outside the generator function, so the
+          // only option is to throw it from the await expression, and
+          // let the generator function handle the exception.
+          result.value = unwrapped;
+          resolve(result);
+        }, reject);
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() { return this })() || Function("return this")()
+);
+
+
+/***/ }),
+
 /***/ "./node_modules/slugify/slugify.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -46685,8 +48056,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
     root[name] = factory()
   }
 }('slugify', this, function () {
-  var charMap = JSON.parse('{"$":"dollar","%":"percent","&":"and","<":"less",">":"greater","|":"or","¢":"cent","£":"pound","¤":"currency","¥":"yen","©":"(c)","ª":"a","®":"(r)","º":"o","À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A","Æ":"AE","Ç":"C","È":"E","É":"E","Ê":"E","Ë":"E","Ì":"I","Í":"I","Î":"I","Ï":"I","Ð":"D","Ñ":"N","Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O","Ø":"O","Ù":"U","Ú":"U","Û":"U","Ü":"U","Ý":"Y","Þ":"TH","ß":"ss","à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a","æ":"ae","ç":"c","è":"e","é":"e","ê":"e","ë":"e","ì":"i","í":"i","î":"i","ï":"i","ð":"d","ñ":"n","ò":"o","ó":"o","ô":"o","õ":"o","ö":"o","ø":"o","ù":"u","ú":"u","û":"u","ü":"u","ý":"y","þ":"th","ÿ":"y","Ā":"A","ā":"a","Ă":"A","ă":"a","Ą":"A","ą":"a","Ć":"C","ć":"c","Č":"C","č":"c","Ď":"D","ď":"d","Đ":"DJ","đ":"dj","Ē":"E","ē":"e","Ė":"E","ė":"e","Ę":"e","ę":"e","Ě":"E","ě":"e","Ğ":"G","ğ":"g","Ģ":"G","ģ":"g","Ĩ":"I","ĩ":"i","Ī":"i","ī":"i","Į":"I","į":"i","İ":"I","ı":"i","Ķ":"k","ķ":"k","Ļ":"L","ļ":"l","Ľ":"L","ľ":"l","Ł":"L","ł":"l","Ń":"N","ń":"n","Ņ":"N","ņ":"n","Ň":"N","ň":"n","Ō":"O","ō":"o","Ő":"O","ő":"o","Œ":"OE","œ":"oe","Ŕ":"R","ŕ":"r","Ř":"R","ř":"r","Ś":"S","ś":"s","Ş":"S","ş":"s","Š":"S","š":"s","Ţ":"T","ţ":"t","Ť":"T","ť":"t","Ũ":"U","ũ":"u","Ū":"u","ū":"u","Ů":"U","ů":"u","Ű":"U","ű":"u","Ų":"U","ų":"u","Ŵ":"W","ŵ":"w","Ŷ":"Y","ŷ":"y","Ÿ":"Y","Ź":"Z","ź":"z","Ż":"Z","ż":"z","Ž":"Z","ž":"z","Ə":"E","ƒ":"f","Ơ":"O","ơ":"o","Ư":"U","ư":"u","ǈ":"LJ","ǉ":"lj","ǋ":"NJ","ǌ":"nj","Ș":"S","ș":"s","Ț":"T","ț":"t","ə":"e","˚":"o","Ά":"A","Έ":"E","Ή":"H","Ί":"I","Ό":"O","Ύ":"Y","Ώ":"W","ΐ":"i","Α":"A","Β":"B","Γ":"G","Δ":"D","Ε":"E","Ζ":"Z","Η":"H","Θ":"8","Ι":"I","Κ":"K","Λ":"L","Μ":"M","Ν":"N","Ξ":"3","Ο":"O","Π":"P","Ρ":"R","Σ":"S","Τ":"T","Υ":"Y","Φ":"F","Χ":"X","Ψ":"PS","Ω":"W","Ϊ":"I","Ϋ":"Y","ά":"a","έ":"e","ή":"h","ί":"i","ΰ":"y","α":"a","β":"b","γ":"g","δ":"d","ε":"e","ζ":"z","η":"h","θ":"8","ι":"i","κ":"k","λ":"l","μ":"m","ν":"n","ξ":"3","ο":"o","π":"p","ρ":"r","ς":"s","σ":"s","τ":"t","υ":"y","φ":"f","χ":"x","ψ":"ps","ω":"w","ϊ":"i","ϋ":"y","ό":"o","ύ":"y","ώ":"w","Ё":"Yo","Ђ":"DJ","Є":"Ye","І":"I","Ї":"Yi","Ј":"J","Љ":"LJ","Њ":"NJ","Ћ":"C","Џ":"DZ","А":"A","Б":"B","В":"V","Г":"G","Д":"D","Е":"E","Ж":"Zh","З":"Z","И":"I","Й":"J","К":"K","Л":"L","М":"M","Н":"N","О":"O","П":"P","Р":"R","С":"S","Т":"T","У":"U","Ф":"F","Х":"H","Ц":"C","Ч":"Ch","Ш":"Sh","Щ":"Sh","Ъ":"U","Ы":"Y","Ь":"","Э":"E","Ю":"Yu","Я":"Ya","а":"a","б":"b","в":"v","г":"g","д":"d","е":"e","ж":"zh","з":"z","и":"i","й":"j","к":"k","л":"l","м":"m","н":"n","о":"o","п":"p","р":"r","с":"s","т":"t","у":"u","ф":"f","х":"h","ц":"c","ч":"ch","ш":"sh","щ":"sh","ъ":"u","ы":"y","ь":"","э":"e","ю":"yu","я":"ya","ё":"yo","ђ":"dj","є":"ye","і":"i","ї":"yi","ј":"j","љ":"lj","њ":"nj","ћ":"c","ѝ":"u","џ":"dz","Ґ":"G","ґ":"g","Ғ":"GH","ғ":"gh","Қ":"KH","қ":"kh","Ң":"NG","ң":"ng","Ү":"UE","ү":"ue","Ұ":"U","ұ":"u","Һ":"H","һ":"h","Ә":"AE","ә":"ae","Ө":"OE","ө":"oe","Ա":"A","Բ":"B","Գ":"G","Դ":"D","Ե":"E","Զ":"Z","Է":"E\'","Ը":"Y\'","Թ":"T\'","Ժ":"JH","Ի":"I","Լ":"L","Խ":"X","Ծ":"C\'","Կ":"K","Հ":"H","Ձ":"D\'","Ղ":"GH","Ճ":"TW","Մ":"M","Յ":"Y","Ն":"N","Շ":"SH","Չ":"CH","Պ":"P","Ջ":"J","Ռ":"R\'","Ս":"S","Վ":"V","Տ":"T","Ր":"R","Ց":"C","Փ":"P\'","Ք":"Q\'","Օ":"O\'\'","Ֆ":"F","և":"EV","฿":"baht","ა":"a","ბ":"b","გ":"g","დ":"d","ე":"e","ვ":"v","ზ":"z","თ":"t","ი":"i","კ":"k","ლ":"l","მ":"m","ნ":"n","ო":"o","პ":"p","ჟ":"zh","რ":"r","ს":"s","ტ":"t","უ":"u","ფ":"f","ქ":"k","ღ":"gh","ყ":"q","შ":"sh","ჩ":"ch","ც":"ts","ძ":"dz","წ":"ts","ჭ":"ch","ხ":"kh","ჯ":"j","ჰ":"h","Ẁ":"W","ẁ":"w","Ẃ":"W","ẃ":"w","Ẅ":"W","ẅ":"w","ẞ":"SS","Ạ":"A","ạ":"a","Ả":"A","ả":"a","Ấ":"A","ấ":"a","Ầ":"A","ầ":"a","Ẩ":"A","ẩ":"a","Ẫ":"A","ẫ":"a","Ậ":"A","ậ":"a","Ắ":"A","ắ":"a","Ằ":"A","ằ":"a","Ẳ":"A","ẳ":"a","Ẵ":"A","ẵ":"a","Ặ":"A","ặ":"a","Ẹ":"E","ẹ":"e","Ẻ":"E","ẻ":"e","Ẽ":"E","ẽ":"e","Ế":"E","ế":"e","Ề":"E","ề":"e","Ể":"E","ể":"e","Ễ":"E","ễ":"e","Ệ":"E","ệ":"e","Ỉ":"I","ỉ":"i","Ị":"I","ị":"i","Ọ":"O","ọ":"o","Ỏ":"O","ỏ":"o","Ố":"O","ố":"o","Ồ":"O","ồ":"o","Ổ":"O","ổ":"o","Ỗ":"O","ỗ":"o","Ộ":"O","ộ":"o","Ớ":"O","ớ":"o","Ờ":"O","ờ":"o","Ở":"O","ở":"o","Ỡ":"O","ỡ":"o","Ợ":"O","ợ":"o","Ụ":"U","ụ":"u","Ủ":"U","ủ":"u","Ứ":"U","ứ":"u","Ừ":"U","ừ":"u","Ử":"U","ử":"u","Ữ":"U","ữ":"u","Ự":"U","ự":"u","Ỳ":"Y","ỳ":"y","Ỵ":"Y","ỵ":"y","Ỷ":"Y","ỷ":"y","Ỹ":"Y","ỹ":"y","–":"-","‘":"\'","’":"\'","“":"\\\"","”":"\\\"","„":"\\\"","†":"+","•":"*","…":"...","₠":"ecu","₢":"cruzeiro","₣":"french franc","₤":"lira","₥":"mill","₦":"naira","₧":"peseta","₨":"rupee","₩":"won","₪":"new shequel","₫":"dong","€":"euro","₭":"kip","₮":"tugrik","₯":"drachma","₰":"penny","₱":"peso","₲":"guarani","₳":"austral","₴":"hryvnia","₵":"cedi","₸":"kazakhstani tenge","₹":"indian rupee","₺":"turkish lira","₽":"russian ruble","₿":"bitcoin","℠":"sm","™":"tm","∂":"d","∆":"delta","∑":"sum","∞":"infinity","♥":"love","元":"yuan","円":"yen","﷼":"rial"}')
-  var locales = JSON.parse('{"de":{"Ä":"AE","ä":"ae","Ö":"OE","ö":"oe","Ü":"UE","ü":"ue","%":"prozent","&":"und","|":"oder","∑":"summe","∞":"unendlich","♥":"liebe"},"es":{"%":"por ciento","&":"y","<":"menor que",">":"mayor que","|":"o","¢":"centavos","£":"libras","¤":"moneda","₣":"francos","∑":"suma","∞":"infinito","♥":"amor"},"fr":{"%":"pourcent","&":"et","<":"plus petit",">":"plus grand","|":"ou","¢":"centime","£":"livre","¤":"devise","₣":"franc","∑":"somme","∞":"infini","♥":"amour"},"pt":{"%":"porcento","&":"e","<":"menor",">":"maior","|":"ou","¢":"centavo","∑":"soma","£":"libra","∞":"infinito","♥":"amor"},"uk":{"И":"Y","и":"y","Й":"Y","й":"y","Ц":"Ts","ц":"ts","Х":"Kh","х":"kh","Щ":"Shch","щ":"shch","Г":"H","г":"h"},"vi":{"Đ":"D","đ":"d"}}')
+  var charMap = JSON.parse('{"$":"dollar","%":"percent","&":"and","<":"less",">":"greater","|":"or","¢":"cent","£":"pound","¤":"currency","¥":"yen","©":"(c)","ª":"a","®":"(r)","º":"o","À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A","Æ":"AE","Ç":"C","È":"E","É":"E","Ê":"E","Ë":"E","Ì":"I","Í":"I","Î":"I","Ï":"I","Ð":"D","Ñ":"N","Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O","Ø":"O","Ù":"U","Ú":"U","Û":"U","Ü":"U","Ý":"Y","Þ":"TH","ß":"ss","à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a","æ":"ae","ç":"c","è":"e","é":"e","ê":"e","ë":"e","ì":"i","í":"i","î":"i","ï":"i","ð":"d","ñ":"n","ò":"o","ó":"o","ô":"o","õ":"o","ö":"o","ø":"o","ù":"u","ú":"u","û":"u","ü":"u","ý":"y","þ":"th","ÿ":"y","Ā":"A","ā":"a","Ă":"A","ă":"a","Ą":"A","ą":"a","Ć":"C","ć":"c","Č":"C","č":"c","Ď":"D","ď":"d","Đ":"DJ","đ":"dj","Ē":"E","ē":"e","Ė":"E","ė":"e","Ę":"e","ę":"e","Ě":"E","ě":"e","Ğ":"G","ğ":"g","Ģ":"G","ģ":"g","Ĩ":"I","ĩ":"i","Ī":"i","ī":"i","Į":"I","į":"i","İ":"I","ı":"i","Ķ":"k","ķ":"k","Ļ":"L","ļ":"l","Ľ":"L","ľ":"l","Ł":"L","ł":"l","Ń":"N","ń":"n","Ņ":"N","ņ":"n","Ň":"N","ň":"n","Ō":"O","ō":"o","Ő":"O","ő":"o","Œ":"OE","œ":"oe","Ŕ":"R","ŕ":"r","Ř":"R","ř":"r","Ś":"S","ś":"s","Ş":"S","ş":"s","Š":"S","š":"s","Ţ":"T","ţ":"t","Ť":"T","ť":"t","Ũ":"U","ũ":"u","Ū":"u","ū":"u","Ů":"U","ů":"u","Ű":"U","ű":"u","Ų":"U","ų":"u","Ŵ":"W","ŵ":"w","Ŷ":"Y","ŷ":"y","Ÿ":"Y","Ź":"Z","ź":"z","Ż":"Z","ż":"z","Ž":"Z","ž":"z","Ə":"E","ƒ":"f","Ơ":"O","ơ":"o","Ư":"U","ư":"u","ǈ":"LJ","ǉ":"lj","ǋ":"NJ","ǌ":"nj","Ș":"S","ș":"s","Ț":"T","ț":"t","ə":"e","˚":"o","Ά":"A","Έ":"E","Ή":"H","Ί":"I","Ό":"O","Ύ":"Y","Ώ":"W","ΐ":"i","Α":"A","Β":"B","Γ":"G","Δ":"D","Ε":"E","Ζ":"Z","Η":"H","Θ":"8","Ι":"I","Κ":"K","Λ":"L","Μ":"M","Ν":"N","Ξ":"3","Ο":"O","Π":"P","Ρ":"R","Σ":"S","Τ":"T","Υ":"Y","Φ":"F","Χ":"X","Ψ":"PS","Ω":"W","Ϊ":"I","Ϋ":"Y","ά":"a","έ":"e","ή":"h","ί":"i","ΰ":"y","α":"a","β":"b","γ":"g","δ":"d","ε":"e","ζ":"z","η":"h","θ":"8","ι":"i","κ":"k","λ":"l","μ":"m","ν":"n","ξ":"3","ο":"o","π":"p","ρ":"r","ς":"s","σ":"s","τ":"t","υ":"y","φ":"f","χ":"x","ψ":"ps","ω":"w","ϊ":"i","ϋ":"y","ό":"o","ύ":"y","ώ":"w","Ё":"Yo","Ђ":"DJ","Є":"Ye","І":"I","Ї":"Yi","Ј":"J","Љ":"LJ","Њ":"NJ","Ћ":"C","Џ":"DZ","А":"A","Б":"B","В":"V","Г":"G","Д":"D","Е":"E","Ж":"Zh","З":"Z","И":"I","Й":"J","К":"K","Л":"L","М":"M","Н":"N","О":"O","П":"P","Р":"R","С":"S","Т":"T","У":"U","Ф":"F","Х":"H","Ц":"C","Ч":"Ch","Ш":"Sh","Щ":"Sh","Ъ":"U","Ы":"Y","Ь":"","Э":"E","Ю":"Yu","Я":"Ya","а":"a","б":"b","в":"v","г":"g","д":"d","е":"e","ж":"zh","з":"z","и":"i","й":"j","к":"k","л":"l","м":"m","н":"n","о":"o","п":"p","р":"r","с":"s","т":"t","у":"u","ф":"f","х":"h","ц":"c","ч":"ch","ш":"sh","щ":"sh","ъ":"u","ы":"y","ь":"","э":"e","ю":"yu","я":"ya","ё":"yo","ђ":"dj","є":"ye","і":"i","ї":"yi","ј":"j","љ":"lj","њ":"nj","ћ":"c","ѝ":"u","џ":"dz","Ґ":"G","ґ":"g","Ғ":"GH","ғ":"gh","Қ":"KH","қ":"kh","Ң":"NG","ң":"ng","Ү":"UE","ү":"ue","Ұ":"U","ұ":"u","Һ":"H","һ":"h","Ә":"AE","ә":"ae","Ө":"OE","ө":"oe","฿":"baht","ა":"a","ბ":"b","გ":"g","დ":"d","ე":"e","ვ":"v","ზ":"z","თ":"t","ი":"i","კ":"k","ლ":"l","მ":"m","ნ":"n","ო":"o","პ":"p","ჟ":"zh","რ":"r","ს":"s","ტ":"t","უ":"u","ფ":"f","ქ":"k","ღ":"gh","ყ":"q","შ":"sh","ჩ":"ch","ც":"ts","ძ":"dz","წ":"ts","ჭ":"ch","ხ":"kh","ჯ":"j","ჰ":"h","Ẁ":"W","ẁ":"w","Ẃ":"W","ẃ":"w","Ẅ":"W","ẅ":"w","ẞ":"SS","Ạ":"A","ạ":"a","Ả":"A","ả":"a","Ấ":"A","ấ":"a","Ầ":"A","ầ":"a","Ẩ":"A","ẩ":"a","Ẫ":"A","ẫ":"a","Ậ":"A","ậ":"a","Ắ":"A","ắ":"a","Ằ":"A","ằ":"a","Ẳ":"A","ẳ":"a","Ẵ":"A","ẵ":"a","Ặ":"A","ặ":"a","Ẹ":"E","ẹ":"e","Ẻ":"E","ẻ":"e","Ẽ":"E","ẽ":"e","Ế":"E","ế":"e","Ề":"E","ề":"e","Ể":"E","ể":"e","Ễ":"E","ễ":"e","Ệ":"E","ệ":"e","Ỉ":"I","ỉ":"i","Ị":"I","ị":"i","Ọ":"O","ọ":"o","Ỏ":"O","ỏ":"o","Ố":"O","ố":"o","Ồ":"O","ồ":"o","Ổ":"O","ổ":"o","Ỗ":"O","ỗ":"o","Ộ":"O","ộ":"o","Ớ":"O","ớ":"o","Ờ":"O","ờ":"o","Ở":"O","ở":"o","Ỡ":"O","ỡ":"o","Ợ":"O","ợ":"o","Ụ":"U","ụ":"u","Ủ":"U","ủ":"u","Ứ":"U","ứ":"u","Ừ":"U","ừ":"u","Ử":"U","ử":"u","Ữ":"U","ữ":"u","Ự":"U","ự":"u","Ỳ":"Y","ỳ":"y","Ỵ":"Y","ỵ":"y","Ỷ":"Y","ỷ":"y","Ỹ":"Y","ỹ":"y","‘":"\'","’":"\'","“":"\\\"","”":"\\\"","†":"+","•":"*","…":"...","₠":"ecu","₢":"cruzeiro","₣":"french franc","₤":"lira","₥":"mill","₦":"naira","₧":"peseta","₨":"rupee","₩":"won","₪":"new shequel","₫":"dong","€":"euro","₭":"kip","₮":"tugrik","₯":"drachma","₰":"penny","₱":"peso","₲":"guarani","₳":"austral","₴":"hryvnia","₵":"cedi","₸":"kazakhstani tenge","₹":"indian rupee","₺":"turkish lira","₽":"russian ruble","₿":"bitcoin","℠":"sm","™":"tm","∂":"d","∆":"delta","∑":"sum","∞":"infinity","♥":"love","元":"yuan","円":"yen","﷼":"rial"}')
+  var locales = JSON.parse('{"de":{"Ä":"AE","ä":"ae","Ö":"OE","ö":"oe","Ü":"UE","ü":"ue"},"vi":{"Đ":"D","đ":"d"}}')
 
   function replace (string, options) {
     if (typeof string !== 'string') {
@@ -46701,37 +48072,38 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
 
     var replacement = options.replacement === undefined ? '-' : options.replacement
 
-    var trim = options.trim === undefined ? true : options.trim
-
-    var slug = string.normalize().split('')
+    var slug = string.split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
-        return result + (locale[ch] || charMap[ch] ||  (ch === replacement ? ' ' : ch))
+        return result + (locale[ch] || charMap[ch] || ch)
           // remove not allowed characters
           .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
-      }, '');
-
-    if (options.strict) {
-      slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
-    }
-
-    if (trim) {
-      slug = slug.trim()
-    }
-
-    // Replace spaces with replacement character, treating multiple consecutive
-    // spaces as a single space.
-    slug = slug.replace(/\s+/g, replacement);
+      }, '')
+      // trim leading/trailing spaces
+      .trim()
+      // convert spaces to replacement character
+      // also remove duplicates of the replacement character
+      .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
 
     if (options.lower) {
       slug = slug.toLowerCase()
+    }
+
+    if (options.strict) {
+      // remove anything besides letters, numbers, and the replacement char
+      slug = slug
+        .replace(new RegExp('[^a-zA-Z0-9' + replacement + ']', 'g'), '')
+        // remove duplicates of the replacement character
+        .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
     }
 
     return slug
   }
 
   replace.extend = function (customMap) {
-    Object.assign(charMap, customMap)
+    for (var key in customMap) {
+      charMap[key] = customMap[key]
+    }
   }
 
   return replace
@@ -47239,28 +48611,103 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTooltip", function() { return createTooltip; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyTooltip", function() { return destroyTooltip; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof__ = __webpack_require__("./node_modules/@babel/runtime/helpers/typeof.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty__ = __webpack_require__("./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_classCallCheck__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__babel_runtime_helpers_createClass__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_popper_js__ = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash_isEqual__ = __webpack_require__("./node_modules/lodash/isEqual.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash_isEqual___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash_isEqual__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_resize__ = __webpack_require__("./node_modules/vue-resize/dist/vue-resize.esm.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash_merge__ = __webpack_require__("./node_modules/lodash/merge.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_popper_js__ = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_isEqual__ = __webpack_require__("./node_modules/lodash/isEqual.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_isEqual___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash_isEqual__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_resize__ = __webpack_require__("./node_modules/vue-resize/dist/vue-resize.esm.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash_merge__ = __webpack_require__("./node_modules/lodash/merge.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash_merge__);
 
 
 
 
 
+function _typeof(obj) {
+  "@babel/helpers - typeof";
 
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
 
+  return _typeof(obj);
+}
 
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
 
 var SVGAnimatedString = function SVGAnimatedString() {};
 
@@ -47352,9 +48799,6 @@ if (typeof window !== 'undefined') {
   } catch (e) {}
 }
 
-function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var DEFAULT_OPTIONS = {
   container: false,
   delay: 0,
@@ -47405,11 +48849,11 @@ var Tooltip = /*#__PURE__*/function () {
   function Tooltip(_reference, _options) {
     var _this = this;
 
-    __WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_classCallCheck___default()(this, Tooltip);
+    _classCallCheck(this, Tooltip);
 
-    __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()(this, "_events", []);
+    _defineProperty(this, "_events", []);
 
-    __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()(this, "_setTooltipNodeEvent", function (evt, reference, delay, options) {
+    _defineProperty(this, "_setTooltipNodeEvent", function (evt, reference, delay, options) {
       var relatedreference = evt.relatedreference || evt.toElement || evt.relatedTarget;
 
       var callback = function callback(evt2) {
@@ -47435,7 +48879,7 @@ var Tooltip = /*#__PURE__*/function () {
     });
 
     // apply user options over default ones
-    _options = _objectSpread$2(_objectSpread$2({}, DEFAULT_OPTIONS), _options);
+    _options = _objectSpread2(_objectSpread2({}, DEFAULT_OPTIONS), _options);
     _reference.jquery && (_reference = _reference[0]);
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this); // cache reference and options
@@ -47458,7 +48902,7 @@ var Tooltip = /*#__PURE__*/function () {
    */
 
 
-  __WEBPACK_IMPORTED_MODULE_3__babel_runtime_helpers_createClass___default()(Tooltip, [{
+  _createClass(Tooltip, [{
     key: "show",
     value: function show() {
       this._show(this.reference, this.options);
@@ -47520,7 +48964,7 @@ var Tooltip = /*#__PURE__*/function () {
       var classesUpdated = false;
       var classes = options && options.classes || directive.options.defaultClass;
 
-      if (!__WEBPACK_IMPORTED_MODULE_5_lodash_isEqual___default()(this._classes, classes)) {
+      if (!__WEBPACK_IMPORTED_MODULE_1_lodash_isEqual___default()(this._classes, classes)) {
         this.setClasses(classes);
         classesUpdated = true;
       }
@@ -47751,11 +49195,11 @@ var Tooltip = /*#__PURE__*/function () {
 
       this._append(tooltipNode, container);
 
-      var popperOptions = _objectSpread$2(_objectSpread$2({}, options.popperOptions), {}, {
+      var popperOptions = _objectSpread2(_objectSpread2({}, options.popperOptions), {}, {
         placement: options.placement
       });
 
-      popperOptions.modifiers = _objectSpread$2(_objectSpread$2({}, popperOptions.modifiers), {}, {
+      popperOptions.modifiers = _objectSpread2(_objectSpread2({}, popperOptions.modifiers), {}, {
         arrow: {
           element: this.options.arrowSelector
         }
@@ -47767,7 +49211,7 @@ var Tooltip = /*#__PURE__*/function () {
         };
       }
 
-      this.popperInstance = new __WEBPACK_IMPORTED_MODULE_4_popper_js__["default"](reference, tooltipNode, popperOptions);
+      this.popperInstance = new __WEBPACK_IMPORTED_MODULE_0_popper_js__["default"](reference, tooltipNode, popperOptions);
 
       this._setContent(title, options); // Fix position
 
@@ -48071,9 +49515,6 @@ if (typeof document !== 'undefined') {
  * @return {String} placement - The desired title.
  */
 
-function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var state = {
   enabled: true
 };
@@ -48158,11 +49599,11 @@ function getOptions(options) {
     hideOnTargetClick: typeof options.hideOnTargetClick !== 'undefined' ? options.hideOnTargetClick : directive.options.defaultHideOnTargetClick,
     loadingClass: typeof options.loadingClass !== 'undefined' ? options.loadingClass : directive.options.defaultLoadingClass,
     loadingContent: typeof options.loadingContent !== 'undefined' ? options.loadingContent : directive.options.defaultLoadingContent,
-    popperOptions: _objectSpread$1({}, typeof options.popperOptions !== 'undefined' ? options.popperOptions : directive.options.defaultPopperOptions)
+    popperOptions: _objectSpread2({}, typeof options.popperOptions !== 'undefined' ? options.popperOptions : directive.options.defaultPopperOptions)
   };
 
   if (result.offset) {
-    var typeofOffset = __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof___default()(result.offset);
+    var typeofOffset = _typeof(result.offset);
 
     var offset = result.offset; // One value -> switch
 
@@ -48199,7 +49640,7 @@ function getPlacement(value, modifiers) {
   return placement;
 }
 function getContent(value) {
-  var type = __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof___default()(value);
+  var type = _typeof(value);
 
   if (type === 'string') {
     return value;
@@ -48214,9 +49655,9 @@ function createTooltip(el, value) {
   var content = getContent(value);
   var classes = typeof value.classes !== 'undefined' ? value.classes : directive.options.defaultClass;
 
-  var opts = _objectSpread$1({
+  var opts = _objectSpread2({
     title: content
-  }, getOptions(_objectSpread$1(_objectSpread$1({}, __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof___default()(value) === 'object' ? value : {}), {}, {
+  }, getOptions(_objectSpread2(_objectSpread2({}, _typeof(value) === 'object' ? value : {}), {}, {
     placement: getPlacement(value, modifiers)
   })));
 
@@ -48243,9 +49684,9 @@ function destroyTooltip(el) {
   }
 }
 function bind(el, _ref) {
-  var value = _ref.value;
-      _ref.oldValue;
-      var modifiers = _ref.modifiers;
+  var value = _ref.value,
+      oldValue = _ref.oldValue,
+      modifiers = _ref.modifiers;
   var content = getContent(value);
 
   if (!content || !state.enabled) {
@@ -48258,7 +49699,7 @@ function bind(el, _ref) {
 
       tooltip.setContent(content); // Options
 
-      tooltip.setOptions(_objectSpread$1(_objectSpread$1({}, value), {}, {
+      tooltip.setOptions(_objectSpread2(_objectSpread2({}, value), {}, {
         placement: getPlacement(value, modifiers)
       }));
     } else {
@@ -48358,10 +49799,6 @@ var vclosepopover = {
   }
 };
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 function getDefault(key) {
   var value = directive.options.popover[key];
 
@@ -48389,7 +49826,7 @@ if (typeof window !== 'undefined') {
 var script = {
   name: 'VPopover',
   components: {
-    ResizeObserver: __WEBPACK_IMPORTED_MODULE_6_vue_resize__["a" /* ResizeObserver */]
+    ResizeObserver: __WEBPACK_IMPORTED_MODULE_2_vue_resize__["a" /* ResizeObserver */]
   },
   props: {
     open: {
@@ -48506,7 +49943,7 @@ var script = {
   },
   computed: {
     cssClass: function cssClass() {
-      return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_defineProperty___default()({}, this.openClass, this.isOpen);
+      return _defineProperty({}, this.openClass, this.isOpen);
     },
     popoverId: function popoverId() {
       return "popover_".concat(this.ariaId != null ? this.ariaId : this.id);
@@ -48588,9 +50025,9 @@ var script = {
       var _this2 = this;
 
       var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          event = _ref2.event;
-          _ref2.skipDelay;
-          var _ref2$force = _ref2.force,
+          event = _ref2.event,
+          _ref2$skipDelay = _ref2.skipDelay,
+          _ref2$force = _ref2.force,
           force = _ref2$force === void 0 ? false : _ref2$force;
 
       if (force || !this.disabled) {
@@ -48606,8 +50043,8 @@ var script = {
     },
     hide: function hide() {
       var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          event = _ref3.event;
-          _ref3.skipDelay;
+          event = _ref3.event,
+          _ref3$skipDelay = _ref3.skipDelay;
 
       this.$_scheduleHide(event);
       this.$emit('hide');
@@ -48679,30 +50116,30 @@ var script = {
       }
 
       if (!this.popperInstance) {
-        var popperOptions = _objectSpread(_objectSpread({}, this.popperOptions), {}, {
+        var popperOptions = _objectSpread2(_objectSpread2({}, this.popperOptions), {}, {
           placement: this.placement
         });
 
-        popperOptions.modifiers = _objectSpread(_objectSpread({}, popperOptions.modifiers), {}, {
-          arrow: _objectSpread(_objectSpread({}, popperOptions.modifiers && popperOptions.modifiers.arrow), {}, {
+        popperOptions.modifiers = _objectSpread2(_objectSpread2({}, popperOptions.modifiers), {}, {
+          arrow: _objectSpread2(_objectSpread2({}, popperOptions.modifiers && popperOptions.modifiers.arrow), {}, {
             element: this.$refs.arrow
           })
         });
 
         if (this.offset) {
           var offset = this.$_getOffset();
-          popperOptions.modifiers.offset = _objectSpread(_objectSpread({}, popperOptions.modifiers && popperOptions.modifiers.offset), {}, {
+          popperOptions.modifiers.offset = _objectSpread2(_objectSpread2({}, popperOptions.modifiers && popperOptions.modifiers.offset), {}, {
             offset: offset
           });
         }
 
         if (this.boundariesElement) {
-          popperOptions.modifiers.preventOverflow = _objectSpread(_objectSpread({}, popperOptions.modifiers && popperOptions.modifiers.preventOverflow), {}, {
+          popperOptions.modifiers.preventOverflow = _objectSpread2(_objectSpread2({}, popperOptions.modifiers && popperOptions.modifiers.preventOverflow), {}, {
             boundariesElement: this.boundariesElement
           });
         }
 
-        this.popperInstance = new __WEBPACK_IMPORTED_MODULE_4_popper_js__["default"](reference, popoverNode, popperOptions); // Fix position
+        this.popperInstance = new __WEBPACK_IMPORTED_MODULE_0_popper_js__["default"](reference, popoverNode, popperOptions); // Fix position
 
         requestAnimationFrame(function () {
           if (_this3.hidden) {
@@ -48805,7 +50242,7 @@ var script = {
       return container;
     },
     $_getOffset: function $_getOffset() {
-      var typeofOffset = __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_typeof___default()(this.offset);
+      var typeofOffset = _typeof(this.offset);
 
       var offset = this.offset; // One value -> switch
 
@@ -49259,7 +50696,7 @@ function install(Vue) {
   if (install.installed) return;
   install.installed = true;
   var finalOptions = {};
-  __WEBPACK_IMPORTED_MODULE_7_lodash_merge___default()(finalOptions, defaultOptions, options);
+  __WEBPACK_IMPORTED_MODULE_3_lodash_merge___default()(finalOptions, defaultOptions, options);
   plugin.options = finalOptions;
   directive.options = finalOptions;
   Vue.directive('tooltip', directive);
@@ -49623,7 +51060,7 @@ var render = function() {
                 on: {
                   click: function($event) {
                     $event.preventDefault()
-                    return _vm.determineActionStrategy.apply(null, arguments)
+                    return _vm.determineActionStrategy($event)
                   }
                 }
               },
@@ -49874,7 +51311,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.write.apply(null, arguments)
+                            return _vm.write($event)
                           }
                         }
                       },
@@ -49897,7 +51334,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.preview.apply(null, arguments)
+                            return _vm.preview($event)
                           }
                         }
                       },
@@ -51519,7 +52956,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.__("Create")))])
+      _c("span", [_vm._v(_vm._s(_vm.__("يخلق")))])
     ],
     1
   )
@@ -51678,25 +53115,23 @@ var render = function() {
         class: _vm.field.stacked ? "pt-6 w-full" : "py-6 w-1/5"
       },
       [
-        _vm._t("default", function() {
-          return [
-            _c(
-              "form-label",
-              {
-                class: { "mb-2": _vm.showHelpText && _vm.field.helpText },
-                attrs: { "label-for": _vm.field.attribute }
-              },
-              [
-                _vm._v("\n        " + _vm._s(_vm.fieldLabel) + " "),
-                _vm.field.required
-                  ? _c("span", { staticClass: "text-danger text-sm" }, [
-                      _vm._v(_vm._s(_vm.__("*")))
-                    ])
-                  : _vm._e()
-              ]
-            )
-          ]
-        })
+        _vm._t("default", [
+          _c(
+            "form-label",
+            {
+              class: { "mb-2": _vm.showHelpText && _vm.field.helpText },
+              attrs: { "label-for": _vm.field.attribute }
+            },
+            [
+              _vm._v("\n        " + _vm._s(_vm.fieldLabel) + " "),
+              _vm.field.required
+                ? _c("span", { staticClass: "text-danger text-sm" }, [
+                    _vm._v(_vm._s(_vm.__("*")))
+                  ])
+                : _vm._e()
+            ]
+          )
+        ])
       ],
       2
     ),
@@ -53376,13 +54811,11 @@ var render = function() {
       "div",
       { staticClass: "w-1/4 py-4" },
       [
-        _vm._t("default", function() {
-          return [
-            _c("h4", { staticClass: "font-normal text-80" }, [
-              _vm._v(_vm._s(_vm.field.name))
-            ])
-          ]
-        })
+        _vm._t("default", [
+          _c("h4", { staticClass: "font-normal text-80" }, [
+            _vm._v(_vm._s(_vm.field.name))
+          ])
+        ])
       ],
       2
     ),
@@ -53391,39 +54824,37 @@ var render = function() {
       "div",
       { staticClass: "w-3/4 py-4" },
       [
-        _vm._t("value", function() {
-          return [
-            _c("div", { staticClass: "flex items-center" }, [
-              _vm.field.loadingWords.includes(_vm.field.value)
-                ? _c(
-                    "span",
-                    { staticClass: "mr-3 text-60" },
-                    [_c("loader", { attrs: { width: "30" } })],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.field.value
-                ? _c(
-                    "p",
-                    {
-                      staticClass: "text-90",
-                      class: {
-                        "text-danger": _vm.field.failedWords.includes(
-                          _vm.field.value
-                        )
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n          " + _vm._s(_vm.field.value) + "\n        "
+        _vm._t("value", [
+          _c("div", { staticClass: "flex items-center" }, [
+            _vm.field.loadingWords.includes(_vm.field.value)
+              ? _c(
+                  "span",
+                  { staticClass: "mr-3 text-60" },
+                  [_c("loader", { attrs: { width: "30" } })],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.field.value
+              ? _c(
+                  "p",
+                  {
+                    staticClass: "text-90",
+                    class: {
+                      "text-danger": _vm.field.failedWords.includes(
+                        _vm.field.value
                       )
-                    ]
-                  )
-                : _c("p", [_vm._v("—")])
-            ])
-          ]
-        })
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n          " + _vm._s(_vm.field.value) + "\n        "
+                    )
+                  ]
+                )
+              : _c("p", [_vm._v("—")])
+          ])
+        ])
       ],
       2
     )
@@ -53612,39 +55043,37 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.handleConfirm.apply(null, arguments)
+                    return _vm.handleConfirm($event)
                   }
                 }
               },
               [
-                _vm._t("default", function() {
-                  return [
-                    _c(
-                      "div",
-                      { staticClass: "p-8" },
-                      [
-                        _c(
-                          "heading",
-                          { staticClass: "mb-6", attrs: { level: 2 } },
-                          [_vm._v(_vm._s(_vm.__("Restore Resource")))]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "text-80 leading-normal" }, [
-                          _vm._v(
-                            "\n          " +
-                              _vm._s(
-                                _vm.__(
-                                  "Are you sure you want to restore the selected resources?"
-                                )
-                              ) +
-                              "\n        "
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ]
-                }),
+                _vm._t("default", [
+                  _c(
+                    "div",
+                    { staticClass: "p-8" },
+                    [
+                      _c(
+                        "heading",
+                        { staticClass: "mb-6", attrs: { level: 2 } },
+                        [_vm._v(_vm._s(_vm.__("Restore Resource")))]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-80 leading-normal" }, [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(
+                              _vm.__(
+                                "Are you sure you want to restore the selected resources?"
+                              )
+                            ) +
+                            "\n        "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "bg-30 px-6 py-3 flex" }, [
                   _c("div", { staticClass: "ml-auto" }, [
@@ -53660,7 +55089,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.handleClose.apply(null, arguments)
+                            return _vm.handleClose($event)
                           }
                         }
                       },
@@ -53739,47 +55168,45 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.handleConfirm.apply(null, arguments)
+                    return _vm.handleConfirm($event)
                   }
                 }
               },
               [
                 _vm._t(
                   "default",
-                  function() {
-                    return [
-                      _c(
-                        "div",
-                        { staticClass: "p-8" },
-                        [
-                          _c(
-                            "heading",
-                            { staticClass: "mb-6", attrs: { level: 2 } },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.__(_vm.uppercaseMode + " Resource"))
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "text-80 leading-normal" }, [
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "p-8" },
+                      [
+                        _c(
+                          "heading",
+                          { staticClass: "mb-6", attrs: { level: 2 } },
+                          [
                             _vm._v(
-                              "\n          " +
-                                _vm._s(
-                                  _vm.__(
-                                    "Are you sure you want to " +
-                                      _vm.mode +
-                                      " the selected resources?"
-                                  )
-                                ) +
-                                "\n        "
+                              _vm._s(_vm.__(_vm.uppercaseMode + " Resource"))
                             )
-                          ])
-                        ],
-                        1
-                      )
-                    ]
-                  },
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-80 leading-normal" }, [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(
+                                _vm.__(
+                                  "Are you sure you want to " +
+                                    _vm.mode +
+                                    " the selected resources?"
+                                )
+                              ) +
+                              "\n        "
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ],
                   { uppercaseMode: _vm.uppercaseMode, mode: _vm.mode }
                 ),
                 _vm._v(" "),
@@ -53801,7 +55228,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
-                              return _vm.handleClose.apply(null, arguments)
+                              return _vm.handleClose($event)
                             }
                           }
                         },
@@ -54498,7 +55925,7 @@ var render = function() {
                     return null
                   }
                   $event.preventDefault()
-                  return _vm.open.apply(null, arguments)
+                  return _vm.open($event)
                 },
                 function($event) {
                   if (
@@ -54511,7 +55938,7 @@ var render = function() {
                     return null
                   }
                   $event.preventDefault()
-                  return _vm.open.apply(null, arguments)
+                  return _vm.open($event)
                 }
               ]
             }
@@ -54523,13 +55950,11 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _vm._t("default", function() {
-              return [
-                _c("div", { staticClass: "text-70" }, [
-                  _vm._v(_vm._s(_vm.__("Click to choose")))
-                ])
-              ]
-            })
+            _vm._t("default", [
+              _c("div", { staticClass: "text-70" }, [
+                _vm._v(_vm._s(_vm.__("Click to choose")))
+              ])
+            ])
           ],
           2
         ),
@@ -54544,7 +55969,7 @@ var render = function() {
                 on: {
                   click: function($event) {
                     $event.stopPropagation()
-                    return _vm.clear.apply(null, arguments)
+                    return _vm.clear($event)
                   }
                 }
               },
@@ -54628,7 +56053,7 @@ var render = function() {
                           return null
                         }
                         $event.preventDefault()
-                        return _vm.chooseSelected.apply(null, arguments)
+                        return _vm.chooseSelected($event)
                       },
                       function($event) {
                         if (
@@ -54927,7 +56352,7 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.attachResource.apply(null, arguments)
+                  return _vm.attachResource($event)
                 },
                 change: _vm.onUpdateFormStatus
               }
@@ -55272,10 +56697,7 @@ var render = function() {
                       },
                       nativeOn: {
                         click: function($event) {
-                          return _vm.attachAndAttachAnother.apply(
-                            null,
-                            arguments
-                          )
+                          return _vm.attachAndAttachAnother($event)
                         }
                       }
                     },
@@ -55483,9 +56905,8 @@ var render = function() {
                           },
                           nativeOn: {
                             click: function($event) {
-                              return _vm.submitViaCreateResourceAndAddAnother.apply(
-                                null,
-                                arguments
+                              return _vm.submitViaCreateResourceAndAddAnother(
+                                $event
                               )
                             }
                           }
@@ -55860,7 +57281,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                return _vm.selectPreviousPage.apply(null, arguments)
+                return _vm.selectPreviousPage($event)
               }
             }
           },
@@ -55885,7 +57306,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                return _vm.selectNextPage.apply(null, arguments)
+                return _vm.selectNextPage($event)
               }
             }
           },
@@ -56004,7 +57425,7 @@ var render = function() {
                   on: {
                     keydown: function($event) {
                       $event.stopPropagation()
-                      return _vm.performSearch.apply(null, arguments)
+                      return _vm.performSearch($event)
                     },
                     search: _vm.performSearch,
                     input: function($event) {
@@ -56723,6 +58144,14 @@ var render = function() {
                     attrs: { dusk: _vm.field.attribute + "-inline-create" },
                     on: { click: _vm.openRelationModal }
                   })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.canShowNewRelationModal_
+                ? _c("create-relation-button", {
+                    staticClass: "ml-1",
+                    attrs: { dusk: _vm.field.attribute + "-inline-create" },
+                    on: { click: _vm.openRelationModal }
+                  })
                 : _vm._e()
             ],
             1
@@ -56733,6 +58162,30 @@ var render = function() {
             { attrs: { to: "modals", transition: "fade-transition" } },
             [
               _vm.relationModalOpen && _vm.canShowNewRelationModal
+                ? _c("create-relation-modal", {
+                    attrs: {
+                      "resource-name": _vm.field.resourceName,
+                      "resource-id": _vm.resourceId,
+                      "via-relationship": _vm.viaRelationship,
+                      "via-resource": _vm.viaResource,
+                      "via-resource-id": _vm.viaResourceId,
+                      width: "800"
+                    },
+                    on: {
+                      "set-resource": _vm.handleSetResource,
+                      "cancelled-create": _vm.closeRelationModal
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "portal",
+            { attrs: { to: "modals_", transition: "fade-transition" } },
+            [
+              _vm.relationModalOpen && _vm.canShowNewRelationModal_
                 ? _c("create-relation-modal", {
                     attrs: {
                       "resource-name": _vm.field.resourceName,
@@ -56837,7 +58290,7 @@ var render = function() {
             submit: function($event) {
               $event.preventDefault()
               $event.stopPropagation()
-              return _vm.handleConfirm.apply(null, arguments)
+              return _vm.handleConfirm($event)
             }
           }
         },
@@ -56906,7 +58359,7 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.handleClose.apply(null, arguments)
+                        return _vm.handleClose($event)
                       }
                     }
                   },
@@ -58090,7 +59543,7 @@ var render = function() {
                   },
                   function($event) {
                     $event.stopPropagation()
-                    return _vm.search.apply(null, arguments)
+                    return _vm.search($event)
                   }
                 ],
                 keydown: [
@@ -58105,10 +59558,7 @@ var render = function() {
                       return null
                     }
                     $event.stopPropagation()
-                    return _vm.goToCurrentlySelectedResource.apply(
-                      null,
-                      arguments
-                    )
+                    return _vm.goToCurrentlySelectedResource($event)
                   },
                   function($event) {
                     if (
@@ -58121,7 +59571,7 @@ var render = function() {
                       return null
                     }
                     $event.stopPropagation()
-                    return _vm.closeSearch.apply(null, arguments)
+                    return _vm.closeSearch($event)
                   },
                   function($event) {
                     if (
@@ -58395,7 +59845,7 @@ var render = function() {
       on: {
         click: function($event) {
           $event.preventDefault()
-          return _vm.toggleDropDown.apply(null, arguments)
+          return _vm.toggleDropDown($event)
         }
       }
     },
@@ -59934,7 +61384,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.handleClose.apply(null, arguments)
+                      return _vm.handleClose($event)
                     }
                   }
                 },
@@ -59958,7 +61408,7 @@ var render = function() {
                   nativeOn: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.handleConfirm.apply(null, arguments)
+                      return _vm.handleConfirm($event)
                     }
                   }
                 },
@@ -60053,19 +61503,15 @@ var render = function() {
         "div",
         { staticClass: "w-full py-4 px-4" },
         [
-          _vm._t("value", function() {
-            return [
-              _vm.fieldValue && !_vm.shouldDisplayAsHtml
-                ? _c("p", { staticClass: "text-90" }, [
-                    _vm._v("\n        " + _vm._s(_vm.fieldValue) + "\n      ")
-                  ])
-                : _vm.fieldValue && _vm.shouldDisplayAsHtml
-                ? _c("div", {
-                    domProps: { innerHTML: _vm._s(_vm.field.value) }
-                  })
-                : _c("p", [_vm._v("—")])
-            ]
-          })
+          _vm._t("value", [
+            _vm.fieldValue && !_vm.shouldDisplayAsHtml
+              ? _c("p", { staticClass: "text-90" }, [
+                  _vm._v("\n        " + _vm._s(_vm.fieldValue) + "\n      ")
+                ])
+              : _vm.fieldValue && _vm.shouldDisplayAsHtml
+              ? _c("div", { domProps: { innerHTML: _vm._s(_vm.field.value) } })
+              : _c("p", [_vm._v("—")])
+          ])
         ],
         2
       )
@@ -60099,7 +61545,7 @@ var render = function() {
       on: {
         click: function($event) {
           $event.preventDefault()
-          return _vm.handleClick.apply(null, arguments)
+          return _vm.handleClick($event)
         }
       }
     },
@@ -61320,11 +62766,11 @@ var render = function() {
                             return null
                           }
                           $event.preventDefault()
-                          return _vm.download.apply(null, arguments)
+                          return _vm.download($event)
                         },
                         click: function($event) {
                           $event.preventDefault()
-                          return _vm.download.apply(null, arguments)
+                          return _vm.download($event)
                         }
                       }
                     },
@@ -61594,7 +63040,7 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.openDeleteModal.apply(null, arguments)
+                        return _vm.openDeleteModal($event)
                       }
                     }
                   },
@@ -61626,7 +63072,7 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.openRestoreModal.apply(null, arguments)
+                        return _vm.openRestoreModal($event)
                       }
                     }
                   },
@@ -61923,18 +63369,16 @@ var render = function() {
                   }
                 },
                 [
-                  _vm._t("default", function() {
-                    return [
-                      _vm._v(
-                        " " +
-                          _vm._s(
-                            _vm.__("Attach :resource", {
-                              resource: _vm.singularName
-                            })
-                          )
-                      )
-                    ]
-                  })
+                  _vm._t("default", [
+                    _vm._v(
+                      " " +
+                        _vm._s(
+                          _vm.__("Attach :resource", {
+                            resource: _vm.singularName
+                          })
+                        )
+                    )
+                  ])
                 ],
                 2
               )
@@ -62367,7 +63811,7 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.updateAttachedResource.apply(null, arguments)
+                  return _vm.updateAttachedResource($event)
                 },
                 change: _vm.onUpdateFormStatus
               }
@@ -62541,10 +63985,7 @@ var render = function() {
                       },
                       nativeOn: {
                         click: function($event) {
-                          return _vm.updateAndContinueEditing.apply(
-                            null,
-                            arguments
-                          )
+                          return _vm.updateAndContinueEditing($event)
                         }
                       }
                     },
@@ -62878,9 +64319,8 @@ var render = function() {
                       },
                       nativeOn: {
                         click: function($event) {
-                          return _vm.submitViaUpdateResourceAndContinueEditing.apply(
-                            null,
-                            arguments
+                          return _vm.submitViaUpdateResourceAndContinueEditing(
+                            $event
                           )
                         }
                       }
@@ -62945,25 +64385,20 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._t("default", function() {
-        return [
-          _c(
-            "heading",
-            {
-              class: _vm.panel.helpText ? "mb-2" : "mb-3",
-              attrs: { level: 1 }
-            },
-            [_vm._v(_vm._s(_vm.panel.name))]
-          ),
-          _vm._v(" "),
-          _vm.panel.helpText
-            ? _c("p", {
-                staticClass: "text-80 text-sm font-semibold italic mb-3",
-                domProps: { innerHTML: _vm._s(_vm.panel.helpText) }
-              })
-            : _vm._e()
-        ]
-      }),
+      _vm._t("default", [
+        _c(
+          "heading",
+          { class: _vm.panel.helpText ? "mb-2" : "mb-3", attrs: { level: 1 } },
+          [_vm._v(_vm._s(_vm.panel.name))]
+        ),
+        _vm._v(" "),
+        _vm.panel.helpText
+          ? _c("p", {
+              staticClass: "text-80 text-sm font-semibold italic mb-3",
+              domProps: { innerHTML: _vm._s(_vm.panel.helpText) }
+            })
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _c(
         "card",
@@ -63081,13 +64516,11 @@ var render = function() {
       "div",
       { staticClass: "w-1/4 py-4" },
       [
-        _vm._t("default", function() {
-          return [
-            _c("h4", { staticClass: "font-normal text-80" }, [
-              _vm._v(_vm._s(_vm.label))
-            ])
-          ]
-        })
+        _vm._t("default", [
+          _c("h4", { staticClass: "font-normal text-80" }, [
+            _vm._v(_vm._s(_vm.label))
+          ])
+        ])
       ],
       2
     ),
@@ -63096,17 +64529,15 @@ var render = function() {
       "div",
       { staticClass: "w-3/4 py-4 break-words" },
       [
-        _vm._t("value", function() {
-          return [
-            _vm.fieldValue && !_vm.shouldDisplayAsHtml
-              ? _c("p", { staticClass: "text-90" }, [
-                  _vm._v("\n        " + _vm._s(_vm.fieldValue) + "\n      ")
-                ])
-              : _vm.fieldValue && _vm.shouldDisplayAsHtml
-              ? _c("div", { domProps: { innerHTML: _vm._s(_vm.field.value) } })
-              : _c("p", [_vm._v("—")])
-          ]
-        })
+        _vm._t("value", [
+          _vm.fieldValue && !_vm.shouldDisplayAsHtml
+            ? _c("p", { staticClass: "text-90" }, [
+                _vm._v("\n        " + _vm._s(_vm.fieldValue) + "\n      ")
+              ])
+            : _vm.fieldValue && _vm.shouldDisplayAsHtml
+            ? _c("div", { domProps: { innerHTML: _vm._s(_vm.field.value) } })
+            : _c("p", [_vm._v("—")])
+        ])
       ],
       2
     )
@@ -66364,9 +67795,10 @@ function getInternetExplorerVersion() {
 }
 
 //
-var isIE;
 
-function initCompat() {
+let isIE;
+
+function initCompat () {
   if (!initCompat.init) {
     initCompat.init = true;
     isIE = getInternetExplorerVersion() !== -1;
@@ -66375,83 +67807,84 @@ function initCompat() {
 
 var script = {
   name: 'ResizeObserver',
+
   props: {
     emitOnMount: {
       type: Boolean,
-      default: false
+      default: false,
     },
+
     ignoreWidth: {
       type: Boolean,
-      default: false
+      default: false,
     },
+
     ignoreHeight: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  mounted: function mounted() {
-    var _this = this;
 
+  mounted () {
     initCompat();
-    this.$nextTick(function () {
-      _this._w = _this.$el.offsetWidth;
-      _this._h = _this.$el.offsetHeight;
-
-      if (_this.emitOnMount) {
-        _this.emitSize();
+    this.$nextTick(() => {
+      this._w = this.$el.offsetWidth;
+      this._h = this.$el.offsetHeight;
+      if (this.emitOnMount) {
+        this.emitSize();
       }
     });
-    var object = document.createElement('object');
+    const object = document.createElement('object');
     this._resizeObject = object;
     object.setAttribute('aria-hidden', 'true');
     object.setAttribute('tabindex', -1);
     object.onload = this.addResizeHandlers;
     object.type = 'text/html';
-
     if (isIE) {
       this.$el.appendChild(object);
     }
-
     object.data = 'about:blank';
-
     if (!isIE) {
       this.$el.appendChild(object);
     }
   },
-  beforeDestroy: function beforeDestroy() {
+
+  beforeDestroy () {
     this.removeResizeHandlers();
   },
+
   methods: {
-    compareAndNotify: function compareAndNotify() {
-      if (!this.ignoreWidth && this._w !== this.$el.offsetWidth || !this.ignoreHeight && this._h !== this.$el.offsetHeight) {
+    compareAndNotify () {
+      if ((!this.ignoreWidth && this._w !== this.$el.offsetWidth) || (!this.ignoreHeight && this._h !== this.$el.offsetHeight)) {
         this._w = this.$el.offsetWidth;
         this._h = this.$el.offsetHeight;
         this.emitSize();
       }
     },
-    emitSize: function emitSize() {
+
+    emitSize () {
       this.$emit('notify', {
         width: this._w,
-        height: this._h
+        height: this._h,
       });
     },
-    addResizeHandlers: function addResizeHandlers() {
-      this._resizeObject.contentDocument.defaultView.addEventListener('resize', this.compareAndNotify);
 
+    addResizeHandlers () {
+      this._resizeObject.contentDocument.defaultView.addEventListener('resize', this.compareAndNotify);
       this.compareAndNotify();
     },
-    removeResizeHandlers: function removeResizeHandlers() {
+
+    removeResizeHandlers () {
       if (this._resizeObject && this._resizeObject.onload) {
         if (!isIE && this._resizeObject.contentDocument) {
           this._resizeObject.contentDocument.defaultView.removeEventListener('resize', this.compareAndNotify);
         }
-
         this.$el.removeChild(this._resizeObject);
         this._resizeObject.onload = null;
         this._resizeObject = null;
       }
-    }
-  }
+    },
+  },
 };
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
@@ -66538,48 +67971,48 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
 }
 
 /* script */
-var __vue_script__ = script;
+const __vue_script__ = script;
 /* template */
-
-var __vue_render__ = function __vue_render__() {
+var __vue_render__ = function() {
   var _vm = this;
-
   var _h = _vm.$createElement;
-
   var _c = _vm._self._c || _h;
-
   return _c("div", {
     staticClass: "resize-observer",
-    attrs: {
-      tabindex: "-1"
-    }
-  });
+    attrs: { tabindex: "-1" }
+  })
 };
-
 var __vue_staticRenderFns__ = [];
 __vue_render__._withStripped = true;
-/* style */
 
-var __vue_inject_styles__ = undefined;
-/* scoped */
+  /* style */
+  const __vue_inject_styles__ = undefined;
+  /* scoped */
+  const __vue_scope_id__ = "data-v-8859cc6c";
+  /* module identifier */
+  const __vue_module_identifier__ = undefined;
+  /* functional template */
+  const __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
 
-var __vue_scope_id__ = "data-v-8859cc6c";
-/* module identifier */
-
-var __vue_module_identifier__ = undefined;
-/* functional template */
-
-var __vue_is_functional_template__ = false;
-/* style inject */
-
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-var __vue_component__ = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__,
-  staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
+  
+  const __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
 
 function install(Vue) {
   // eslint-disable-next-line vue/component-definition-name-casing
@@ -66589,7 +68022,7 @@ function install(Vue) {
 
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "1.0.1",
+  version: "1.0.0",
   install: install
 };
 
@@ -70049,8 +71482,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
 /*!
- * vuex v3.6.2
- * (c) 2021 Evan You
+ * vuex v3.6.0
+ * (c) 2020 Evan You
  * @license MIT
  */
 function applyMixin (Vue) {
@@ -71015,7 +72448,7 @@ var mapState = normalizeNamespace(function (namespace, states) {
 /**
  * Reduce the code which written in Vue.js for committing the mutation
  * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept another params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
  * @return {Object}
  */
 var mapMutations = normalizeNamespace(function (namespace, mutations) {
@@ -71280,7 +72713,7 @@ function pad (num, maxLength) {
 var index = {
   Store: Store,
   install: install,
-  version: '3.6.2',
+  version: '3.6.0',
   mapState: mapState,
   mapMutations: mapMutations,
   mapGetters: mapGetters,

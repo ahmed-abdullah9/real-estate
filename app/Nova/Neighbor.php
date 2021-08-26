@@ -24,10 +24,10 @@ class Neighbor extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     public static $category = 'الاعدادات';
-
+    public static $with = ['city'];
     /**
      * The columns that should be searched.
      *

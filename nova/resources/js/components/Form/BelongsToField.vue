@@ -80,11 +80,30 @@
           class="ml-1"
           :dusk="`${field.attribute}-inline-create`"
         />
+        <create-relation-button
+          v-if="canShowNewRelationModal_"
+          @click="openRelationModal"
+          class="ml-1"
+          :dusk="`${field.attribute}-inline-create`"
+        />
       </div>
 
       <portal to="modals" transition="fade-transition">
         <create-relation-modal
           v-if="relationModalOpen && canShowNewRelationModal"
+          @set-resource="handleSetResource"
+          @cancelled-create="closeRelationModal"
+          :resource-name="field.resourceName"
+          :resource-id="resourceId"
+          :via-relationship="viaRelationship"
+          :via-resource="viaResource"
+          :via-resource-id="viaResourceId"
+          width="800"
+        />
+      </portal>
+      <portal to="modals_" transition="fade-transition">
+        <create-relation-modal
+          v-if="relationModalOpen && canShowNewRelationModal_"
           @set-resource="handleSetResource"
           @cancelled-create="closeRelationModal"
           :resource-name="field.resourceName"
@@ -379,6 +398,15 @@ export default {
       return (
         this.field.showCreateRelationButton &&
         !this.shownViaNewRelationModal &&
+        !this.isLocked &&
+        !this.isReadonly &&
+        this.authorizedToCreate
+      )
+    },
+    canShowNewRelationModal_() {
+      return (
+        this.field.showCreateRelationButton &&
+        this.shownViaNewRelationModal &&
         !this.isLocked &&
         !this.isReadonly &&
         this.authorizedToCreate

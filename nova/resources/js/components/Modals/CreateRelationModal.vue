@@ -59,9 +59,9 @@ export default {
     /**
      * Close the modal.
      */
-    handleClose() {
-      this.$emit('cancelled-create')
-    },
+    // handleClose() {
+    //   this.$emit('cancelled-create')
+    // },
   },
 }
 </script>

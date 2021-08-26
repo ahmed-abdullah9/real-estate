@@ -4711,6 +4711,7 @@ trix-editor.disabled {
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
 }
 

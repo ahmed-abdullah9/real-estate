@@ -26,7 +26,7 @@ class Building extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'buildingName';
 
 
     /**

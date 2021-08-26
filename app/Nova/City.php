@@ -17,13 +17,13 @@ class City extends Resource
     public static $model = \App\City::class;
 
     public static $category = 'الاعدادات';
-
+    
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -52,6 +52,8 @@ class City extends Resource
             Text::make(__('الاسم'), 'name')->rules('required'),
         ];
     }
+
+    
 
     /**
      * Get the cards available for the request.
