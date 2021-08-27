@@ -163,7 +163,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
 			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
-			// The actual height not matching the style height (set via the resize method) indicates that 
+			// The actual height not matching the style height (set via the resize method) indicates that
 			// the max-height has been exceeded, in which case the overflow should be allowed.
 			if (actualHeight < styleHeight) {
 				if (computed.overflowY === 'hidden') {
@@ -52956,7 +52956,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.__("يخلق")))])
+      _c("span", [_vm._v(_vm._s(_vm.__("إنشاء جديد")))])
     ],
     1
   )
@@ -67994,13 +67994,13 @@ __vue_render__._withStripped = true;
   /* functional template */
   const __vue_is_functional_template__ = false;
   /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
 
-  
+  /* style inject SSR */
+
+  /* style inject shadow dom */
+
+
+
   const __vue_component__ = /*#__PURE__*/normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
@@ -84503,3 +84503,4 @@ module.exports = __webpack_require__("./resources/css/app.css");
 /***/ })
 
 },[0]);
+

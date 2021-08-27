@@ -11,8 +11,6 @@ class RentalContract extends Model
         'date_to' => 'date',
     ];
 
-    protected $with = ['owner'];
-
     public function instrument()
     {
         return $this->belongsTo(Instrument::class);

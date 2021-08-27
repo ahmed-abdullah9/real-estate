@@ -19,7 +19,6 @@ class Instrument extends Model
         return $this->belongsTo(Owner::class);
     }
 
-
     public function city()
     {
         return $this->belongsTo(City::class);

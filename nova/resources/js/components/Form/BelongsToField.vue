@@ -80,12 +80,6 @@
           class="ml-1"
           :dusk="`${field.attribute}-inline-create`"
         />
-        <create-relation-button
-          v-if="canShowNewRelationModal_"
-          @click="openRelationModal"
-          class="ml-1"
-          :dusk="`${field.attribute}-inline-create`"
-        />
       </div>
 
       <portal to="modals" transition="fade-transition">
@@ -398,15 +392,6 @@ export default {
       return (
         this.field.showCreateRelationButton &&
         !this.shownViaNewRelationModal &&
-        !this.isLocked &&
-        !this.isReadonly &&
-        this.authorizedToCreate
-      )
-    },
-    canShowNewRelationModal_() {
-      return (
-        this.field.showCreateRelationButton &&
-        this.shownViaNewRelationModal &&
         !this.isLocked &&
         !this.isReadonly &&
         this.authorizedToCreate

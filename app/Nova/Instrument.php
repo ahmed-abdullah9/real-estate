@@ -72,7 +72,7 @@ class Instrument extends Resource
             // Select::make(__('المدينة'), 'city_id')->options(
             //     City::all()->pluck('name', 'id')
             // )->searchable()->rules('required'),
-            
+
             // Select::make(__('الحي'), 'neighbor_id')->options(
             //     Neighbor::all()->pluck('name', 'id')
             // )->searchable()->rules('required'),
@@ -80,7 +80,7 @@ class Instrument extends Resource
             NovaBelongsToDepend::make('City')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\City::all()),
-            
+
             NovaBelongsToDepend::make('Neighbor')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->optionsResolve(function ($city) {

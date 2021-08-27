@@ -48,10 +48,10 @@ class RentalContract extends Resource
     ];
 
 
-    // public static function label()
-    // {
-    //     return 'عقود ادارة املاك';
-    // }
+    public static function label()
+    {
+        return 'عقود ادارة املاك';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -78,16 +78,22 @@ class RentalContract extends Resource
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
 
-            // Select::make(__('instrument'), 'instrument_id')->options(
-            //     Instrument::all()->pluck('instrument_number', 'id')
-            // )->searchable()->rules('required'),
-
-            BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
+            NovaBelongsToDepend::make('Owner')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-            BelongsTo::make('Instrument')->showCreateRelationButton(function (NovaRequest $request) {
-               return true;
-            }),
+            // BelongsTo::make('owner')->showCreateRelationButton(function (NovaRequest $request) {
+            //     return true;
+            //  }),
+            NovaBelongsToDepend::make('Instrument')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->optionsResolve(function ($owner) {
+                // Reduce the amount of unnecessary data sent
+                return $owner->instrument()->get(['id','instrument_number']);
+            })->dependsOn('Owner')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             }),
             // BelongsTo::make('Instrument')->inline(),
 
             // Select::make(__('owner'), 'owner_id')->options(

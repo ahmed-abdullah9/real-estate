@@ -14,7 +14,7 @@ use Laravel\Nova\Fields\Boolean;
 use App\Instrument;
 use App\Nova\Actions\PrintInvestmentContract;
 use App\Owner;
-// use App\userOrganization;
+use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 
 class InvestmentContract extends Resource
 {
@@ -41,10 +41,10 @@ class InvestmentContract extends Resource
         'id',
     ];
 
-    // public static function label()
-    // {
-    //     return 'عقود استثمار';
-    // }
+    public static function label()
+    {
+        return 'عقود استثمار';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -70,12 +70,20 @@ class InvestmentContract extends Resource
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
             // BelongsTo::make('building')->showCreateRelationButton(),
-            BelongsTo::make('owner')->showCreateRelationButton(),
-
-            BelongsTo::make('instrument')->showCreateRelationButton(function (NovaRequest $request) {
+            NovaBelongsToDepend::make('Owner')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-            //  HasOneThrough::make('userOrganization'),
+             NovaBelongsToDepend::make('Instrument')
+             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+             ->optionsResolve(function ($owner) {
+                 // Reduce the amount of unnecessary data sent
+                 return $owner->instrument()->get(['id','instrument_number']);
+             })->dependsOn('Owner')->showCreateRelationButton(function (NovaRequest $request) {
+                 return true;
+              }),
+             //  HasOneThrough::make('userOrganization'),
 
             Text::make(__('مدة العقد'), 'duration')->rules('required'),
             Text::make(__('(بالاسم) مدة العقد'), 'duration_name')->rules('required'),
@@ -83,7 +91,6 @@ class InvestmentContract extends Resource
             Text::make(__('تكلفةالإيجار'), 'investment_cost')->rules('required'),
             Text::make(__('أقساط الإيجار'), 'installment')->rules('required'),
             Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
-            // BelongsTo::make('Instrument')->inline(),
             // BelongsTo::make('رقم القضية', 'owners', Owner::class),
         ];
     }

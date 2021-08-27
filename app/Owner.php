@@ -12,8 +12,15 @@ class Owner extends Model
         'expireDate' => 'date',
     ];
 
+    protected $with = ['instrument'];
+
     public function OwnerBank()
     {
         return $this->hasMany(OwnerBank::class);
+    }
+
+    public function instrument()
+    {
+        return $this->hasMany(Instrument::class);
     }
 }
