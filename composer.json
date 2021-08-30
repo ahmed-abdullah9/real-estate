@@ -18,7 +18,6 @@
         "laravel/framework": "^7.29",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
-        "mpdf/mpdf": "8.0.8",
         "orlyapps/nova-belongsto-depend": "^3.0",
         "pishran/nova-rtl-theme": "^1.5"
     },
