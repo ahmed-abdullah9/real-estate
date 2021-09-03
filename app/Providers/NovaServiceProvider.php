@@ -6,6 +6,15 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
+use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
+use DigitalCreative\CollapsibleResourceManager\Resources\CollapsibleResourceManagerServiceProvider;
+use DigitalCreative\CollapsibleResourceManager\Resources\Group;
+use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
+use App\Nova\Metrics\NewUsers;
+use App\Nova\Metrics\NewOwners;
+use App\Nova\Metrics\NewBuildings;
+
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -56,7 +65,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            // new Help,
+            new NewUsers,
+            new NewOwners,
+            new NewBuildings,
+
         ];
     }
 
@@ -77,7 +90,63 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            // ...
+            new CollapsibleResourceManager([
+                'navigation' => [
+                    TopLevelResource::make([
+                        // 'label' => 'Setting',
+                        'expanded' => null,
+                        // 'linkTo' =>  \App\Nova\Building::class, // accepts an instance of `NovaResource` or a Nova `Resource::class`
+                        'resources' => [
+                            NovaResource::make(\App\Nova\Building::class),
+                            NovaResource::make(\App\Nova\Instrument::class),
+                            NovaResource::make(\App\Nova\Owner::class),
+                            Group::make([
+                                'label' => 'العقود',
+                                'expanded' => false,
+                                'resources' => [
+                                    \App\Nova\RentalContract::class,
+                                    \App\Nova\InvestmentContract::class
+                                    // \App\Nova\InvestmentContract::class
+                                    ]
+                                ]),
+
+                            Group::make([
+                                'label' => 'الخصوم',
+                                'expanded' => false,
+                                'resources' => [
+                                    \App\Nova\Owner::class,
+                                    \App\Nova\Client::class,
+                                    \App\Nova\User::class
+                                    // \App\Nova\InvestmentContract::class
+                                    ]
+                                ]),
+                            Group::make([
+                                'label' => 'الاعدادات',
+                                'expanded' => false,
+                                'resources' => [
+                                    \App\Nova\City::class,
+                                    \App\Nova\Zone::class,
+                                    \App\Nova\Neighbor::class,
+                                    \App\Nova\Bank::class,
+                                    // \App\Nova\InvestmentContract::class
+                                    ]
+                                ]),
+                            Group::make([
+                                'label' => 'اعدادات العمائر',
+                                'expanded' => false,
+                                'resources' => [
+                                    \App\Nova\BuildingType::class,
+                                    \App\Nova\KitchenType::class,
+                                    \App\Nova\ApartmentStatus::class,
+                                    ]
+                                ]),
+                                ]
+                    ]),
+                ]
+            ])
+        ];
     }
 
     /**

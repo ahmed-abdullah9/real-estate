@@ -63,7 +63,7 @@ class City extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [ ];
     }
 
     /**

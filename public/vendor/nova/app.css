@@ -5464,6 +5464,7 @@ trix-editor.disabled {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+          margin-right: -10%;
 }
 
 .select-text {

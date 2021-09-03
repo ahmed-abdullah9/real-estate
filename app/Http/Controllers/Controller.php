@@ -17,7 +17,6 @@ class Controller extends BaseController
     public function makePDF($contract)
     {
         $object = new \stdClass();
-        // $pdf = \App::make('dompdf.wrapper');
 
         $object->id = uniqid();
         $object->path = '../storage/tmp/'. $object->id .'.pdf';

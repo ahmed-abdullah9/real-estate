@@ -38,6 +38,7 @@
                 <a href="{{ \Laravel\Nova\Nova::path() }}">
                     <div class="absolute pin-t pin-l pin-r bg-logo flex items-center w-sidebar h-header px-6 text-white">
                        @include('nova::partials.logo')
+                       {{-- <img class="" src="{{ mix('alwehad.jpeg', 'img') }}" alt="Alwehad"> --}}
                     </div>
                 </a>
 

@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use App\Nova\Metrics\NewUsers;
 
 class User extends Resource
 {
@@ -77,7 +78,9 @@ class User extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+             new NewUsers
+        ];
     }
 
     /**
