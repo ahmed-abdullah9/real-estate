@@ -14,6 +14,7 @@ use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
 use App\Nova\Metrics\NewUsers;
 use App\Nova\Metrics\NewOwners;
 use App\Nova\Metrics\NewBuildings;
+use App\Nova\Metrics\NewAgents;
 
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
@@ -69,6 +70,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new NewUsers,
             new NewOwners,
             new NewBuildings,
+            new NewAgents,
 
         ];
     }
@@ -118,6 +120,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 'resources' => [
                                     \App\Nova\Owner::class,
                                     \App\Nova\Client::class,
+                                    \App\Nova\Agent::class,
                                     \App\Nova\User::class
                                     // \App\Nova\InvestmentContract::class
                                     ]
