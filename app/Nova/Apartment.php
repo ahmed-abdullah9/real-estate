@@ -26,9 +26,9 @@ class Apartment extends Resource
      *
      * @var string
      */
-    // public static $title = 'id';
+    public static $title = 'apartmentNo';
 
-
+    
     /**
      * The columns that should be searched.
      *
@@ -54,7 +54,7 @@ class Apartment extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الدور'), 'floor')->rules('required'),
-            Select::make(__('المبنى'), 'buildingId')->options(
+            Select::make(__('المبنى'), 'building_id')->options(
                 Building::all()->pluck('buildingName', 'id')
             )->searchable()->rules('required'),
 

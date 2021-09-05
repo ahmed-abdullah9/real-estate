@@ -15,8 +15,15 @@ class CreateLeaseContractsTable extends Migration
     {
         Schema::create('lease_contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('date_from');
-            $table->timestamp('date_to');
+            $table->integer('building_id')->unsigned();
+            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
+            $table->integer('agent_id')->unsigned();
+            $table->foreign('agent_id')->references('id')->on('agents')->onDelete('cascade');
+            $table->integer('apartment_id')->unsigned();
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
+            $table->string('commission');
+            $table->string('insurance');
+            $table->tinyInteger('payment_method');
             $table->timestamps();
         });
     }

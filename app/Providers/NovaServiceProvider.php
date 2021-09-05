@@ -104,12 +104,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                             NovaResource::make(\App\Nova\Building::class),
                             NovaResource::make(\App\Nova\Instrument::class),
                             NovaResource::make(\App\Nova\Owner::class),
+                            NovaResource::make(\App\Nova\Apartment::class),
                             Group::make([
                                 'label' => 'العقود',
                                 'expanded' => false,
                                 'resources' => [
                                     \App\Nova\RentalContract::class,
-                                    \App\Nova\InvestmentContract::class
+                                    \App\Nova\InvestmentContract::class,
+                                    \App\Nova\LeaseContract::class
                                     // \App\Nova\InvestmentContract::class
                                     ]
                                 ]),

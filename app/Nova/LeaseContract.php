@@ -8,20 +8,21 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Apartment;
+use App\Building;
 use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
-use Laravel\Nova\Fields\Boolean;
-use App\Nova\Actions\PrintPDF;
 
-class RentalContract extends Resource
+class LeaseContract extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\RentalContract::class;
-    public static $with = ['owner','instrument' ];
-
+    public static $model = \App\LeaseContract::class;
+    public static $with = ['building','apartment' ];
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -39,10 +40,9 @@ class RentalContract extends Resource
         'id',
     ];
 
-
     public static function label()
     {
-        return 'عقود ادارة املاك';
+        return 'عقود الإيجار';
     }
 
     /**
@@ -51,52 +51,39 @@ class RentalContract extends Resource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-
-
     public function fields(Request $request)
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
-                if(RentalContract::count()>0){
-                    $contract =  RentalContract::orderByDesc('created_at')->first();
-                    return $contract->contract_no + 1;
-                }
-                return 1;
-            }),
-
-            Text::make(__('اسم العقد'), 'name')->rules('required'),
-
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
-
-            NovaBelongsToDepend::make('Owner')
+            NovaBelongsToDepend::make('Building')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
-            ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
+            ->options(\App\Building::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-           
-            NovaBelongsToDepend::make('Instrument')
-            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
-            ->optionsResolve(function ($owner) {
-                // Reduce the amount of unnecessary data sent
-                return $owner->instrument()->get(['id','instrument_number']);
-            })->dependsOn('Owner')->showCreateRelationButton(function (NovaRequest $request) {
-                return true;
-             }),
-            // BelongsTo::make('Instrument')->inline(),
 
-            // Select::make(__('owner'), 'owner_id')->options(
-            //     Owner::all()->pluck('name', 'id')
-            // )->searchable()->rules('required'),
+             NovaBelongsToDepend::make('Apartment')
+             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+             ->optionsResolve(function ($building) {
+                 // Reduce the amount of unnecessary data sent
+                 return $building->apartment()->get(['id','apartmentNo']);
+             })->dependsOn('Building')->showCreateRelationButton(function (NovaRequest $request) {
+                 return true;
+              }),
 
+              Select::make(__('طريقة السداد'), 'payment_method')->options([
+                'سنوي',
+                'نصف سنوي ',
+                'ربع سنوي',
+                'شهري',
+                'يومي للوحدات المفروشة',
+            ])->displayUsingLabels()->rules('required'),
 
-            Number::make(__('البند الخامس'), 'clause5')->rules('required'),
-            Number::make(__('البند السادس'), 'clause6')->rules('required'),
-            Number::make(__('البند التاسع'), 'clause9')->rules('required'),
-            Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
-            Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
+            Text::make(__('العمولة'), 'commission')->rules('required'),
+            Text::make(__('التأمين'), 'insurance')->rules('required'),
 
+            
         ];
     }
 
@@ -118,7 +105,7 @@ class RentalContract extends Resource
      * @return array
      */
     public function filters(Request $request)
-   {
+    {
         return [];
     }
 
@@ -141,8 +128,6 @@ class RentalContract extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            new PrintPDF
-        ];
+        return [];
     }
 }
