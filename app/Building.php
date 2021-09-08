@@ -8,7 +8,6 @@ class Building extends Model
 {
     protected $with = ['apartment'];
 
-
     public function buildingType()
     {
         return $this->belongsTo(BuildingType::class);

@@ -15,7 +15,9 @@ use App\Nova\Metrics\NewUsers;
 use App\Nova\Metrics\NewOwners;
 use App\Nova\Metrics\NewBuildings;
 use App\Nova\Metrics\NewAgents;
-
+// use App\Providers\Observable;
+// use Laravel\Nova\Observable;
+// use App\Observers\BuildingObserver;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -27,6 +29,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+        // Observable::make(Building::class, BuildingObserver::class);
     }
 
     /**
