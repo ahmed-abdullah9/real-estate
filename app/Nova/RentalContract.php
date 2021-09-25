@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Client;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -10,7 +11,9 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Select;
 use App\Nova\Actions\PrintPDF;
+use App\RentalContract as AppRentalContract;
 
 class RentalContract extends Resource
 {
@@ -58,8 +61,8 @@ class RentalContract extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('رقم العقد'), 'contract_no')->default(function ($request) {
-                if(RentalContract::count()>0){
-                    $contract =  RentalContract::orderByDesc('created_at')->first();
+                if(AppRentalContract::count()>0){
+                    $contract =  AppRentalContract::orderByDesc('created_at')->first();
                     return $contract->contract_no + 1;
                 }
                 return 1;
@@ -75,7 +78,7 @@ class RentalContract extends Resource
             ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-           
+
             NovaBelongsToDepend::make('Instrument')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->optionsResolve(function ($owner) {
@@ -85,11 +88,6 @@ class RentalContract extends Resource
                 return true;
              }),
             // BelongsTo::make('Instrument')->inline(),
-
-            // Select::make(__('owner'), 'owner_id')->options(
-            //     Owner::all()->pluck('name', 'id')
-            // )->searchable()->rules('required'),
-
 
             Number::make(__('البند الخامس'), 'clause5')->rules('required'),
             Number::make(__('البند السادس'), 'clause6')->rules('required'),

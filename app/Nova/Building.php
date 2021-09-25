@@ -66,7 +66,7 @@ class Building extends Resource
 
             Number::make(__('رقم العمارة'), 'buildingNo')->rules('required'),
             Number::make(__('عدد المداخل'), 'enteranceNo')->hideFromIndex()->rules('required'),
-            Number::make(__('عدد الشقق'), 'apartmentNo')->hideFromIndex()->rules('required'),
+            Number::make(__('عدد الشقق'), 'apartmentNo')->rules('required'),
             Number::make(__('عدد المكاتب'), 'officesNo')->hideFromIndex()->rules('required'),
             Number::make(__('عدد المحلات التجارية'), 'shopsNo')->hideFromIndex()->rules('required'),
             Select::make(__('نوع السكان'), 'populationType')->options([

@@ -373,7 +373,7 @@ abstract class Resource implements ArrayAccess, JsonSerializable, UrlRoutable
      */
     public static function createButtonLabel()
     {
-        return __('Create :resource', ['resource' => static::singularLabel()]);
+        return __('إنشاء :resource', ['resource' => static::singularLabel()]);
     }
 
     /**
@@ -383,7 +383,7 @@ abstract class Resource implements ArrayAccess, JsonSerializable, UrlRoutable
      */
     public static function updateButtonLabel()
     {
-        return __('Update :resource', ['resource' => static::singularLabel()]);
+        return __('تحديث :resource', ['resource' => static::singularLabel()]);
     }
 
     /**

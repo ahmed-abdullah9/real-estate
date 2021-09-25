@@ -69,7 +69,6 @@ class InvestmentContract extends Resource
 
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
-            // BelongsTo::make('building')->showCreateRelationButton(),
             NovaBelongsToDepend::make('Owner')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
@@ -91,7 +90,6 @@ class InvestmentContract extends Resource
             Text::make(__('تكلفةالإيجار'), 'investment_cost')->rules('required'),
             Text::make(__('أقساط الإيجار'), 'installment')->rules('required'),
             Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
-            // BelongsTo::make('رقم القضية', 'owners', Owner::class),
         ];
     }
 

@@ -7,11 +7,10 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\BelongsTo;
 use App\Apartment;
 use App\Building;
+use App\Client;
 use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 
 class LeaseContract extends Resource
@@ -56,14 +55,31 @@ class LeaseContract extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
-            Date::make(__('ينتهي في '), 'date_to')->rules('required'),
-            NovaBelongsToDepend::make('Building')
+            Select::make(__('مدة العقد'), 'duration')->options([
+                'سنة',
+                'سنتين ',
+                'ثلاث سنوات',
+                'اربع سنوات',
+                'خمس سنوات',
+            ])->displayUsingLabels()->rules('required'),
+
+            // to be on creation!
+            Date::make(__('ينتهي في '), 'date_to')->hideWhenCreating()->hideWhenUpdating(),
+
+            NovaBelongsToDepend::make('المستأجر', 'client', 'App\Nova\Client')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->options(\App\Client::all())->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             })->withMeta(['titleKey' => 'nameAr']),
+
+
+            NovaBelongsToDepend::make('العمارة', 'Building', 'App\Nova\Building')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\Building::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
 
-             NovaBelongsToDepend::make('Apartment')
+             NovaBelongsToDepend::make('الشقة', 'Apartment', 'App\Nova\Apartment')
              ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
              ->optionsResolve(function ($building) {
                  // Reduce the amount of unnecessary data sent
@@ -80,10 +96,11 @@ class LeaseContract extends Resource
                 'يومي للوحدات المفروشة',
             ])->displayUsingLabels()->rules('required'),
 
-            Text::make(__('العمولة'), 'commission')->rules('required'),
-            Text::make(__('التأمين'), 'insurance')->rules('required'),
+            // يحسبها النظام في الادخال!
+            Text::make(__('العمولة'), 'commission')->rules('required')->hideWhenCreating()->hideWhenUpdating(),
+            Text::make(__('التأمين'), 'insurance')->rules('required')->hideWhenCreating()->hideWhenUpdating(),
 
-            
+
         ];
     }
 

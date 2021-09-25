@@ -54,7 +54,7 @@ class Apartment extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('الدور'), 'floor')->rules('required'),
-            Select::make(__('المبنى'), 'building_id')->options(
+            Select::make(__('العمارة'), 'building_id')->options(
                 Building::all()->pluck('buildingName', 'id')
             )->searchable()->rules('required'),
 

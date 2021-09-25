@@ -106,7 +106,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'resources' => [
                             NovaResource::make(\App\Nova\Building::class),
                             NovaResource::make(\App\Nova\Instrument::class),
-                            NovaResource::make(\App\Nova\Owner::class),
                             NovaResource::make(\App\Nova\Apartment::class),
                             Group::make([
                                 'label' => 'العقود',

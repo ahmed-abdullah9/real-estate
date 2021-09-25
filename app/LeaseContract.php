@@ -16,14 +16,14 @@ class LeaseContract extends Model
         return $this->belongsTo(Building::class);
     }
 
-    public function agent()
+    public function client()
     {
-        return $this->belongsTo(Agent::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function apartment()
     {
         return $this->belongsTo(Apartment::class);
     }
-    
+
 }

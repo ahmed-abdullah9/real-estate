@@ -7,7 +7,6 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\BelongsTo;
 use App\Neighbor;
 
 

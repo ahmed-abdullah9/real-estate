@@ -25,8 +25,7 @@ class Client extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
-
+    public static $title = 'nameAr';
 
     /**
      * The columns that should be searched.
@@ -56,8 +55,8 @@ class Client extends Resource
             Text::make(__('الاسم بالانجليزي'), 'nameEng')->rules('required'),
             Text::make(__('صاحب العمل'), 'employer')->rules('required'),
             Text::make(__('الايميل'), 'email')->rules('required'),
-            Number::make(__('الهوية'), 'nationalId')->rules('regex:/\b[12]\d{9}\b/')->creationRules('unique:client,nationalId')
-            ->updateRules('unique:client,nationalId,{{nationalId}}'),
+            Number::make(__('الهوية'), 'nationalId')->rules('regex:/\b[12]\d{9}\b/')->creationRules('unique:clients,nationalId')
+            ->updateRules('unique:clients,nationalId,{{nationalId}}'),
             Number::make(__('رقم الجوال'), 'phone')->hideFromIndex()->rules('required'),
             Date::make(__('تاريخ الميلاد'), 'birthDate')->hideFromIndex()->rules('required'),
             Date::make(__('تاريخ الانتهاء'), 'expireDate')->hideFromIndex()->rules('required'),
