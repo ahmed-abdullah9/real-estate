@@ -11,6 +11,20 @@ class LeaseContract extends Model
         'date_to' => 'date',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function($contract)
+        {
+            $contract->commission = '2.5';
+            $contract->insurance = '2.5';
+            $contract->date_to = date("Y-m-d", strtotime("+1 years", strtotime($contract->date_from)));
+              //2015-05-22 10:35:10
+
+        });
+    }
+
+
     public function building()
     {
         return $this->belongsTo(Building::class);

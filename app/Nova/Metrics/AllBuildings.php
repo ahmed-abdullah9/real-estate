@@ -4,9 +4,9 @@ namespace App\Nova\Metrics;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
-use App\Owner;
+use App\Building;
 
-class NewOwners extends Value
+class AllBuildings extends Value
 {
     /**
      * Calculate the value of the metric.
@@ -16,7 +16,7 @@ class NewOwners extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Owner::class);
+        return $this->count($request, Building::class);
     }
 
     /**
@@ -26,8 +26,9 @@ class NewOwners extends Value
      */
     public function name()
     {
-        return __('إجمالي عدد الملاك');
+        return __('إجمالي عدد العمائر');
     }
+
     /**
      * Get the ranges available for the metric.
      *
@@ -36,13 +37,13 @@ class NewOwners extends Value
     public function ranges()
     {
         return [
-            'YTD' => __('Year To Date'),
             30 => __('30 Days'),
             60 => __('60 Days'),
             365 => __('365 Days'),
             'TODAY' => __('Today'),
             'MTD' => __('Month To Date'),
             'QTD' => __('Quarter To Date'),
+            'YTD' => __('Year To Date'),
         ];
     }
 
@@ -63,6 +64,6 @@ class NewOwners extends Value
      */
     public function uriKey()
     {
-        return 'new-owners';
+        return 'all-buildings';
     }
 }

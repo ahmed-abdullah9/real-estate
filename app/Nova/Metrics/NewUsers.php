@@ -20,6 +20,16 @@ class NewUsers extends Value
     }
 
     /**
+     * Get the displayable name of the metric.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return __('إجمالي عدد المستخدمين');
+    }
+
+    /**
      * Get the ranges available for the metric.
      *
      * @return array

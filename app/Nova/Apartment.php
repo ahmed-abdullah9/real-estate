@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use App\Building;
 use App\KitchenType;
+use Laravel\Nova\Fields\Image;
 
 class Apartment extends Resource
 {
@@ -28,7 +29,7 @@ class Apartment extends Resource
      */
     public static $title = 'apartmentNo';
 
-    
+
     /**
      * The columns that should be searched.
      *
@@ -75,7 +76,16 @@ class Apartment extends Resource
                 'شهري',
                 'سنوي',
             ])->displayUsingLabels()->rules('required'),
+
+            Boolean::make(__('مفعل'), 'is_active')->default(false),
+            Boolean::make(__('مميزة'), 'is_special')->default(false),
+
             Text::make(__('التفاصيل'), 'details')->rules('required'),
+
+            Text::make(__('العمولة'), 'commission')->hideWhenCreating()->hideWhenUpdating(),
+            Text::make(__('التأمين'), 'insurance')->hideWhenCreating()->hideWhenUpdating(),
+
+            Image::make('Profile Photo')->disk('public')->squared(),
 
             // $table->tinyInteger('kitchenType');
 

@@ -13,7 +13,7 @@ use DigitalCreative\CollapsibleResourceManager\Resources\Group;
 use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
 use App\Nova\Metrics\NewUsers;
 use App\Nova\Metrics\NewOwners;
-use App\Nova\Metrics\NewBuildings;
+use App\Nova\Metrics\AllBuildings;
 use App\Nova\Metrics\NewAgents;
 // use App\Providers\Observable;
 // use Laravel\Nova\Observable;
@@ -72,7 +72,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             // new Help,
             new NewUsers,
             new NewOwners,
-            new NewBuildings,
+            new AllBuildings,
             new NewAgents,
 
         ];

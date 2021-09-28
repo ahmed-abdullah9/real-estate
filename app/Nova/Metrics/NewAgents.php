@@ -20,6 +20,16 @@ class NewAgents extends Value
     }
 
     /**
+     * Get the displayable name of the metric.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return __('إجمالي عدد المستأجرين');
+    }
+
+    /**
      * Get the ranges available for the metric.
      *
      * @return array

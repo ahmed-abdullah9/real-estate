@@ -26,6 +26,10 @@ class CreateApartmentsTable extends Migration
             $table->integer('price');
             $table->tinyInteger('rentPeriod');// يومي، شهري، سنوي
             // $table->tinyInteger('kitchenType');
+            $table->tinyInteger('is_active');
+            $table->tinyInteger('is_special');
+            $table->float('commission');
+            $table->integer('insurance');
             $table->text('details');
             //photo
 

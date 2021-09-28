@@ -95,12 +95,6 @@ class LeaseContract extends Resource
                 'شهري',
                 'يومي للوحدات المفروشة',
             ])->displayUsingLabels()->rules('required'),
-
-            // يحسبها النظام في الادخال!
-            Text::make(__('العمولة'), 'commission')->rules('required')->hideWhenCreating()->hideWhenUpdating(),
-            Text::make(__('التأمين'), 'insurance')->rules('required')->hideWhenCreating()->hideWhenUpdating(),
-
-
         ];
     }
 

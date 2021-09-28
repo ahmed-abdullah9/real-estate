@@ -65,9 +65,18 @@ class Instrument extends Resource
             // Select::make(__('العمارة'), 'building_id')->options(
             //     Building::all()->pluck('buildingName', 'id')
             // )->searchable()->rules('required'),
-            BelongsTo::make('Building')->showCreateRelationButton(function (NovaRequest $request) {
+
+            // NEED TO THINK OF THIS !
+            // BelongsTo::make('Building')
+            // ->showCreateRelationButton(function (NovaRequest $request) {
+            //     return true;
+            // }),
+
+            NovaBelongsToDepend::make('العمارة', 'Building', 'App\Nova\Building')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->options(\App\Building::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
-            }),
+             }),
 
             // Select::make(__('المدينة'), 'city_id')->options(
             //     City::all()->pluck('name', 'id')
@@ -77,11 +86,11 @@ class Instrument extends Resource
             //     Neighbor::all()->pluck('name', 'id')
             // )->searchable()->rules('required'),
 
-            NovaBelongsToDepend::make('City')
+            NovaBelongsToDepend::make('المدينة', 'City', 'App\Nova\City')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\City::all()),
 
-            NovaBelongsToDepend::make('Neighbor')
+            NovaBelongsToDepend::make('الحي', 'Neighbor', 'App\Nova\Neighbor')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->optionsResolve(function ($city) {
                 // Reduce the amount of unnecessary data sent

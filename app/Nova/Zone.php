@@ -35,6 +35,11 @@ class Zone extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'المناطق';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

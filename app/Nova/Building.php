@@ -3,6 +3,9 @@
 namespace App\Nova;
 
 use App\BuildingType;
+use App\Nova\Metrics\AllBuildings;
+use App\Nova\Metrics\InvestmentContracts;
+use App\Nova\Metrics\RentalContracts;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -10,7 +13,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 
 class Building extends Resource
 {
@@ -80,6 +83,7 @@ class Building extends Resource
             ])->displayUsingLabels()->rules('required'),
             // Boolean::make(__('مفعل'), 'isActive'),
 
+            HasMany::make('Apartment'),
         ];
     }
 
@@ -91,9 +95,12 @@ class Building extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+             new AllBuildings,
+             new InvestmentContracts,
+             new RentalContracts
+        ];
     }
-
     /**
      * Get the filters available for the resource.
      *

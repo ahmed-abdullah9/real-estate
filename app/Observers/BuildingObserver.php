@@ -30,6 +30,10 @@ class BuildingObserver
             $apartment->rentPeriod = 1;
             $apartment->details = '';
             $apartment->kitchenTypeId = 1;
+            $apartment->kitchenTypeId = 1;
+            $apartment->commission = 2.5;
+            $apartment->insurance = 1000;
+
             $apartment->save();
         }
 

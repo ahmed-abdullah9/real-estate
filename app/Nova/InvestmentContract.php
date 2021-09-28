@@ -69,19 +69,20 @@ class InvestmentContract extends Resource
 
             Date::make(__('يبدأ من '), 'date_from')->rules('required'),
             Date::make(__('ينتهي في '), 'date_to')->rules('required'),
-            NovaBelongsToDepend::make('Owner')
+            NovaBelongsToDepend::make('المالك', 'Owner', 'App\Nova\Owner')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\Owner::all())->showCreateRelationButton(function (NovaRequest $request) {
                 return true;
              }),
-             NovaBelongsToDepend::make('Instrument')
-             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
-             ->optionsResolve(function ($owner) {
-                 // Reduce the amount of unnecessary data sent
-                 return $owner->instrument()->get(['id','instrument_number']);
-             })->dependsOn('Owner')->showCreateRelationButton(function (NovaRequest $request) {
-                 return true;
-              }),
+
+            NovaBelongsToDepend::make('الصك', 'Instrument', 'App\Nova\Instrument')
+            ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
+            ->optionsResolve(function ($owner) {
+                // Reduce the amount of unnecessary data sent
+                return $owner->instrument()->get(['id','instrument_number']);
+            })->dependsOn('Owner')->showCreateRelationButton(function (NovaRequest $request) {
+                return true;
+             }),
              //  HasOneThrough::make('userOrganization'),
 
             Text::make(__('مدة العقد'), 'duration')->rules('required'),

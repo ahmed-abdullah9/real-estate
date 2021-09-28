@@ -2,11 +2,11 @@
 
 namespace App\Nova\Metrics;
 
+use App\InvestmentContract;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
-use App\Building;
 
-class NewBuildings extends Value
+class InvestmentContracts extends Value
 {
     /**
      * Calculate the value of the metric.
@@ -16,7 +16,17 @@ class NewBuildings extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Building::class);
+        return $this->count($request, InvestmentContract::class);
+    }
+
+     /**
+     * Get the displayable name of the metric.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return __('إجمالي عمائر عقود الاستثمار');
     }
 
     /**
@@ -27,7 +37,6 @@ class NewBuildings extends Value
     public function ranges()
     {
         return [
-            'YTD' => __('Year To Date'),
             30 => __('30 Days'),
             60 => __('60 Days'),
             365 => __('365 Days'),
@@ -55,6 +64,6 @@ class NewBuildings extends Value
      */
     public function uriKey()
     {
-        return 'new-buildings';
+        return 'investment-contracts';
     }
 }
