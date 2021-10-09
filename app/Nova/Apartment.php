@@ -4,7 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Number;
@@ -100,7 +100,9 @@ class Apartment extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 
     /**

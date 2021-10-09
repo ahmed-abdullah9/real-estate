@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Nova\Multiselect\Multiselect;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 // use App\Http\Requests\Request;
 class Client extends Resource
 {
@@ -125,6 +125,8 @@ class Client extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

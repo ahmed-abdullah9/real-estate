@@ -7,7 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\BelongsTo;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use App\City;
 
 class Neighbor extends Resource
@@ -103,6 +103,8 @@ class Neighbor extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

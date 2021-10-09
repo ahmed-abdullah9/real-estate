@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\BelongsTo;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use App\Owner;
 use App\Building;
 use App\City;
@@ -146,6 +146,8 @@ class Instrument extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }
