@@ -4,14 +4,16 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use App\Building;
 use App\KitchenType;
-use Laravel\Nova\Fields\Image;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Apartment extends Resource
 {
@@ -79,13 +81,23 @@ class Apartment extends Resource
 
             Boolean::make(__('مفعل'), 'is_active')->default(false),
             Boolean::make(__('مميزة'), 'is_special')->default(false),
-
+            Boolean::make(__('تم تحديثها'), 'is_updated')->default(false)->hideWhenCreating()->hideWhenUpdating(),
             Text::make(__('التفاصيل'), 'details')->rules('required'),
 
             Text::make(__('العمولة'), 'commission')->hideWhenCreating()->hideWhenUpdating(),
             Text::make(__('التأمين'), 'insurance')->hideWhenCreating()->hideWhenUpdating(),
 
-            Image::make('Profile Photo')->disk('public')->squared(),
+            // Image::make('Profile Photo')->disk('public')->squared(),
+            // Files::make('Multiple files', 'multiple_files'),
+            Images::make('Images', 'my_multi_collection') // second parameter is the media collection name
+            // ->conversionOnPreview('medium-size') // conversion used to display the "original" image
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->fullSize() // full size column
+            ->rules('required') // validation rules for the collection of images
+            // validation rules for the collection of images
+            ->singleImageRules('dimensions:min_width=100'),
 
             // $table->tinyInteger('kitchenType');
 
@@ -101,7 +113,7 @@ class Apartment extends Resource
     public function cards(Request $request)
     {
         return [
-            new DownloadExcel,
+
         ];
     }
 
@@ -135,6 +147,6 @@ class Apartment extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [new DownloadExcel,];
     }
 }

@@ -8,10 +8,11 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5|^8.0",
+        "php": "^7.4|^8.0.10",
         "arku/nova-multiselect": "dev-master",
         "carlos-meneses/laravel-mpdf": "^2.1",
         "digital-creative/collapsible-resource-manager": "^1.3",
+        "ebess/advanced-nova-media-library": "^3.6",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
@@ -21,7 +22,8 @@
         "laravel/tinker": "^2.5",
         "maatwebsite/laravel-nova-excel": "^1.2",
         "orlyapps/nova-belongsto-depend": "^3.0",
-        "pishran/nova-rtl-theme": "^1.5"
+        "pishran/nova-rtl-theme": "^1.5",
+        "spatie/laravel-medialibrary": "^9.0.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -33,7 +35,8 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform-check": false
     },
     "extra": {
         "laravel": {

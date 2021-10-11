@@ -31,8 +31,9 @@ class CreateApartmentsTable extends Migration
             $table->float('commission');
             $table->integer('insurance');
             $table->text('details');
-            //photo
+            $table->tinyInteger('is_updated');
 
+            //photo
             $table->timestamps();
         });
     }

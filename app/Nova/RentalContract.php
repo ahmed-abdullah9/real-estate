@@ -88,11 +88,14 @@ class RentalContract extends Resource
                 return true;
              }),
             // BelongsTo::make('Instrument')->inline(),
-
-            Number::make(__('البند الخامس'), 'clause5')->rules('required'),
-            Number::make(__('البند السادس'), 'clause6')->rules('required'),
-            Number::make(__('البند التاسع'), 'clause9')->rules('required'),
-            Number::make(__('البند الثالث عشر'), 'clause13')->rules('required'),
+            // البند الخامس
+            Number::make(__('نسبة التأجير'), 'clause5')->rules('required'),
+            // البند السادس
+            Number::make(__(' المبلغ المتحصل من المستأجر'), 'clause6')->rules('required'),
+            // البند التاسع
+            Number::make(__('نسبة عقوبة التأجير للغير'), 'clause9')->rules('required'),
+            //البند الثالث عشر
+            Number::make(__('عمولة ايجار'), 'clause13')->rules('required'),
             Boolean::make(__('يجدد تلقائي'), 'is_auto_renew')->default(true),
 
         ];

@@ -33,7 +33,6 @@ class BuildingObserver
             $apartment->kitchenTypeId = 1;
             $apartment->commission = 2.5;
             $apartment->insurance = 1000;
-
             $apartment->save();
         }
 
