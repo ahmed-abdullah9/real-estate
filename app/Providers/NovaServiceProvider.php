@@ -117,6 +117,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                     // \App\Nova\InvestmentContract::class
                                     ]
                                 ]),
+                            Group::make([
+                                'label' => 'ادارة التحصيل',
+                                'expanded' => false,
+                                'resources' => [
+                                    \App\Nova\CollectionManagement::class,
+                                    \App\Nova\CollectionVoucher::class,
+                                    ]
+                                ]),
 
                             Group::make([
                                 'label' => 'الخصوم',

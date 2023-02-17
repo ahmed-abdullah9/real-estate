@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Select;
 use App\Apartment;
 use App\Building;
@@ -72,7 +72,6 @@ class LeaseContract extends Resource
                 return true;
              })->withMeta(['titleKey' => 'nameAr']),
 
-
             NovaBelongsToDepend::make('العمارة', 'Building', 'App\Nova\Building')
             ->placeholder('Optional Placeholder') // Add this just if you want to customize the placeholder
             ->options(\App\Building::all())->showCreateRelationButton(function (NovaRequest $request) {
@@ -95,6 +94,7 @@ class LeaseContract extends Resource
                 'شهري',
                 'يومي للوحدات المفروشة',
             ])->displayUsingLabels()->rules('required'),
+            HasMany::make('CollectionManagement'),
         ];
     }
 

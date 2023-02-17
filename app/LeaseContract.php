@@ -11,6 +11,8 @@ class LeaseContract extends Model
         'date_to' => 'date',
     ];
 
+    protected $with = ['CollectionManagement'];
+
     public static function boot()
     {
         parent::boot();
@@ -40,4 +42,13 @@ class LeaseContract extends Model
         return $this->belongsTo(Apartment::class);
     }
 
+    public function collectionManagement()
+    {
+        return $this->hasMany(CollectionManagement::class);
+    }
+
+    public function collectionVoucher()
+    {
+        return $this->hasMany(CollectionVoucher::class);
+    }
 }
